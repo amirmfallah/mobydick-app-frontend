@@ -1,0 +1,37 @@
+$font: "Kalameh, Roboto, sans-serif";
+
+$md-typography: mat-typography-config(
+  $font-family: $font,
+  $display-1: mat-typography-level(96px, 112px, 300, $letter-spacing: -1.5px),
+  $display-2: mat-typography-level(60px, 72px, 300, $letter-spacing: -0.5px),
+  $display-3: mat-typography-level(48px, 56px),
+  $display-4: mat-typography-level(34px, 36px),
+  $headline: mat-typography-level(48px, 48px, $letter-spacing: 0.18px),
+  $title: mat-typography-level(16px, 29px, bold, $letter-spacing: 0.15px),
+  $subheading-1: mat-typography-level(14px, 24px, 500, $letter-spacing: 0.1px),
+  $subheading-2: mat-typography-level(16px, 24px, $letter-spacing: 0.15px),
+  $body-1: mat-typography-level(14px, 24px, $letter-spacing: 0.5px),
+  $body-2: mat-typography-level(12px, 20px, $letter-spacing: 0.25px),
+  $caption: mat-typography-level(12px, 16px, $letter-spacing: 0.4px),
+  $button: mat-typography-level(14px, 16px, bold, $letter-spacing: 1.25px),
+  $input: mat-typography-level(15px, 1.5, normal),
+);
+
+@mixin reset-typography-margins {
+  .mat-typography {
+    .mat-display-1,
+    & .mat-display-1,
+    .mat-display-2,
+    & .mat-display-2,
+    .mat-display-3,
+    & .mat-display-3,
+    .mat-display-4,
+    & .mat-display-4,
+    .mat-subheading-1,
+    & .mat-subheading-1,
+    .mat-subheading-2,
+    & .mat-subheading-2 {
+      margin-bottom: 0;
+    }
+  }
+}
