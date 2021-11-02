@@ -3,9 +3,10 @@ import { CommonModule } from '@angular/common';
 import {MatButtonModule} from '@angular/material/button'; 
 import {MatInputModule} from '@angular/material/input'; 
 import {MatIconModule} from '@angular/material/icon';
-import { TopNavBarComponent } from './top-nav-bar/top-nav-bar.component'; 
+import { TopNavBarComponent } from './top-nav-bar/top-nav-bar.component';
+import { CodeSentComponent } from './code-sent/code-sent.component'; 
 @NgModule({
-  declarations: [TopNavBarComponent],
+  declarations: [TopNavBarComponent, CodeSentComponent],
   imports: [
     CommonModule,
     MatButtonModule,
@@ -16,7 +17,8 @@ import { TopNavBarComponent } from './top-nav-bar/top-nav-bar.component';
     MatButtonModule,
     MatInputModule,
     MatIconModule,
-    TopNavBarComponent
+    TopNavBarComponent,
+    CodeSentComponent
   ]
 })
 export class UiKitModule { }
