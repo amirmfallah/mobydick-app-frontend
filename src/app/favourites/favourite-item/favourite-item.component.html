@@ -1,4 +1,4 @@
-<div class="d-flex justify-content-start">
+<div class="d-flex justify-content-start item">
   <img [src]="image" />
   <div class="middle-content">
     <div class="upper-section align-items-baseline">
@@ -8,33 +8,17 @@
     <h2 class="price">{{ price }} تومان</h2>
 
     <div class="bottom-section d-flex justify-content-start align-items-end">
-      <button
-        mat-mini-fab
-        class="bt d-flex align-items-center justify-content-center"
-        id="add-btn"
-      >
-        <mat-icon matSuffix fontSet="material-icons-round" (click)="incCount()"
-          >add</mat-icon
-        >
+      <button mat-mini-fab class="bt d-flex align-items-center justify-content-center" id="add-btn">
+        <mat-icon matSuffix fontSet="material-icons-round" (click)="incCount()">add</mat-icon>
       </button>
       <h2 class="number">{{ number }}</h2>
-      <button
-        mat-mini-fab
-        class="bt d-flex align-items-center justify-content-center"
-        id="remove-btn"
-      >
-        <mat-icon matSuffix fontSet="material-icons-round" (click)="decCount()"
-          >remove</mat-icon
-        >
+      <button mat-mini-fab class="bt d-flex align-items-center justify-content-center" id="remove-btn">
+        <mat-icon matSuffix fontSet="material-icons-round" (click)="decCount()">remove</mat-icon>
       </button>
     </div>
   </div>
   <div class="left-section" class="align-self-end">
-    <button
-      mat-raised-button
-      id="delete-btn"
-      class="bt d-flex align-items-center justify-content-around"
-    >
+    <button mat-raised-button id="delete-btn" class="bt d-flex align-items-center justify-content-around">
       حذف
       <mat-icon matSuffix fontSet="material-icons-round">delete</mat-icon>
     </button>
