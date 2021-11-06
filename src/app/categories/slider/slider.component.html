@@ -1,7 +1,4 @@
-<div class="container d-flex justify-content-end flex-nowrap overflow-hidden">
-  <app-slider-item
-  *ngFor="let post of posts"
-  [title]="post.title"
-  [image]="post.image"
-  ></app-slider-item>
+<div class="d-flex flex-row w-100 overflow-auto slider-container">
+  <app-slider-item class="item-container" *ngFor="let post of posts" [title]="post.title" [image]="post.image">
+  </app-slider-item>
 </div>
