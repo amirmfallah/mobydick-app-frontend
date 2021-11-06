@@ -6,12 +6,12 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UiKitModule } from './ui-kit/ui-kit.module';
 import { HomeComponent } from './home/home.component';
-import { CategoriesComponent } from './categories/categories.component';
-import { SliderComponent } from './categories/slider/slider.component';
-import { SliderItemComponent } from './categories/slider/slider-item/slider-item.component';
+import { CategoriesComponent } from './ui-kit/categories/categories.component';
+import { SliderComponent } from './ui-kit/categories/slider/slider.component';
+import { SliderItemComponent } from './ui-kit/categories/slider/slider-item/slider-item.component';
 import { SearchComponent } from './ui-kit/search/search.component';
-import { FavouritesComponent } from './favourites/favourites.component';
-import { FavouriteItemComponent } from './favourites/favourite-item/favourite-item.component';
+import { FavouritesComponent } from './ui-kit/favourites/favourites.component';
+import { FavouriteItemComponent } from './ui-kit/favourites/favourite-item/favourite-item.component';
 
 @NgModule({
   declarations: [
