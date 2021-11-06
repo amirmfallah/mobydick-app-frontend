@@ -1,0 +1,13 @@
+.item-container {
+  &:first-child {
+    margin-right: 8px;
+  }
+
+  &:last-child {
+    margin-left: 8px;
+  }
+}
+
+.slider-container::-webkit-scrollbar {
+  display: none;
+}

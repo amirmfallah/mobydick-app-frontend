@@ -5,9 +5,10 @@ import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
 import { TopNavBarComponent } from './top-nav-bar/top-nav-bar.component';
 import { CodeSentComponent } from './code-sent/code-sent.component';
-import { EnterPhoneNumberComponent } from './enter-phone-number/enter-phone-number.component'; 
+import { EnterPhoneNumberComponent } from './enter-phone-number/enter-phone-number.component';
+import { SeeMoreComponent } from './see-more/see-more.component'; 
 @NgModule({
-  declarations: [TopNavBarComponent, CodeSentComponent, EnterPhoneNumberComponent],
+  declarations: [TopNavBarComponent, CodeSentComponent, EnterPhoneNumberComponent, SeeMoreComponent],
   imports: [
     CommonModule,
     MatButtonModule,
@@ -20,7 +21,8 @@ import { EnterPhoneNumberComponent } from './enter-phone-number/enter-phone-numb
     MatIconModule,
     TopNavBarComponent,
     CodeSentComponent,
-    EnterPhoneNumberComponent
+    EnterPhoneNumberComponent,
+    SeeMoreComponent
   ]
 })
 export class UiKitModule { }
