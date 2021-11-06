@@ -1,0 +1,25 @@
+<div class="d-flex justify-content-start item">
+  <img [src]="image" />
+  <div class="middle-content">
+    <div class="upper-section align-items-baseline">
+      <h2>{{ title }}</h2>
+      <p class="description opacity-64 align-self-start">{{ description }}</p>
+    </div>
+    <h2 class="price">{{ price }} تومان</h2>
+
+    <div class="bottom-section d-flex justify-content-start align-items-end">
+      <button mat-mini-fab class="bt d-flex align-items-center justify-content-center" id="add-btn">
+        <mat-icon matSuffix fontSet="material-icons-round" (click)="incCount()">add</mat-icon>
+      </button>
+      <h2 class="number">{{ number }}</h2>
+      <button mat-mini-fab class="bt d-flex align-items-center justify-content-center" id="remove-btn">
+        <mat-icon matSuffix fontSet="material-icons-round" (click)="decCount()">remove</mat-icon>
+      </button>
+    </div>
+  </div>
+  <div class="left-section" class="align-self-end">
+    <button mat-icon-button class="bt-size d-flex align-items-center justify-content-around">
+      <mat-icon matSuffix fontSet="material-icons-round" class="delete-icon">delete</mat-icon>
+    </button>
+  </div>
+</div>

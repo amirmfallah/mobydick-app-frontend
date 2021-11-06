@@ -10,10 +10,12 @@ import { CategoriesComponent } from './categories/categories.component';
 import { SliderComponent } from './categories/slider/slider.component';
 import { SliderItemComponent } from './categories/slider/slider-item/slider-item.component';
 import { SearchComponent } from './uk-kit/search/search.component';
+import { FavouritesComponent } from './favourites/favourites.component';
+import { FavouriteItemComponent } from './favourites/favourite-item/favourite-item.component';
 
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, CategoriesComponent, SliderComponent, SliderItemComponent, SearchComponent],
+  declarations: [AppComponent, HomeComponent, CategoriesComponent, SliderComponent, SliderItemComponent, SearchComponent, FavouritesComponent, FavouriteItemComponent],
   imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, UiKitModule],
   providers: [],
   bootstrap: [AppComponent],
