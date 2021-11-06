@@ -1,10 +1,12 @@
-.container {
+.nav-container {
+  width: 100%;
   position: absolute;
   bottom: 0;
   z-index: 1;
   box-shadow: 0px -2px 4px rgba(0, 0, 0, 0.04),
     inset 0px 1px 0px rgba(0, 0, 0, 0.1);
-  padding: 19px;
+  padding: 12px;
+  background-color: #ffffff;
 }
 p {
   color: #868686;
@@ -15,5 +17,16 @@ p {
 
 .nav-btn {
   width: 56px;
-  height: 56px;
+  height: 48px;
+}
+
+@import "../../ui-kit/styles/themes/md-light/colors.scss";
+
+$primary: map-get(
+  $map: $md-primary-palette,
+  $key: 700,
+);
+
+.active {
+  color: $primary !important;
 }
