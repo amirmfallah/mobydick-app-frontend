@@ -6,9 +6,10 @@ import {MatIconModule} from '@angular/material/icon';
 import { TopNavBarComponent } from './top-nav-bar/top-nav-bar.component';
 import { CodeSentComponent } from './code-sent/code-sent.component';
 import { EnterPhoneNumberComponent } from './enter-phone-number/enter-phone-number.component';
-import { SeeMoreComponent } from './see-more/see-more.component'; 
+import { SeeMoreComponent } from './see-more/see-more.component';
+import { BottomTabComponent } from './bottom-tab/bottom-tab.component'; 
 @NgModule({
-  declarations: [TopNavBarComponent, CodeSentComponent, EnterPhoneNumberComponent, SeeMoreComponent],
+  declarations: [TopNavBarComponent, CodeSentComponent, EnterPhoneNumberComponent, SeeMoreComponent, BottomTabComponent],
   imports: [
     CommonModule,
     MatButtonModule,
@@ -22,7 +23,8 @@ import { SeeMoreComponent } from './see-more/see-more.component';
     TopNavBarComponent,
     CodeSentComponent,
     EnterPhoneNumberComponent,
-    SeeMoreComponent
+    SeeMoreComponent,
+    BottomTabComponent
   ]
 })
 export class UiKitModule { }
