@@ -1,0 +1,23 @@
+.container {
+  position: relative;
+  height: 160px;
+  width: 160px;
+  padding: 0;
+  margin: 4px;
+}
+p {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+  letter-spacing: 0.444444px;
+  position: absolute;
+  color: #fff;
+  left: 20%;
+  right: 20%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+img{
+    border-radius: 10px;
+}
