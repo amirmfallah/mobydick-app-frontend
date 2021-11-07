@@ -9,6 +9,8 @@ import { EnterPhoneNumberComponent } from './enter-phone-number/enter-phone-numb
 import { SeeMoreComponent } from './see-more/see-more.component';
 import { BottomTabComponent } from './bottom-tab/bottom-tab.component';
 import { BottomNavSpacingComponent } from './bottom-nav-spacing/bottom-nav-spacing.component';
+import { MatRippleModule } from '@angular/material/core';
+
 @NgModule({
   declarations: [
     TopNavBarComponent,
@@ -18,7 +20,13 @@ import { BottomNavSpacingComponent } from './bottom-nav-spacing/bottom-nav-spaci
     BottomTabComponent,
     BottomNavSpacingComponent,
   ],
-  imports: [CommonModule, MatButtonModule, MatInputModule, MatIconModule],
+  imports: [
+    CommonModule,
+    MatButtonModule,
+    MatInputModule,
+    MatIconModule,
+    MatRippleModule,
+  ],
   exports: [
     MatButtonModule,
     MatInputModule,
