@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="item">
+    <app-favourite-item
+      [image]="item.image"
+      [title]="item.title"
+      [description]="item.description"
+      [price]="item.price"
+    ></app-favourite-item>
+  </div>
+
+  <div class="price-section">
+    <div class="price-content d-flex justify-content-between">
+      <p>جمع فروش</p>
+      <p>120000 تومان</p>
+    </div>
+    <div class="price-content d-flex justify-content-between">
+      <p>هزینه ارسال</p>
+      <p>10000 تومان</p>
+    </div>
+    <div class="price-content d-flex justify-content-between">
+      <p>تخفیف</p>
+      <p>0 تومان</p>
+    </div>
+    <div class="pay-able d-flex justify-content-between">
+      <p>قابل پرداخت</p>
+      <p>130000 تومان</p>
+    </div>
+  </div>
+    <div class="discount d-flex justify-content-between">
+      <p>تخفیف</p>
+      <p>0 تومان</p>
+    </div>
+    <button mat-raised-button color="primary" class="w-100">تکمیل فرایند خرید</button>
+</div>

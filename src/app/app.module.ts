@@ -15,6 +15,7 @@ import { FavouriteItemComponent } from './ui-kit/favourites/favourite-item/favou
 import { SearchpageComponent } from './searchpage/searchpage.component';
 import { SearchItemComponent } from './ui-kit/search-item/search-item.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { OrderpageComponent } from './orderpage/orderpage.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     FavouriteItemComponent,
     SearchpageComponent,
     SearchItemComponent,
+    OrderpageComponent,
   ],
   imports: [
     BrowserModule,
