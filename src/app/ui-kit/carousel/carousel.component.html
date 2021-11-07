@@ -1,25 +1,11 @@
 <div class="carousel-container">
   <ngb-carousel #ngcarousel [showNavigationArrows]="false" [showNavigationIndicators]="false">
-    <ng-template ngbSlide id="one">
+    <ng-template ngbSlide *ngFor="let slider of sliderinfo">
       <div class="picsum-img-wrapper">
-        <img src="/assets/burgers.png" alt="Slide 1">
+        <img [src]="slider.image">
       </div>
     </ng-template>
-    <ng-template ngbSlide id="two">
-      <div class="picsum-img-wrapper">
-        <img src="/assets/burgers.png" alt="Slide 2">
-      </div>
-    </ng-template>
-    <ng-template ngbSlide id="three">
-      <div class="picsum-img-wrapper">
-        <img src="/assets/burgers.png" alt="Slide 3">
-      </div>
-    </ng-template>
-    <ng-template ngbSlide id="four">
-      <div class="picsum-img-wrapper">
-        <img src="/assets/burgers.png" alt="Slide 4">
-      </div>
-    </ng-template>
+    
   </ngb-carousel>
 
   <button mat-icon-button (click)="goToNext()" class="next-btn">
