@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { CategorypageComponent } from './categorypage/categorypage.component';
 import { HomeComponent } from './home/home.component';
 import { SearchpageComponent } from './searchpage/searchpage.component';
+import { CategoriesComponent } from './ui-kit/categories/categories.component';
 
 const routes: Routes = [
   {
@@ -11,6 +13,10 @@ const routes: Routes = [
   {
     path: 'search',
     component: SearchpageComponent,
+  },
+  {
+    path: 'category',
+    component: CategorypageComponent,
   },
   {
     path: '',

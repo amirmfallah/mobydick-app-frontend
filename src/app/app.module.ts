@@ -14,6 +14,7 @@ import { FavouritesComponent } from './ui-kit/favourites/favourites.component';
 import { FavouriteItemComponent } from './ui-kit/favourites/favourite-item/favourite-item.component';
 import { SearchpageComponent } from './searchpage/searchpage.component';
 import { SearchItemComponent } from './ui-kit/search-item/search-item.component';
+import { CategorypageComponent } from './categorypage/categorypage.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { SearchItemComponent } from './ui-kit/search-item/search-item.component'
     FavouriteItemComponent,
     SearchpageComponent,
     SearchItemComponent,
+    CategorypageComponent,
   ],
   imports: [
     BrowserModule,
