@@ -13,7 +13,7 @@ import { SearchComponent } from './ui-kit/search/search.component';
 import { FavouritesComponent } from './ui-kit/favourites/favourites.component';
 import { FavouriteItemComponent } from './ui-kit/favourites/favourite-item/favourite-item.component';
 import { SearchpageComponent } from './searchpage/searchpage.component';
-import { SearchItemComponent } from './searchpage/search-item/search-item.component';
+import { SearchItemComponent } from './ui-kit/search-item/search-item.component';
 
 @NgModule({
   declarations: [

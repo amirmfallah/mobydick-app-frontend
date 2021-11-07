@@ -1,14 +1,15 @@
 h2 {
   font-weight: bold;
   font-size: 20px;
-  margin-bottom: 20px;
-  margin-right: 5px;
+  margin-bottom: 8px !important;
 }
 
-.container {
-  padding: 0;
-  margin: 0 20px;
-}
-.items{
-  margin-bottom: 120px;
+app-search-item {
+  margin-bottom: 8px;
+  &:nth-child(odd) {
+    padding-left: 4px !important;
+  }
+  &:nth-child(even) {
+    padding-right: 4px !important;
+  }
 }

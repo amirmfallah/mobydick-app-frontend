@@ -1,11 +1,11 @@
-<div class="container d-flex flex-column col-8 col-xl-4 col-lg-5 col-md-6 col-sm-7">
+<div class="w-100 h-100 overflow-auto">
+  <div class="container d-flex flex-column">
     <app-search class="w-100"></app-search>
-  <h2>دسته‌بندی‌ها</h2>
-  <div class="items d-flex flex-wrap">
-    <app-search-item
-      *ngFor="let item of searchitems"
-      [title]="item.title"
-      [image]="item.image"
-    ></app-search-item>
+    <h2>دسته‌بندی‌ها</h2>
+    <div class="row w-100 items m-0 p-0">
+      <app-search-item *ngFor="let item of searchitems" [title]="item.title" [image]="item.image" class="col-6 p-0">
+      </app-search-item>
+    </div>
   </div>
+  <app-bottom-nav-spacing></app-bottom-nav-spacing>
 </div>
