@@ -1,3 +1,4 @@
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
@@ -10,6 +11,7 @@ import { SeeMoreComponent } from './see-more/see-more.component';
 import { BottomTabComponent } from './bottom-tab/bottom-tab.component';
 import { BottomNavSpacingComponent } from './bottom-nav-spacing/bottom-nav-spacing.component';
 import { MatRippleModule } from '@angular/material/core';
+import { CarouselComponent } from './carousel/carousel.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,7 @@ import { MatRippleModule } from '@angular/material/core';
     SeeMoreComponent,
     BottomTabComponent,
     BottomNavSpacingComponent,
+    CarouselComponent,
   ],
   imports: [
     CommonModule,
@@ -26,6 +29,7 @@ import { MatRippleModule } from '@angular/material/core';
     MatInputModule,
     MatIconModule,
     MatRippleModule,
+    NgbModule,
   ],
   exports: [
     MatButtonModule,
@@ -37,6 +41,7 @@ import { MatRippleModule } from '@angular/material/core';
     SeeMoreComponent,
     BottomTabComponent,
     BottomNavSpacingComponent,
+    CarouselComponent,
   ],
 })
 export class UiKitModule {}

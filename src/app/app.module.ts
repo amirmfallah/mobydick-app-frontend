@@ -14,6 +14,7 @@ import { FavouritesComponent } from './ui-kit/favourites/favourites.component';
 import { FavouriteItemComponent } from './ui-kit/favourites/favourite-item/favourite-item.component';
 import { SearchpageComponent } from './searchpage/searchpage.component';
 import { SearchItemComponent } from './ui-kit/search-item/search-item.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { SearchItemComponent } from './ui-kit/search-item/search-item.component'
     AppRoutingModule,
     BrowserAnimationsModule,
     UiKitModule,
+    NgbModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
