@@ -55,13 +55,13 @@ ngb-carousel {
     position: absolute;
     top: 50%;
     right: 4px;
-    translate: transformY(-20px);
+    transform: translate(0, -20px);
   }
   .prev-btn {
     color: #fff;
     position: absolute;
     top: 50%;
     left: 4px;
-    translate: transformY(-20px);
+    transform: translate(0, -20px);
   }
 }
