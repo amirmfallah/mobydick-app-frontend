@@ -8,10 +8,6 @@ COPY ./ /usr/local/app/
 
 # Install all the dependencies
 RUN npm install
-# --production
-# RUN npm prune --production
-
-# Generate the build of the application
 RUN npm run build
 
 
@@ -22,6 +18,8 @@ FROM nginx:latest
 
 # Copy the build output to replace the default nginx contents.
 COPY --from=build /usr/local/app/dist/mobydick-app-frontend /usr/share/nginx/html
+COPY --from=build /usr/local/app/default.conf /etc/nginx/conf.d/default.conf
 
-# Expose port 80
+RUN rm -rf /usr/local/app/
+
 EXPOSE 80
