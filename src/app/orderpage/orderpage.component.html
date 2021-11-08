@@ -7,7 +7,7 @@
       [price]="item.price"
     ></app-favourite-item>
   </div>
-
+  <div class="space"></div>
   <div class="price-section">
     <div class="price-content d-flex justify-content-between">
       <p>جمع فروش</p>
@@ -25,10 +25,17 @@
       <p>قابل پرداخت</p>
       <p>130000 تومان</p>
     </div>
-  </div>
     <div class="discount d-flex justify-content-between">
       <p>تخفیف</p>
       <p>0 تومان</p>
     </div>
-    <button mat-raised-button color="primary" class="w-100">تکمیل فرایند خرید</button>
+  </div>
+
+  <div class="discount d-flex justify-content-between">
+    <mat-icon matSuffix fontSet="material-icons-round">chevron_left</mat-icon>
+    <p>کد تخفیف</p>
+  </div>
+  <button mat-raised-button color="primary" class="w-100">
+    تکمیل فرایند خرید
+  </button>
 </div>
