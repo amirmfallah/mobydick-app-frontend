@@ -14,6 +14,7 @@ import { FavouritesComponent } from './ui-kit/favourites/favourites.component';
 import { FavouriteItemComponent } from './ui-kit/favourites/favourite-item/favourite-item.component';
 import { SearchpageComponent } from './searchpage/searchpage.component';
 import { SearchItemComponent } from './ui-kit/search-item/search-item.component';
+import { CategorypageComponent } from './categorypage/categorypage.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { OrderpageComponent } from './orderpage/orderpage.component';
 
@@ -29,6 +30,7 @@ import { OrderpageComponent } from './orderpage/orderpage.component';
     FavouriteItemComponent,
     SearchpageComponent,
     SearchItemComponent,
+    CategorypageComponent,
     OrderpageComponent,
   ],
   imports: [
