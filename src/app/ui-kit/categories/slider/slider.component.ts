@@ -8,20 +8,28 @@ import { Component, OnInit } from '@angular/core';
 export class SliderComponent implements OnInit {
   posts = [
     {
-      image: 'assets/burger.png',
-      title: 'برگرها',
+      image: 'assets/pizza-sub.jpg',
+      title: 'ساندویچ ویژه',
     },
     {
-      image: 'assets/pizza.png',
-      title: 'پیتزاها',
+      image: 'assets/chicken-salad.jpg',
+      title: 'سالادها',
     },
     {
-      image: 'assets/soup.png',
-      title: 'سوپ‌ها',
+      image: 'assets/spicy-italian.jpg',
+      title: 'ساندویچ سرد',
     },
     {
-      image: 'assets/soup.png',
-      title: 'سوپ‌ها',
+      image: 'assets/roast-beef.jpg',
+      title: 'ساندویچ گوشت',
+    },
+    {
+      image: 'assets/chicken-salad.jpg',
+      title: 'ساندویچ سبزیجات',
+    },
+    {
+      image: 'assets/crispy.jpg',
+      title: 'ساندویچ مرغ',
     },
   ];
   constructor() {}
