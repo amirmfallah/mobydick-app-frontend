@@ -12,8 +12,8 @@ import { BottomTabComponent } from './bottom-tab/bottom-tab.component';
 import { BottomNavSpacingComponent } from './bottom-nav-spacing/bottom-nav-spacing.component';
 import { MatRippleModule } from '@angular/material/core';
 import { CarouselComponent } from './carousel/carousel.component';
-import {MatDividerModule} from '@angular/material/divider';
-import { PriceComponent } from '../price/price.component';
+import { MatDividerModule } from '@angular/material/divider';
+import { PriceComponent } from './price/price.component';
 @NgModule({
   declarations: [
     TopNavBarComponent,

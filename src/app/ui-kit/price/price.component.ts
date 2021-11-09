@@ -6,7 +6,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./price.component.scss'],
 })
 export class PriceComponent implements OnInit {
-  @Input() price = 20000;
+  @Input() price = 200000;
   @Input() discountPercentage = 22;
   pricebeforediscount = 0;
   CalcPrice() {
