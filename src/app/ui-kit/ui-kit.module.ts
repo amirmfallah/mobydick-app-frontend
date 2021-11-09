@@ -13,6 +13,7 @@ import { BottomNavSpacingComponent } from './bottom-nav-spacing/bottom-nav-spaci
 import { MatRippleModule } from '@angular/material/core';
 import { CarouselComponent } from './carousel/carousel.component';
 import { MatDividerModule } from '@angular/material/divider';
+import { PriceComponent } from './price/price.component';
 import { MatSelectModule } from '@angular/material/select';
 import { TopNavSpacingComponent } from './top-nav-spacing/top-nav-spacing.component';
 import { BranchesListComponent } from './branches-list/branches-list.component';
@@ -28,6 +29,7 @@ import { MatListModule } from '@angular/material/list';
     BottomTabComponent,
     BottomNavSpacingComponent,
     CarouselComponent,
+    PriceComponent,
     TopNavSpacingComponent,
     BranchesListComponent,
   ],
@@ -54,6 +56,7 @@ import { MatListModule } from '@angular/material/list';
     BottomTabComponent,
     BottomNavSpacingComponent,
     CarouselComponent,
+    PriceComponent,
     TopNavSpacingComponent,
     MatBottomSheetModule,
     MatListModule,

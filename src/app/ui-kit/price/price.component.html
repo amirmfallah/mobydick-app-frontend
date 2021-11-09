@@ -1,0 +1,15 @@
+<div class="d-flex w-100 flex-row justify-content-between ">
+  <div class="discount d-flex justify-content-center " [ngClass]="{ not: discountPercentage < 1 }">
+    <p class="price-before-discount">{{ pricebeforediscount }} تومان</p>
+    <div class="
+      discount-percent-box
+      d-flex
+      justify-content-center
+      align-items-center
+    ">
+      <p class="discount-percent-text">{{ discountPercentage }}%</p>
+    </div>
+  </div>
+
+  <h2 class="price">{{ price }} تومان</h2>
+</div>
