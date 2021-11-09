@@ -12,7 +12,13 @@ import { BottomTabComponent } from './bottom-tab/bottom-tab.component';
 import { BottomNavSpacingComponent } from './bottom-nav-spacing/bottom-nav-spacing.component';
 import { MatRippleModule } from '@angular/material/core';
 import { CarouselComponent } from './carousel/carousel.component';
-import {MatDividerModule} from '@angular/material/divider'; 
+import { MatDividerModule } from '@angular/material/divider';
+import { MatSelectModule } from '@angular/material/select';
+import { TopNavSpacingComponent } from './top-nav-spacing/top-nav-spacing.component';
+import { BranchesListComponent } from './branches-list/branches-list.component';
+import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
+import { MatListModule } from '@angular/material/list';
+
 @NgModule({
   declarations: [
     TopNavBarComponent,
@@ -22,6 +28,8 @@ import {MatDividerModule} from '@angular/material/divider';
     BottomTabComponent,
     BottomNavSpacingComponent,
     CarouselComponent,
+    TopNavSpacingComponent,
+    BranchesListComponent,
   ],
   imports: [
     CommonModule,
@@ -30,8 +38,11 @@ import {MatDividerModule} from '@angular/material/divider';
     MatIconModule,
     MatRippleModule,
     NgbModule,
+    MatSelectModule,
+    MatListModule,
   ],
   exports: [
+    MatSelectModule,
     MatDividerModule,
     MatButtonModule,
     MatInputModule,
@@ -43,6 +54,9 @@ import {MatDividerModule} from '@angular/material/divider';
     BottomTabComponent,
     BottomNavSpacingComponent,
     CarouselComponent,
+    TopNavSpacingComponent,
+    MatBottomSheetModule,
+    MatListModule,
   ],
 })
 export class UiKitModule {}

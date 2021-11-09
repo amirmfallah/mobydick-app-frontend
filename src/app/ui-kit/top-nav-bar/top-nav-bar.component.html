@@ -1,10 +1,12 @@
-<div class="d-flex flex-row justify-content-between w-100 align-items-center">
-  <div class="nav-space align-self-center"></div>
-  <p>
-    ورود
-  </p>
-
+<div class="d-flex flex-row justify-content-between w-100 align-items-center nav-container ">
   <button mat-icon-button aria-label="Example icon button with a home icon">
-    <mat-icon fontSet="material-icons-round">chevron_left</mat-icon>
+    <mat-icon fontSet="material-icons-round material-icons-outline">shopping_cart</mat-icon>
+  </button>
+  <div (click)="openBottomSheet()" class="d-flex flex-row align-items-center">
+    <span class="branch-name">گلسار</span>
+    <mat-icon fontSet="material-icons-round">arrow_drop_down</mat-icon>
+  </div>
+  <button mat-icon-button aria-label="Example icon button with a home icon">
+    <mat-icon fontSet="material-icons-round">keyboard_return</mat-icon>
   </button>
 </div>
