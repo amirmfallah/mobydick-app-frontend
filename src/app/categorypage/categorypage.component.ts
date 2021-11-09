@@ -8,15 +8,52 @@ import { Component, OnInit } from '@angular/core';
 export class CategorypageComponent implements OnInit {
   items=[
     {
-      image: 'assets/food.png',
-      title: 'کوکی',
-      description: 'کوکی بستنی  ولوت',
+      image: 'assets/pizza-sub.jpg',
+      title: 'پیتزا صاب',
+      description: 'ژامبون، گوشت، پنیر',
       price: 40000
     },
     {
-      image: 'assets/food.png',
-      title: 'ساندویچ کوکی',
-      description: 'کوکی بستنی رد ولوت',
+      image: 'assets/chicken-salad.jpg',
+      title: 'چیکن سالاد',
+      description: 'چیکن، گوجه، خیار، پیاز',
+      price: 20000
+    },
+    {
+      image: 'assets/pizza-sub.jpg',
+      title: 'پیتزا صاب',
+      description: 'ژامبون، گوشت، پنیر',
+      price: 40000
+    },
+    {
+      image: 'assets/chicken-salad.jpg',
+      title: 'چیکن سالاد',
+      description: 'چیکن، گوجه، خیار، پیاز',
+      price: 20000
+    },
+
+    {
+      image: 'assets/pizza-sub.jpg',
+      title: 'پیتزا صاب',
+      description: 'ژامبون، گوشت، پنیر',
+      price: 40000
+    },
+    {
+      image: 'assets/chicken-salad.jpg',
+      title: 'چیکن سالاد',
+      description: 'چیکن، گوجه، خیار، پیاز',
+      price: 20000
+    },
+    {
+      image: 'assets/pizza-sub.jpg',
+      title: 'پیتزا صاب',
+      description: 'ژامبون، گوشت، پنیر',
+      price: 40000
+    },
+    {
+      image: 'assets/chicken-salad.jpg',
+      title: 'چیکن سالاد',
+      description: 'چیکن، گوجه، خیار، پیاز',
       price: 20000
     },
   ]
