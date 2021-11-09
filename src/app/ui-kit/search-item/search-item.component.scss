@@ -1,3 +1,10 @@
+@import "../../ui-kit/styles/themes/md-light/colors.scss";
+
+$primary: map-get(
+  $map: $md-primary-palette,
+  $key: 700,
+);
+
 .search-item {
   position: relative;
   padding: 0;
@@ -7,16 +14,28 @@
 p {
   font-style: normal;
   font-weight: bold;
-  font-size: 20px;
+  font-size: 26px;
   text-align: center;
+  line-height: 30px;
   letter-spacing: 0.4;
   position: absolute;
-  color: #000;
+  color: rgb(255, 255, 255);
   right: 50%;
-  top: 15%;
+  top: 50%;
   transform: translate(50%, -50%);
+  z-index: 3;
 }
+
 img {
-  border-radius: 10px;
   width: 100%;
+  border-radius: 10px;
+}
+
+.blur {
+  position: absolute;
+  z-index: 2;
+  height: 100%;
+  width: 100%;
+  background-color: rgba($color: #000000, $alpha: 0.5);
+  border-radius: 10px;
 }
