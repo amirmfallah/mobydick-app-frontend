@@ -7,12 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OrderpageComponent implements OnInit {
   item=
-    {
-      image: 'assets/food.png',
-      title: 'کوکی',
-      description: 'کوکی بستنی  ولوت',
-      price: 40000
-    }
+  {
+    image: 'assets/pizza-sub.jpg',
+    title: 'پیتزا صاب',
+    description: 'ژامبون، گوشت، پنیر',
+    price: 40000
+  }
    
   
   constructor() { }
