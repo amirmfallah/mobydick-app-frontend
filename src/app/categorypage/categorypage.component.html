@@ -1,8 +1,15 @@
 <div class="container">
-  <div class="d-flex flex-row justify-content-between top-navbar">
-    <h2 class="title">دسته‌بندی‌ها</h2>
+  <div class="content overflow-auto">
+    <h2 class="title my-3">ساندویچ ویژه</h2>
+
+    <app-favourite-item
+      *ngFor="let item of items"
+      [image]="item.image"
+      [title]="item.title"
+      [description]="item.description"
+      [price]="item.price"
+    ></app-favourite-item>
   </div>
-  <app-favourite-item *ngFor="let item of items" [image]="item.image" [title]="item.title"
-    [description]="item.description" [price]="item.price"></app-favourite-item>
+
   <app-bottom-nav-spacing></app-bottom-nav-spacing>
 </div>
