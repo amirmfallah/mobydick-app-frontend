@@ -47,7 +47,9 @@ ngb-carousel {
 .carousel-indicators {
   z-index: 20;
 }
-
+img {
+  object-fit: cover;
+}
 .carousel-container {
   position: relative;
   .next-btn {

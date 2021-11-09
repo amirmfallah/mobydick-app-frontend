@@ -9,13 +9,13 @@ import { Component, OnInit, ViewChild, Input } from '@angular/core';
 export class CarouselComponent implements OnInit {
   sliderinfo=[
     {
-      image: 'assets/slider.png',
+      image: 'assets/chicago.jpg',
     },
     {
-      image: 'assets/food.png',
+      image: 'assets/dayaneese.jpg',
     },
     {
-      image: 'assets/burgers.png',
+      image: 'assets/caesar.jpg',
     },
   ]
   constructor() {}
