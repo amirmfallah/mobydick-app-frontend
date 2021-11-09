@@ -47,7 +47,10 @@ ngb-carousel {
 .carousel-indicators {
   z-index: 20;
 }
-
+img {
+  object-fit: cover;
+  border: solid 1px rgb(197, 197, 197);
+}
 .carousel-container {
   position: relative;
   .next-btn {
@@ -64,4 +67,9 @@ ngb-carousel {
     left: 4px;
     transform: translate(0, -20px);
   }
+}
+
+.nav-btn {
+  color: black;
+  text-shadow: rgb(0, 0, 0) 1px 0 10px !important;
 }

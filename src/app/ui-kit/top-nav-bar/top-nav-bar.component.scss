@@ -1,3 +1,26 @@
-.nav-space{
-    width: 40px;
+.nav-container {
+  position: absolute;
+  top: 0;
+  z-index: 1000;
+  border-bottom: solid 1px rgb(207, 207, 207);
+
+  padding: 12px;
+  background-color: #ffffff;
+}
+
+.branch-select {
+  font-size: 20px;
+  font-weight: bold;
+  border: none;
+  user-select: none;
+  -webkit-user-select: none;
+  &:focus {
+    outline: 0;
+    border: none;
+  }
+}
+
+.branch-name {
+  font-size: 20px;
+  font-weight: bold;
 }
