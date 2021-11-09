@@ -13,7 +13,7 @@ import { BottomNavSpacingComponent } from './bottom-nav-spacing/bottom-nav-spaci
 import { MatRippleModule } from '@angular/material/core';
 import { CarouselComponent } from './carousel/carousel.component';
 import {MatDividerModule} from '@angular/material/divider';
-import { PriceComponent } from './price/price.component'; 
+import { PriceComponent } from '../price/price.component';
 @NgModule({
   declarations: [
     TopNavBarComponent,
