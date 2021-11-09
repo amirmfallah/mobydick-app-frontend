@@ -8,36 +8,25 @@ import { Component, OnInit } from '@angular/core';
 export class SearchpageComponent implements OnInit {
   searchitems = [
     {
-      image: 'assets/brunch.png',
-      title: 'صبحانه و برانچ',
+      image: 'assets/pizza-sub.jpg',
+      title: 'ساندویچ ویژه',
     },
     {
-      image: 'assets/desert.png',
-      title: 'دسرها',
+      image: 'assets/chicken-salad.jpg',
+      title: 'سالادها',
     },
     {
-      image: 'assets/cake.png',
-      title: 'شیرینی',
+      image: 'assets/spicy-italian.jpg',
+      title: 'ساندویچ سرد',
     },
     {
-      image: 'assets/burgers.png',
-      title: 'برگرها',
+      image: 'assets/roast-beef.jpg',
+      title: 'ساندویچ گوشت',
     },
+    
     {
-      image: 'assets/brunch.png',
-      title: 'صبحانه و برانچ',
-    },
-    {
-      image: 'assets/desert.png',
-      title: 'دسرها',
-    },
-    {
-      image: 'assets/cake.png',
-      title: 'شیرینی',
-    },
-    {
-      image: 'assets/burgers.png',
-      title: 'برگرها',
+      image: 'assets/crispy.jpg',
+      title: 'ساندویچ مرغ',
     },
   ];
   constructor() {}
