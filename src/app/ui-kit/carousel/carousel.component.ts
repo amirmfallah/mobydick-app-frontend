@@ -1,5 +1,5 @@
 import { NgbCarousel } from '@ng-bootstrap/ng-bootstrap';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Input } from '@angular/core';
 
 @Component({
   selector: 'app-carousel',
@@ -7,6 +7,17 @@ import { Component, OnInit, ViewChild } from '@angular/core';
   styleUrls: ['./carousel.component.scss'],
 })
 export class CarouselComponent implements OnInit {
+  sliderinfo=[
+    {
+      image: 'assets/chicago.jpg',
+    },
+    {
+      image: 'assets/dayaneese.jpg',
+    },
+    {
+      image: 'assets/caesar.jpg',
+    },
+  ]
   constructor() {}
   @ViewChild('ngcarousel') ngCarousel: NgbCarousel;
 
