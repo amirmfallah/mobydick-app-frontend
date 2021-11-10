@@ -7,13 +7,13 @@ h2 {
   font-size: 30px;
   margin-bottom: 0;
 }
-.expantion {
+.expansion {
   background: rgba($color: #22a45d, $alpha: 0.2);
 }
-expantion-text {
+.expansion-text {
   font-weight: bold;
   font-size: 20px;
-  color: #22a45d;
+  color: #22a45d!important;
   text-align: center;
   letter-spacing: 0.444444px;
 }
@@ -27,4 +27,7 @@ p {
     color: #22A45D;
     transform: translateY(10%);
 
+}
+img{
+  height: 200px;
 }

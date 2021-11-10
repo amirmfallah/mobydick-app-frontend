@@ -1,7 +1,7 @@
 <div class="w-100 overflow-auto">
   <app-top-nav-spacing></app-top-nav-spacing>
   <img [src]="product.thumbnail" class="w-100" />
-  <div class="top-content d-flex justify-content-around mt-3">
+  <div class="top-content d-flex justify-content-between mt-3 px-2">
     <div class="right-side">
       <h2>{{ product.name }}</h2>
       <p class="description opacity-64 align-self-start">
@@ -26,9 +26,19 @@
   <div class="ingredients-section">
     <div class="top-tab d-flex justify-content-between p-2">
       <h2>محتویات محصول</h2>
+      <mat-expansion-panel
+        class="expansion"
+        (opened)="panelOpenState = true"
+        (closed)="panelOpenState = false"
+        hideToggle
+        >
+        <mat-expansion-panel-header class="expansion-text">
+          اختیاری
+        </mat-expansion-panel-header>
+      </mat-expansion-panel>
     </div>
     <div
-      class="ingredients d-flex justify-content-between px-5 my-2"
+      class="ingredients d-flex justify-content-between px-3 my-2"
       *ngFor="let ingredient of product.ingredients"
     >
       <p>
@@ -46,14 +56,14 @@
     <div class="top-tab d-flex justify-content-between p-2">
       <h2>انتخاب نان</h2>
     </div>
-
     <div
-      class="ingredients d-flex justify-content-between px-5 my-2"
+      class="ingredients d-flex justify-content-between px-3 my-2"
       *ngFor="let bread of product.breads"
     >
-      <p>{{ bread.item.name }}</p>
-      <p class="price">+{{ bread.item.price }} تومان</p>
-
+      <div class="price-and-select d-flex justify-content-between w-50">
+        <p>{{ bread.item.name }}</p>
+        <p class="price">+{{ bread.item.price }} تومان</p>
+      </div>
       <mat-radio-button
         value="1"
         [disabled]="bread.item.available === false"
@@ -66,18 +76,17 @@
     <div class="top-tab d-flex justify-content-between p-2">
       <h2>انتخاب افزودنی</h2>
     </div>
-
     <div
-      class="ingredients d-flex justify-content-between px-5 my-2"
+      class="ingredients d-flex justify-content-between px-3 my-2"
       *ngFor="let option of product.optional"
     >
-      <p>{{ option.item.name }}</p>
-      <p class="price">+{{ option.item.price }} تومان</p>
-
+      <div class="price-and-select d-flex justify-content-between w-50">
+        <p>{{ option.item.name }}</p>
+        <p class="price">+{{ option.item.price }} تومان</p>
+      </div>
       <app-handlenumber></app-handlenumber>
     </div>
   </div>
-  <mat-divider class="my-4"></mat-divider>
-  <app-bottom-nav-spacing></app-bottom-nav-spacing>
 
+  <app-bottom-nav-spacing></app-bottom-nav-spacing>
 </div>
