@@ -19,7 +19,10 @@ import { TopNavSpacingComponent } from './top-nav-spacing/top-nav-spacing.compon
 import { BranchesListComponent } from './branches-list/branches-list.component';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import { MatListModule } from '@angular/material/list';
-
+import {MatExpansionModule} from '@angular/material/expansion'; 
+import {MatCheckboxModule} from '@angular/material/checkbox'; 
+import {MatRadioModule} from '@angular/material/radio';
+import { HandlenumberComponent } from './handlenumber/handlenumber.component'; 
 @NgModule({
   declarations: [
     TopNavBarComponent,
@@ -32,6 +35,7 @@ import { MatListModule } from '@angular/material/list';
     PriceComponent,
     TopNavSpacingComponent,
     BranchesListComponent,
+    HandlenumberComponent,
   ],
   imports: [
     CommonModule,
@@ -60,6 +64,10 @@ import { MatListModule } from '@angular/material/list';
     TopNavSpacingComponent,
     MatBottomSheetModule,
     MatListModule,
+    MatExpansionModule,
+    MatCheckboxModule,
+    MatRadioModule,
+    HandlenumberComponent
   ],
 })
 export class UiKitModule {}

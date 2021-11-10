@@ -9,7 +9,7 @@ $warn: map-get(
   margin-bottom: 16px;
   background-color: #fff;
   border-radius: 10px;
-  padding: 8px;
+  padding: 8px 0;
 }
 
 .price {
@@ -54,5 +54,6 @@ h2 {
 }
 .number {
   transform: translateY(10%);
-  margin: 0 10px;
+  width: 100%;
+  text-align: center;
 }
