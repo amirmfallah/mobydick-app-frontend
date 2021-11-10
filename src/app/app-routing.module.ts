@@ -5,6 +5,7 @@ import { HomeComponent } from './home/home.component';
 import { OrderpageComponent } from './orderpage/orderpage.component';
 import { SearchpageComponent } from './searchpage/searchpage.component';
 import { CategoriesComponent } from './ui-kit/categories/categories.component';
+import { ProductComponent } from './product/product.component';
 
 const routes: Routes = [
   {
@@ -22,6 +23,10 @@ const routes: Routes = [
   {
     path: 'category',
     component: CategorypageComponent,
+  },
+  {
+    path: 'product',
+    component: ProductComponent,
   },
   {
     path: '',

@@ -17,6 +17,7 @@ import { SearchItemComponent } from './ui-kit/search-item/search-item.component'
 import { CategorypageComponent } from './categorypage/categorypage.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { OrderpageComponent } from './orderpage/orderpage.component';
+import { ProductComponent } from './product/product.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { OrderpageComponent } from './orderpage/orderpage.component';
     SearchItemComponent,
     CategorypageComponent,
     OrderpageComponent,
+    ProductComponent
   ],
   imports: [
     BrowserModule,

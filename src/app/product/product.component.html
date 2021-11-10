@@ -1,0 +1,85 @@
+<div class="container overflow-auto p-0">
+  <app-top-nav-spacing></app-top-nav-spacing>
+  <img [src]="product.thumbnail" class="w-100" />
+  <div class="top-content d-flex justify-content-around mt-3">
+    <div class="right-side">
+      <h2>{{ product.name }}</h2>
+      <p class="description opacity-64 align-self-start">
+        {{ product.description }}
+      </p>
+      <app-price
+        [price]="product.price"
+        [discountPercentage]="product.discountPercentage"
+      ></app-price>
+    </div>
+
+    <button
+      mat-raised-button
+      color="primary"
+      class="add-button d-flex justify-content-center align-items-center"
+    >
+      افزودن
+      <mat-icon class="material-icons-round"> add</mat-icon>
+    </button>
+  </div>
+
+  <div class="ingredients-section">
+    <div class="top-tab d-flex justify-content-between p-2">
+      <h2>محتویات محصول</h2>
+    </div>
+    <div
+      class="ingredients d-flex justify-content-between px-5 my-2"
+      *ngFor="let ingredient of product.ingredients"
+    >
+      <p>
+        {{ ingredient.item.name }}
+      </p>
+      <mat-checkbox
+        color="primary"
+        [disabled]="ingredient.item.available === false"
+      >
+      </mat-checkbox>
+    </div>
+  </div>
+  <mat-divider class="my-3"></mat-divider>
+  <div class="bread-section">
+    <div class="top-tab d-flex justify-content-between p-2">
+      <h2>انتخاب نان</h2>
+    </div>
+
+    <div
+      class="ingredients d-flex justify-content-between px-5 my-2"
+      *ngFor="let bread of product.breads"
+    >
+      <p>{{ bread.item.name }}</p>
+      <p class="price">+{{ bread.item.price }} تومان</p>
+
+      <mat-radio-button
+        value="1"
+        [disabled]="bread.item.available === false"
+        color="primary"
+      ></mat-radio-button>
+    </div>
+  </div>
+  <mat-divider class="my-4"></mat-divider>
+  <div class="bread-section">
+    <div class="top-tab d-flex justify-content-between p-2">
+      <h2>انتخاب افزودنی</h2>
+    </div>
+
+    <div
+      class="ingredients d-flex justify-content-between px-5 my-2"
+      *ngFor="let option of product.optional"
+    >
+      <p>{{ option.item.name }}</p>
+      <p class="price">+{{ option.item.price }} تومان</p>
+
+      <mat-radio-button
+        value="1"
+        [disabled]="option.item.available === false"
+        color="primary"
+      ></mat-radio-button>
+    </div>
+  </div>
+  <mat-divider class="my-4"></mat-divider>
+</div>
