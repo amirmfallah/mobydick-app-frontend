@@ -14,7 +14,7 @@ export class ProductComponent implements OnInit {
     discountPercentage: 10,
     available: true,
     description: 'ژامبون، کالباس، خیارشور',
-    thumbnail: 'assets/header.png',
+    thumbnail: '/assets/pizza-sub.jpg',
     breads: [
       {
         item: {
@@ -31,10 +31,10 @@ export class ProductComponent implements OnInit {
           _id: '4',
           name: 'هفت غله',
           price: 5550,
-          available: false,
+          available: true,
           thumbnail: '',
         },
-        required: false,
+        required: true,
       },
     ],
     ingredients: [
@@ -66,7 +66,7 @@ export class ProductComponent implements OnInit {
           available: false,
           thumbnail: '',
         },
-        required: false,
+        required: true,
       },
     ],
     optional: [
