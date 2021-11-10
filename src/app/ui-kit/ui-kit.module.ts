@@ -21,7 +21,8 @@ import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import { MatListModule } from '@angular/material/list';
 import {MatExpansionModule} from '@angular/material/expansion'; 
 import {MatCheckboxModule} from '@angular/material/checkbox'; 
-import {MatRadioModule} from '@angular/material/radio'; 
+import {MatRadioModule} from '@angular/material/radio';
+import { HandlenumberComponent } from './handlenumber/handlenumber.component'; 
 @NgModule({
   declarations: [
     TopNavBarComponent,
@@ -34,6 +35,7 @@ import {MatRadioModule} from '@angular/material/radio';
     PriceComponent,
     TopNavSpacingComponent,
     BranchesListComponent,
+    HandlenumberComponent,
   ],
   imports: [
     CommonModule,
@@ -64,7 +66,8 @@ import {MatRadioModule} from '@angular/material/radio';
     MatListModule,
     MatExpansionModule,
     MatCheckboxModule,
-    MatRadioModule
+    MatRadioModule,
+    HandlenumberComponent
   ],
 })
 export class UiKitModule {}

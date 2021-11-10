@@ -1,0 +1,23 @@
+<div class="bottom-section d-flex justify-content-start align-items-end">
+  <button
+    mat-mini-fab
+    class="bt d-flex align-items-center justify-content-center"
+    id="add-btn"
+    color="primary"
+  >
+    <mat-icon matSuffix fontSet="material-icons-round" (click)="incCount()"
+      >add</mat-icon
+    >
+  </button>
+  <h2 class="number">{{ number }}</h2>
+  <button
+    mat-mini-fab
+    class="bt d-flex align-items-center justify-content-center"
+    id="remove-btn"
+    color="warn"
+  >
+    <mat-icon matSuffix fontSet="material-icons-round" (click)="decCount()"
+      >remove</mat-icon
+    >
+  </button>
+</div>
