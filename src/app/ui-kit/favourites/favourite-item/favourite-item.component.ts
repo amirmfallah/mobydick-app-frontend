@@ -6,6 +6,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./favourite-item.component.scss'],
 })
 export class FavouriteItemComponent implements OnInit {
+  @Input() id = '1';
   @Input() image = '';
   @Input() title = '';
   @Input() description = '';

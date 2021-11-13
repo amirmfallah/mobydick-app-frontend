@@ -18,6 +18,8 @@ import { CategorypageComponent } from './categorypage/categorypage.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { OrderpageComponent } from './orderpage/orderpage.component';
 import { ProductComponent } from './product/product.component';
+import { HistoryComponent } from './history/history.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,9 @@ import { ProductComponent } from './product/product.component';
     SearchItemComponent,
     CategorypageComponent,
     OrderpageComponent,
-    ProductComponent
+    ProductComponent,
+    HistoryComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

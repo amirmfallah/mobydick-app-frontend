@@ -1,6 +1,6 @@
 <div class="d-flex justify-content-start item">
-  <img [src]="image" />
-  <div class="middle-content">
+  <img [src]="image" [routerLink]="['/product', id]" />
+  <div class="middle-content" [routerLink]="['/product', id]">
     <div class="upper-section align-items-baseline">
       <h2>{{ title }}</h2>
       <p class="description opacity-64 align-self-start">{{ description }}</p>

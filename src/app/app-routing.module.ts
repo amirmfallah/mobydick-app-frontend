@@ -1,3 +1,4 @@
+import { ProfileComponent } from './profile/profile.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { CategorypageComponent } from './categorypage/categorypage.component';
@@ -6,6 +7,7 @@ import { OrderpageComponent } from './orderpage/orderpage.component';
 import { SearchpageComponent } from './searchpage/searchpage.component';
 import { CategoriesComponent } from './ui-kit/categories/categories.component';
 import { ProductComponent } from './product/product.component';
+import { HistoryComponent } from './history/history.component';
 
 const routes: Routes = [
   {
@@ -25,8 +27,16 @@ const routes: Routes = [
     component: CategorypageComponent,
   },
   {
-    path: 'product',
+    path: 'product/:id',
     component: ProductComponent,
+  },
+  {
+    path: 'history',
+    component: HistoryComponent,
+  },
+  {
+    path: 'profile',
+    component: ProfileComponent,
   },
   {
     path: '',
