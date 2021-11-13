@@ -24,6 +24,8 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatRadioModule } from '@angular/material/radio';
 import { HandlenumberComponent } from './handlenumber/handlenumber.component';
+import { MatTabsModule } from '@angular/material/tabs';
+
 @NgModule({
   declarations: [
     TopNavBarComponent,
@@ -48,6 +50,7 @@ import { HandlenumberComponent } from './handlenumber/handlenumber.component';
     MatSelectModule,
     MatListModule,
     RouterModule,
+    MatTabsModule,
   ],
   exports: [
     MatSelectModule,
@@ -70,6 +73,7 @@ import { HandlenumberComponent } from './handlenumber/handlenumber.component';
     MatCheckboxModule,
     MatRadioModule,
     HandlenumberComponent,
+    MatTabsModule,
   ],
 })
 export class UiKitModule {}
