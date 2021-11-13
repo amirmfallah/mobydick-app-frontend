@@ -27,6 +27,6 @@ $primary: map-get(
   $key: 700,
 );
 
-.active {
+.active > * {
   color: $primary !important;
 }

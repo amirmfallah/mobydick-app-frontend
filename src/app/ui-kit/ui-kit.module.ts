@@ -1,3 +1,4 @@
+import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -19,10 +20,10 @@ import { TopNavSpacingComponent } from './top-nav-spacing/top-nav-spacing.compon
 import { BranchesListComponent } from './branches-list/branches-list.component';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import { MatListModule } from '@angular/material/list';
-import {MatExpansionModule} from '@angular/material/expansion'; 
-import {MatCheckboxModule} from '@angular/material/checkbox'; 
-import {MatRadioModule} from '@angular/material/radio';
-import { HandlenumberComponent } from './handlenumber/handlenumber.component'; 
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatRadioModule } from '@angular/material/radio';
+import { HandlenumberComponent } from './handlenumber/handlenumber.component';
 @NgModule({
   declarations: [
     TopNavBarComponent,
@@ -46,6 +47,7 @@ import { HandlenumberComponent } from './handlenumber/handlenumber.component';
     NgbModule,
     MatSelectModule,
     MatListModule,
+    RouterModule,
   ],
   exports: [
     MatSelectModule,
@@ -67,7 +69,7 @@ import { HandlenumberComponent } from './handlenumber/handlenumber.component';
     MatExpansionModule,
     MatCheckboxModule,
     MatRadioModule,
-    HandlenumberComponent
+    HandlenumberComponent,
   ],
 })
 export class UiKitModule {}

@@ -1,4 +1,4 @@
-<div class="w-100 overflow-auto">
+<div class="h-100 overflow-auto">
   <app-top-nav-spacing></app-top-nav-spacing>
   <img [src]="product.thumbnail" class="w-100" />
 
@@ -17,7 +17,7 @@
     </button>
   </div>
 
-  <mat-accordion>
+  <mat-accordion class="m-2">
     <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
       <mat-expansion-panel-header>
         <mat-panel-title>
