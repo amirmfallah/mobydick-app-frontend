@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import {MatBottomSheet, MatBottomSheetRef} from '@angular/material/bottom-sheet';
+import { BottomTabInprogressComponent } from '../ui-kit/bottom-tab-inprogress/bottom-tab-inprogress.component';
 @Component({
   selector: 'app-orderpage',
   templateUrl: './orderpage.component.html',
@@ -15,9 +16,14 @@ export class OrderpageComponent implements OnInit {
   }
    
   
-  constructor() { }
+  constructor(private _bottomSheet: MatBottomSheet) {}
+
+  openInProgress(): void {
+    this._bottomSheet.open(BottomTabInprogressComponent);
+  }
 
   ngOnInit(): void {
   }
 
 }
+
