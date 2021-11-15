@@ -25,6 +25,9 @@ p {
 mat-divider{
     margin-top: 8px;
 }
-.progress-container{
-    
+.active{
+  background-color: #22a45d;
+}
+mat-icon.active{
+  background-color: transparent;
 }
