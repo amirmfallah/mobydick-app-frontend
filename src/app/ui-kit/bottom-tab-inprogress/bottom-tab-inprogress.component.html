@@ -7,19 +7,19 @@
   <mat-divider></mat-divider>
 
   <div class="icons-section d-flex align-items-center">
-    <mat-icon matSuffix fontSet="material-icons-round" class="active" id="1"
+    <mat-icon matSuffix fontSet="material-icons-round" [ngClass]="{ 'active' : status>=1}" class=""
       >check_circle</mat-icon
     >
-    <div class="splitter active" id="1"></div>
-    <mat-icon matSuffix fontSet="material-icons-round" id="2" class="active"
+    <div class="splitter" id="1" [ngClass]="{'active' : status>=2}"></div>
+    <mat-icon matSuffix fontSet="material-icons-round" [ngClass]="{'active' : status>=2}" class=""
       >two_wheeler</mat-icon
     >
-    <div class="splitter" id="2"></div>
-    <mat-icon matSuffix fontSet="material-icons-round" id="3"
+    <div class="splitter" id="2" [ngClass]="{'active' : status>=3}"></div>
+    <mat-icon matSuffix fontSet="material-icons-round" [ngClass]="{'active' : status>=3}"
       >fastfood</mat-icon
     >
-    <div class="splitter" id="3"></div>
-    <mat-icon matSuffix fontSet="material-icons-round" id="4"
+    <div class="splitter" id="3" [ngClass]="{'active' : status>=4}"></div>
+    <mat-icon matSuffix fontSet="material-icons-round" [ngClass]="{'active' : status>=4}"
       >list_alt</mat-icon
     >
   </div>

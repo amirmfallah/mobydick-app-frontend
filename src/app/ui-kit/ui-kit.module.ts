@@ -76,6 +76,7 @@ import { BottomTabInprogressComponent } from './bottom-tab-inprogress/bottom-tab
     MatRadioModule,
     HandlenumberComponent,
     MatTabsModule,
+    BottomTabInprogressComponent
   ],
 })
 export class UiKitModule {}
