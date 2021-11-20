@@ -20,6 +20,7 @@ import { OrderpageComponent } from './orderpage/orderpage.component';
 import { ProductComponent } from './product/product.component';
 import { HistoryComponent } from './history/history.component';
 import { ProfileComponent } from './profile/profile.component';
+import { ChooseAddressComponent } from './choose-address/choose-address.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { ProfileComponent } from './profile/profile.component';
     OrderpageComponent,
     ProductComponent,
     HistoryComponent,
-    ProfileComponent
+    ProfileComponent,
+    ChooseAddressComponent
   ],
   imports: [
     BrowserModule,
