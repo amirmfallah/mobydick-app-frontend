@@ -1,19 +1,31 @@
-<mat-accordion class="m-2">
+<mat-accordion>
   <mat-expansion-panel
     (opened)="panelOpenState = true"
     (closed)="panelOpenState = false"
   >
     <mat-expansion-panel-header>
-      <mat-panel-title>
-        <h2>انتخاب آدرس</h2>
-      </mat-panel-title>
+      <mat-panel-title> <h2>انتخاب آدرس</h2> </mat-panel-title>
     </mat-expansion-panel-header>
-    <div
-      class="d-flex flex-row align-items-center"
-      *ngfor="let address of addresses"
-    >
-      <p class="price mx-3">{{ pedarsag }}</p>
-      <mat-radio-button color="primary"></mat-radio-button>
+    <div *ngFor="let address of addresses" class="my-3">
+      <div class="expansion-item d-flex justify-content-between my-2">
+        <p>{{ address }}</p>
+        <mat-radio-button value="1" color="primary"></mat-radio-button>
+      </div>
+      <mat-divider></mat-divider>
     </div>
+    <button
+      mat-mini-fab
+      class="
+        bt
+        d-flex
+        align-items-center
+        justify-content-center
+        align-self-center
+        mx-auto
+        bg-transparent
+      "
+    >
+      <mat-icon matSuffix fontSet="material-icons-round">add</mat-icon>
+    </button>
   </mat-expansion-panel>
 </mat-accordion>

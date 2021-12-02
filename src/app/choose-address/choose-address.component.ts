@@ -6,14 +6,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./choose-address.component.scss'],
 })
 export class ChooseAddressComponent implements OnInit {
-  pedarsag="pedarsag";
-  @Input() addresses: [
-    {
-      'نیشابور-خونه علی';
-    },
-    { 'رشت-خیابون 174 ارکیده' },
-    { 'رشت-خیابون 174 ارکیده' }
-  ];
+@Input() addresses = ["رشت-گلسار", "نیشابور-خیابان امام خمینی"]; 
   panelOpenState = false;
   constructor() {}
 
