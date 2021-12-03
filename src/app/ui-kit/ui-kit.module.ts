@@ -25,6 +25,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatRadioModule } from '@angular/material/radio';
 import { HandlenumberComponent } from './handlenumber/handlenumber.component';
 import { MatTabsModule } from '@angular/material/tabs';
+import { BottomTabInprogressComponent } from './bottom-tab-inprogress/bottom-tab-inprogress.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { MatTabsModule } from '@angular/material/tabs';
     TopNavSpacingComponent,
     BranchesListComponent,
     HandlenumberComponent,
+    BottomTabInprogressComponent,
   ],
   imports: [
     CommonModule,
@@ -74,6 +76,7 @@ import { MatTabsModule } from '@angular/material/tabs';
     MatRadioModule,
     HandlenumberComponent,
     MatTabsModule,
+    BottomTabInprogressComponent
   ],
 })
 export class UiKitModule {}
