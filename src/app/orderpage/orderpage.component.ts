@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MatBottomSheet, MatBottomSheetRef} from '@angular/material/bottom-sheet';
+import { BottomTabDiscountComponent } from '../ui-kit/bottom-tab-discount/bottom-tab-discount.component';
 import { BottomTabInprogressComponent } from '../ui-kit/bottom-tab-inprogress/bottom-tab-inprogress.component';
 @Component({
   selector: 'app-orderpage',
@@ -21,7 +22,9 @@ export class OrderpageComponent implements OnInit {
   openInProgress(): void {
     this._bottomSheet.open(BottomTabInprogressComponent);
   }
-
+  openDiscount(): void {
+    this._bottomSheet.open(BottomTabDiscountComponent);
+  }
   ngOnInit(): void {
   }
 

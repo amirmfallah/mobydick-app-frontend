@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./bottom-tab-inprogress.component.scss']
 })
 export class BottomTabInprogressComponent implements OnInit {
-  status=4;
+  status=2;
   constructor() { 
     
 

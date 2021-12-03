@@ -20,6 +20,7 @@ import { OrderpageComponent } from './orderpage/orderpage.component';
 import { ProductComponent } from './product/product.component';
 import { HistoryComponent } from './history/history.component';
 import { ProfileComponent } from './profile/profile.component';
+import { BottomTabDiscountComponent } from './ui-kit/bottom-tab-discount/bottom-tab-discount.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { ProfileComponent } from './profile/profile.component';
     OrderpageComponent,
     ProductComponent,
     HistoryComponent,
-    ProfileComponent
+    ProfileComponent,
+    BottomTabDiscountComponent
   ],
   imports: [
     BrowserModule,
