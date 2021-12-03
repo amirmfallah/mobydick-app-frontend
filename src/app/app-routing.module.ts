@@ -8,6 +8,7 @@ import { SearchpageComponent } from './searchpage/searchpage.component';
 import { CategoriesComponent } from './ui-kit/categories/categories.component';
 import { ProductComponent } from './product/product.component';
 import { HistoryComponent } from './history/history.component';
+import { YourOrderComponent } from './your-order/your-order.component';
 
 const routes: Routes = [
   {
@@ -37,6 +38,10 @@ const routes: Routes = [
   {
     path: 'profile',
     component: ProfileComponent,
+  },
+  {
+    path: 'your-order',
+    component: YourOrderComponent,
   },
   {
     path: '',
