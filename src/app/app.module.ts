@@ -1,3 +1,4 @@
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -39,7 +40,7 @@ import { ChooseAddressComponent } from './choose-address/choose-address.componen
     ProductComponent,
     HistoryComponent,
     ProfileComponent,
-    ChooseAddressComponent
+    ChooseAddressComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,6 +48,7 @@ import { ChooseAddressComponent } from './choose-address/choose-address.componen
     BrowserAnimationsModule,
     UiKitModule,
     NgbModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

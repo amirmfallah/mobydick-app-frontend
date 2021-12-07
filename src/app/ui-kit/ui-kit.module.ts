@@ -1,3 +1,4 @@
+import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgModule } from '@angular/core';
@@ -51,6 +52,7 @@ import { MatTabsModule } from '@angular/material/tabs';
     MatListModule,
     RouterModule,
     MatTabsModule,
+    ReactiveFormsModule,
   ],
   exports: [
     MatSelectModule,
