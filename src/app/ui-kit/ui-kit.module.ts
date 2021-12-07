@@ -1,3 +1,9 @@
+import { SearchItemComponent } from './search-item/search-item.component';
+import { FavouriteItemComponent } from './favourites/favourite-item/favourite-item.component';
+import { FavouritesComponent } from './favourites/favourites.component';
+import { SearchComponent } from './search/search.component';
+import { SliderItemComponent } from './categories/slider/slider-item/slider-item.component';
+import { SliderComponent } from './categories/slider/slider.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -42,6 +48,12 @@ import { BottomTabInprogressComponent } from './bottom-tab-inprogress/bottom-tab
     BranchesListComponent,
     HandlenumberComponent,
     BottomTabInprogressComponent,
+    SliderComponent,
+    SliderItemComponent,
+    SearchComponent,
+    FavouritesComponent,
+    FavouriteItemComponent,
+    SearchItemComponent,
   ],
   imports: [
     CommonModule,
@@ -78,7 +90,13 @@ import { BottomTabInprogressComponent } from './bottom-tab-inprogress/bottom-tab
     MatRadioModule,
     HandlenumberComponent,
     MatTabsModule,
-    BottomTabInprogressComponent
+    BottomTabInprogressComponent,
+    SliderComponent,
+    SliderItemComponent,
+    SearchComponent,
+    FavouritesComponent,
+    FavouriteItemComponent,
+    SearchItemComponent,
   ],
 })
 export class UiKitModule {}

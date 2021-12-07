@@ -27,7 +27,7 @@ const routes: Routes = [
     canActivate: [SignedInGuard],
   },
   {
-    path: 'category',
+    path: 'categories/:id',
     component: CategorypageComponent,
     canActivate: [SignedInGuard],
   },

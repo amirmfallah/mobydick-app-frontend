@@ -1,3 +1,4 @@
+import { TokenInterceptor } from './../../core/interceptors/token.interceptor';
 import { RouterModule } from '@angular/router';
 import { SignedOutGuard } from './guards/signed-out.guard';
 import { SignedInGuard } from './guards/signed-in.guard';
@@ -9,7 +10,7 @@ import { AuthComponent } from './auth/auth.component';
 import { UiKitModule } from '../ui-kit/ui-kit.module';
 import { AuthService } from 'src/core/services/auth.service';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 @NgModule({
   declarations: [AuthComponent],

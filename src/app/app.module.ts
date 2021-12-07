@@ -1,4 +1,10 @@
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { TokenInterceptor } from './../core/interceptors/token.interceptor';
+import { CategorypageModule } from './categorypage/categorypage.module';
+import {
+  HttpClient,
+  HttpClientModule,
+  HTTP_INTERCEPTORS,
+} from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -15,7 +21,6 @@ import { FavouritesComponent } from './ui-kit/favourites/favourites.component';
 import { FavouriteItemComponent } from './ui-kit/favourites/favourite-item/favourite-item.component';
 import { SearchpageComponent } from './searchpage/searchpage.component';
 import { SearchItemComponent } from './ui-kit/search-item/search-item.component';
-import { CategorypageComponent } from './categorypage/categorypage.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { OrderpageComponent } from './orderpage/orderpage.component';
 import { ProductComponent } from './product/product.component';
@@ -28,18 +33,11 @@ import { ChooseAddressComponent } from './choose-address/choose-address.componen
     AppComponent,
     HomeComponent,
     CategoriesComponent,
-    SliderComponent,
-    SliderItemComponent,
-    SearchComponent,
-    FavouritesComponent,
-    FavouriteItemComponent,
-    SearchpageComponent,
-    SearchItemComponent,
-    CategorypageComponent,
     OrderpageComponent,
     ProductComponent,
     HistoryComponent,
     ProfileComponent,
+    SearchpageComponent,
     ChooseAddressComponent,
   ],
   imports: [
@@ -49,8 +47,15 @@ import { ChooseAddressComponent } from './choose-address/choose-address.componen
     UiKitModule,
     NgbModule,
     HttpClientModule,
+    CategorypageModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
