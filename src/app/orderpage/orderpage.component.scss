@@ -3,14 +3,22 @@ p {
   font-size: 20px;
   letter-spacing: 0.444444px;
 }
-.pay-able{
-    margin-top: 13px;
-    color: #22A45D;
+.pay-able {
+  margin-top: 13px;
+  color: #22a45d;
 }
-.item{
-    margin-top: 7px;
+.item {
+  margin-top: 7px;
 }
-button{
+button {
   font-size: 20px;
   font-weight: bold;
+}
+.discount-text {
+  margin-right: 7px;
+}
+.enter-discount-code {
+  border: 1px solid #22a45d;
+  border-radius: 4px;
+  color: #22a45d;
 }

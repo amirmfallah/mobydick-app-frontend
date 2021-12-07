@@ -1,0 +1,33 @@
+h2 {
+  font-weight: bold;
+  font-size: 24px;
+  text-align: center;
+}
+span {
+  color: #22a45d;
+}
+mat-icon {
+  color: black;
+}
+p {
+  text-align: center;
+}
+.splitter {
+  width: 25%;
+  height: 4px;
+  background-color: black;
+  border-radius: 8px;
+  margin: 0 10px;
+}
+.icons-section{
+    margin: 27px 0;
+}
+mat-divider{
+    margin-top: 8px;
+}
+.active{
+  background-color: #22a45d;
+}
+mat-icon.active{
+  background-color: transparent;
+}
