@@ -8,6 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class SearchItemComponent implements OnInit {
   @Input() title='';
   @Input() image='';
+  @Input() id: string;
   constructor() { }
 
   ngOnInit(): void {

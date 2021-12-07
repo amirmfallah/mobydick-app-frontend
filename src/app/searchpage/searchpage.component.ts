@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { SearchpageService } from './services/searchpage.service';
+import { categoryItem } from './shared/search.interface';
 
 @Component({
   selector: 'app-searchpage',
@@ -6,30 +8,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./searchpage.component.scss'],
 })
 export class SearchpageComponent implements OnInit {
-  searchitems = [
-    {
-      image: 'assets/pizza-sub.jpg',
-      title: 'ساندویچ ویژه',
-    },
-    {
-      image: 'assets/chicken-salad.jpg',
-      title: 'سالادها',
-    },
-    {
-      image: 'assets/spicy-italian.jpg',
-      title: 'ساندویچ سرد',
-    },
-    {
-      image: 'assets/roast-beef.jpg',
-      title: 'ساندویچ گوشت',
-    },
-    
-    {
-      image: 'assets/crispy.jpg',
-      title: 'ساندویچ مرغ',
-    },
-  ];
-  constructor() {}
+  searchitems: categoryItem[];
+  constructor(private searchpageService: SearchpageService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.searchpageService.getCategories().subscribe((res: categoryItem[]) => {
+      this.searchitems = res;
+    });
+  }
 }
