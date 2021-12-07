@@ -1,3 +1,4 @@
+import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgModule } from '@angular/core';
@@ -53,6 +54,7 @@ import { BottomTabInprogressComponent } from './bottom-tab-inprogress/bottom-tab
     MatListModule,
     RouterModule,
     MatTabsModule,
+    ReactiveFormsModule,
   ],
   exports: [
     MatSelectModule,
