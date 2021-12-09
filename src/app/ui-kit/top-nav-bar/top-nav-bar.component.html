@@ -1,5 +1,6 @@
 <div class="d-flex flex-row justify-content-between w-100 align-items-center nav-container ">
-  <button mat-icon-button aria-label="Example icon button with a home icon">
+  <button mat-icon-button aria-label="Example icon button with a home icon" [routerLink]="['/cart']"
+    routerLinkActive="active">
     <mat-icon fontSet="material-icons-round material-icons-outline">shopping_cart</mat-icon>
   </button>
   <div (click)="openBottomSheet()" class="d-flex flex-row align-items-center">

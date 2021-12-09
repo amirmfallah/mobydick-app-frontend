@@ -83,3 +83,17 @@ p {
 .carousel-inner .sr-only {
   display: none !important;
 }
+
+@import "app/ui-kit/styles/themes/md-light/colors.scss";
+
+$primary: map-get(
+  $map: $md-primary-palette,
+  $key: 700,
+);
+
+.active {
+  color: $primary !important;
+  & > * {
+    color: $primary !important;
+  }
+}

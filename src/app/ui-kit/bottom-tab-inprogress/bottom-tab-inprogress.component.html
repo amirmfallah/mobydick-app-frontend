@@ -1,0 +1,30 @@
+<div class="container p-3">
+  <h2>
+    سفارش شما
+    <span>در حال آماده‌سازی</span>
+    است.
+  </h2>
+  <mat-divider></mat-divider>
+
+  <div class="icons-section d-flex align-items-center">
+    <mat-icon matSuffix fontSet="material-icons-round" [ngClass]="{ 'active' : status>=1}" class=""
+      >check_circle</mat-icon
+    >
+    <div class="splitter" id="1" [ngClass]="{'active' : status>=2}"></div>
+    <mat-icon matSuffix fontSet="material-icons-round" [ngClass]="{'active' : status>=2}" class=""
+      >two_wheeler</mat-icon
+    >
+    <div class="splitter" id="2" [ngClass]="{'active' : status>=3}"></div>
+    <mat-icon matSuffix fontSet="material-icons-round" [ngClass]="{'active' : status>=3}"
+      >fastfood</mat-icon
+    >
+    <div class="splitter" id="3" [ngClass]="{'active' : status>=4}"></div>
+    <mat-icon matSuffix fontSet="material-icons-round" [ngClass]="{'active' : status>=4}"
+      >list_alt</mat-icon
+    >
+  </div>
+  <p>
+    سفارش شما ثبت شده و در حال آماده‌سازی در رستوران است و پس از آماده‌سازی به
+    آدرس انتخاب شده ارسال می‌شود.
+  </p>
+</div>

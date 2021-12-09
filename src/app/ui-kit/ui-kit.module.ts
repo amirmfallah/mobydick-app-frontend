@@ -1,3 +1,11 @@
+import { SearchItemComponent } from './search-item/search-item.component';
+import { FavouriteItemComponent } from './favourites/favourite-item/favourite-item.component';
+import { FavouritesComponent } from './favourites/favourites.component';
+import { SearchComponent } from './search/search.component';
+import { SliderItemComponent } from './categories/slider/slider-item/slider-item.component';
+import { SliderComponent } from './categories/slider/slider.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -19,6 +27,12 @@ import { TopNavSpacingComponent } from './top-nav-spacing/top-nav-spacing.compon
 import { BranchesListComponent } from './branches-list/branches-list.component';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import { MatListModule } from '@angular/material/list';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatRadioModule } from '@angular/material/radio';
+import { HandlenumberComponent } from './handlenumber/handlenumber.component';
+import { MatTabsModule } from '@angular/material/tabs';
+import { BottomTabInprogressComponent } from './bottom-tab-inprogress/bottom-tab-inprogress.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +46,14 @@ import { MatListModule } from '@angular/material/list';
     PriceComponent,
     TopNavSpacingComponent,
     BranchesListComponent,
+    HandlenumberComponent,
+    BottomTabInprogressComponent,
+    SliderComponent,
+    SliderItemComponent,
+    SearchComponent,
+    FavouritesComponent,
+    FavouriteItemComponent,
+    SearchItemComponent,
   ],
   imports: [
     CommonModule,
@@ -42,6 +64,9 @@ import { MatListModule } from '@angular/material/list';
     NgbModule,
     MatSelectModule,
     MatListModule,
+    RouterModule,
+    MatTabsModule,
+    ReactiveFormsModule,
   ],
   exports: [
     MatSelectModule,
@@ -60,6 +85,18 @@ import { MatListModule } from '@angular/material/list';
     TopNavSpacingComponent,
     MatBottomSheetModule,
     MatListModule,
+    MatExpansionModule,
+    MatCheckboxModule,
+    MatRadioModule,
+    HandlenumberComponent,
+    MatTabsModule,
+    BottomTabInprogressComponent,
+    SliderComponent,
+    SliderItemComponent,
+    SearchComponent,
+    FavouritesComponent,
+    FavouriteItemComponent,
+    SearchItemComponent,
   ],
 })
 export class UiKitModule {}
