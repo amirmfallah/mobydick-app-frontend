@@ -18,6 +18,9 @@ export class FavouriteItemComponent implements OnInit {
   decCount() {
     if (this.number > 0) this.number -= 1;
   }
+  resetnum() {
+    this.number = 0;
+  }
   constructor() {}
 
   ngOnInit(): void {}
