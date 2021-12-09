@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  MobydickApiUrl: 'http://192.168.1.3:4000',
+  MobydickApiUrl: 'https://beta-api.mobydickfoods.com',
 };
 
 /*
