@@ -1,3 +1,10 @@
+import { SearchItemComponent } from './search-item/search-item.component';
+import { FavouriteItemComponent } from './favourites/favourite-item/favourite-item.component';
+import { FavouritesComponent } from './favourites/favourites.component';
+import { SearchComponent } from './search/search.component';
+import { SliderItemComponent } from './categories/slider/slider-item/slider-item.component';
+import { SliderComponent } from './categories/slider/slider.component';
+import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgModule } from '@angular/core';
@@ -25,6 +32,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatRadioModule } from '@angular/material/radio';
 import { HandlenumberComponent } from './handlenumber/handlenumber.component';
 import { MatTabsModule } from '@angular/material/tabs';
+import { BottomTabInprogressComponent } from './bottom-tab-inprogress/bottom-tab-inprogress.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +47,13 @@ import { MatTabsModule } from '@angular/material/tabs';
     TopNavSpacingComponent,
     BranchesListComponent,
     HandlenumberComponent,
+    BottomTabInprogressComponent,
+    SliderComponent,
+    SliderItemComponent,
+    SearchComponent,
+    FavouritesComponent,
+    FavouriteItemComponent,
+    SearchItemComponent,
   ],
   imports: [
     CommonModule,
@@ -51,6 +66,7 @@ import { MatTabsModule } from '@angular/material/tabs';
     MatListModule,
     RouterModule,
     MatTabsModule,
+    ReactiveFormsModule,
   ],
   exports: [
     MatSelectModule,
@@ -74,6 +90,13 @@ import { MatTabsModule } from '@angular/material/tabs';
     MatRadioModule,
     HandlenumberComponent,
     MatTabsModule,
+    BottomTabInprogressComponent,
+    SliderComponent,
+    SliderItemComponent,
+    SearchComponent,
+    FavouritesComponent,
+    FavouriteItemComponent,
+    SearchItemComponent,
   ],
 })
 export class UiKitModule {}

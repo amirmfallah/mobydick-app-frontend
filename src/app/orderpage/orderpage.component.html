@@ -29,10 +29,15 @@
   </div>
   <mat-divider></mat-divider>
   <div class="discount d-flex justify-content-between mt-3">
-    <mat-icon matSuffix fontSet="material-icons-round">chevron_right</mat-icon>
-    <p>کد تخفیف</p>
+    <div class="d-flex align-self-center justify-content-center">
+      <mat-icon matSuffix fontSet="material-icons-round">local_activity</mat-icon>
+      <p class="discount-text" >کد تخفیف</p>
+    </div>
+    
+    <button class="btn enter-discount-code" (click)="openDiscount()">وارد کردن</button>
   </div>
-  <button mat-raised-button color="primary" class="w-100 mb-4 mt-4">
+  <app-choose-address></app-choose-address>
+  <button mat-raised-button color="primary" class="w-100 mb-4 mt-4" (click)="openInProgress()">
     تکمیل فرایند خرید
   </button>
   <app-bottom-nav-spacing></app-bottom-nav-spacing>

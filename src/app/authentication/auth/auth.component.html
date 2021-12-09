@@ -1,7 +1,6 @@
 <app-top-nav-bar></app-top-nav-bar>
 
-<div
-  class="
+<div class="
     container
     d-flex
     flex-column
@@ -9,9 +8,10 @@
     align-self-center
     h-100
     w-100
-  "
->
+  ">
   <img src="/assets/Logotype.png" alt="" class="align-self-center logo-image" />
-  <app-code-sent></app-code-sent>
+  <app-code-sent *ngIf="codeSend | async" [form]="codeForm" (formSubmit)="onCodeSubmit()"></app-code-sent>
+  <app-enter-phone-number *ngIf="!(codeSend | async)" [form]="phoneForm" (formSubmit)="onPhoneSubmit()">
+  </app-enter-phone-number>
   <div class="bottom-space"></div>
 </div>
