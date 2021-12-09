@@ -26,6 +26,7 @@ import { OrderpageComponent } from './orderpage/orderpage.component';
 import { ProductComponent } from './product/product.component';
 import { HistoryComponent } from './history/history.component';
 import { ProfileComponent } from './profile/profile.component';
+import { YourOrderComponent } from './your-order/your-order.component';
 import { BottomTabDiscountComponent } from './ui-kit/bottom-tab-discount/bottom-tab-discount.component';
 import { ChooseAddressComponent } from './choose-address/choose-address.component';
 
@@ -38,6 +39,7 @@ import { ChooseAddressComponent } from './choose-address/choose-address.componen
     ProductComponent,
     HistoryComponent,
     ProfileComponent,
+    YourOrderComponent
     BottomTabDiscountComponent
     SearchpageComponent,
     ChooseAddressComponent,

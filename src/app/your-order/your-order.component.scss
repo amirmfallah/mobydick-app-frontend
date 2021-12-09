@@ -1,0 +1,49 @@
+.active-order-text {
+  font-weight: bold;
+  font-size: 20px;
+  color: #868686;
+  letter-spacing: 0.444444px;
+}
+.in-progress-order {
+  background-color: #fbfbfb;
+  height: 25%;
+  border-radius: 8px;
+}
+.status-inprogress {
+  color: #22a45d;
+  background: rgba(34, 164, 93, 0.2);
+  margin-right: 10px;
+  border-radius: 8px;
+}
+.description {
+  color: #868686;
+}
+.bill-details {
+  background: rgba(134, 134, 134, 0.5);
+  border-radius: 8px;
+  margin-left: 11px;
+  margin-bottom: 5px;
+  letter-spacing: -0.4px;
+}
+mat-icon {
+  font-size: 16px;
+  transform: translateY(16%);
+  margin-left: 4px;
+}
+.previus-orders-text {
+  color: #868686;
+  font-style: normal;
+  font-weight: bold;
+  letter-spacing: 0.444444px;
+  font-size: 20px;
+}
+.status-recieved {
+  color: #ffc800;
+  font-weight: normal;
+  font-size: 16px;
+  margin-right: 10px;
+
+  letter-spacing: -0.4px;
+  background: rgba(255, 200, 0, 0.2);
+  border-radius: 8px;
+}
