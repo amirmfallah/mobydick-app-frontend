@@ -1,3 +1,4 @@
+import { SignedInGuard } from './authentication/guards/signed-in.guard';
 import { ProfileComponent } from './profile/profile.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -13,30 +14,37 @@ const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent,
+    canActivate: [SignedInGuard],
   },
   {
     path: 'cart',
     component: OrderpageComponent,
+    canActivate: [SignedInGuard],
   },
   {
     path: 'search',
     component: SearchpageComponent,
+    canActivate: [SignedInGuard],
   },
   {
-    path: 'category',
+    path: 'categories/:id',
     component: CategorypageComponent,
+    canActivate: [SignedInGuard],
   },
   {
     path: 'product/:id',
     component: ProductComponent,
+    canActivate: [SignedInGuard],
   },
   {
     path: 'history',
     component: HistoryComponent,
+    canActivate: [SignedInGuard],
   },
   {
     path: 'profile',
     component: ProfileComponent,
+    canActivate: [SignedInGuard],
   },
   {
     path: '',
