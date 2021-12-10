@@ -21,9 +21,12 @@
         <mat-icon matSuffix fontSet="material-icons-round">lock</mat-icon>
       </mat-form-field>
       <button mat-raised-button color="primary" class="w-100">ورود</button>
-      <button mat-raised-button color="accent" class="w-100 mt-2" type="submit">
+      <button mat-raised-button color="accent" class="w-100 mt-2" type="submit" [class.btn_loading]="form.disabled"
+        [disabled]="form.disabled">
         ارسال مجدد
       </button>
+      <mat-progress-bar [class.invisible]="!form.disabled" [class.visible]="form.disabled" mode="query">
+      </mat-progress-bar>
     </form>
   </div>
 
