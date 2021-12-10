@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  MobydickApiUrl: 'https://beta-api.mobydickfoods.com/api',
+  MobydickApiUrl: 'https://beta-api.mobydickfoods.com',
 };
 
 /*
