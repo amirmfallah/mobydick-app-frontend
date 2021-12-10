@@ -30,6 +30,8 @@ export class TokenInterceptor implements HttpInterceptor {
     return next.handle(request).pipe(
       catchError((error) => {
         if (error instanceof HttpErrorResponse && error.status === 401) {
+          this.authService.logout();
+          window.location.reload();
           return this.handle401Error(request, next);
         } else {
           return throwError(error);
@@ -61,7 +63,7 @@ export class TokenInterceptor implements HttpInterceptor {
           return next.handle(this.addToken(request, token.token));
         }),
         catchError((error) => {
-          if (error instanceof HttpErrorResponse && error.status === 403) {
+          if (error instanceof HttpErrorResponse) {
             this.authService.logout();
             window.location.reload();
             return null;

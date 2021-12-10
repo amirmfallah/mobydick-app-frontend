@@ -2,8 +2,7 @@
   <app-top-nav-spacing></app-top-nav-spacing>
   <div class="content overflow-auto">
     <h2 class="title my-3">ساندویچ ویژه</h2>
-    <app-favourite-item *ngFor="let item of items" [image]="item.image" [title]="item.title"
-      [description]="item.description" [price]="item.price"></app-favourite-item>
+    <app-favourite-item *ngFor="let item of products" [product]="item"></app-favourite-item>
   </div>
   <app-bottom-nav-spacing></app-bottom-nav-spacing>
 </div>

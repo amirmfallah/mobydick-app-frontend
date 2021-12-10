@@ -1,3 +1,4 @@
+import { Category, Product } from './../../core/interfaces/product.interface';
 import { CategorypageService } from './services/categorypage.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
@@ -8,57 +9,8 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./categorypage.component.scss'],
 })
 export class CategorypageComponent implements OnInit {
-  items = [
-    {
-      image: 'assets/pizza-sub.jpg',
-      title: 'پیتزا صاب',
-      description: 'ژامبون، گوشت، پنیر',
-      price: 40000,
-    },
-    {
-      image: 'assets/chicken-salad.jpg',
-      title: 'چیکن سالاد',
-      description: 'چیکن، گوجه، خیار، پیاز',
-      price: 20000,
-    },
-    {
-      image: 'assets/pizza-sub.jpg',
-      title: 'پیتزا صاب',
-      description: 'ژامبون، گوشت، پنیر',
-      price: 40000,
-    },
-    {
-      image: 'assets/chicken-salad.jpg',
-      title: 'چیکن سالاد',
-      description: 'چیکن، گوجه، خیار، پیاز',
-      price: 20000,
-    },
-
-    {
-      image: 'assets/pizza-sub.jpg',
-      title: 'پیتزا صاب',
-      description: 'ژامبون، گوشت، پنیر',
-      price: 40000,
-    },
-    {
-      image: 'assets/chicken-salad.jpg',
-      title: 'چیکن سالاد',
-      description: 'چیکن، گوجه، خیار، پیاز',
-      price: 20000,
-    },
-    {
-      image: 'assets/pizza-sub.jpg',
-      title: 'پیتزا صاب',
-      description: 'ژامبون، گوشت، پنیر',
-      price: 40000,
-    },
-    {
-      image: 'assets/chicken-salad.jpg',
-      title: 'چیکن سالاد',
-      description: 'چیکن، گوجه، خیار، پیاز',
-      price: 20000,
-    },
-  ];
+  categoryName: string;
+  products: Array<Product>;
   constructor(
     private categoryService: CategorypageService,
     private route: ActivatedRoute
@@ -67,8 +19,12 @@ export class CategorypageComponent implements OnInit {
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
     console.log(id);
-    this.categoryService.getProductsByCategory(id).subscribe((res) => {
-      console.log(res);
-    });
+    this.categoryService
+      .getProductsByCategory(id)
+      .subscribe((res: Category) => {
+        this.categoryName = res.name;
+        this.products = res.products;
+        console.log(this.products);
+      });
   }
 }
