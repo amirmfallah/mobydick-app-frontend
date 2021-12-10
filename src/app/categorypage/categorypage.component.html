@@ -1,7 +1,7 @@
 <div class="container h-100 overflow-auto">
   <app-top-nav-spacing></app-top-nav-spacing>
   <div class="content overflow-auto">
-    <h2 class="title my-3">ساندویچ ویژه</h2>
+    <h2 class="title my-3">{{categoryName}}</h2>
     <app-favourite-item *ngFor="let item of products" [product]="item"></app-favourite-item>
   </div>
   <app-bottom-nav-spacing></app-bottom-nav-spacing>
