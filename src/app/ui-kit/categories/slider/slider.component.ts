@@ -1,38 +1,24 @@
 import { Component, OnInit } from '@angular/core';
-
+import { ActivatedRoute } from '@angular/router';
+import { categoryItem } from 'src/app/searchpage/shared/search.interface';
+import { CategoriesService } from './../services/categories.service';
 @Component({
   selector: 'app-slider',
   templateUrl: './slider.component.html',
   styleUrls: ['./slider.component.scss'],
 })
 export class SliderComponent implements OnInit {
-  posts = [
-    {
-      image: 'assets/pizza-sub.jpg',
-      title: 'ساندویچ ویژه',
-    },
-    {
-      image: 'assets/chicken-salad.jpg',
-      title: 'سالادها',
-    },
-    {
-      image: 'assets/spicy-italian.jpg',
-      title: 'ساندویچ سرد',
-    },
-    {
-      image: 'assets/roast-beef.jpg',
-      title: 'ساندویچ گوشت',
-    },
-    {
-      image: 'assets/chicken-salad.jpg',
-      title: 'ساندویچ سبزیجات',
-    },
-    {
-      image: 'assets/crispy.jpg',
-      title: 'ساندویچ مرغ',
-    },
-  ];
-  constructor() {}
+  categoryName: string;
+  thumbnail: string;
+  Categories: categoryItem[];
+  constructor(
+    private categoryService: CategoriesService,
+    private route: ActivatedRoute
+  ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.categoryService.getCategories().subscribe((res: categoryItem[]) => {
+      this.Categories = res;
+    });
+  }
 }
