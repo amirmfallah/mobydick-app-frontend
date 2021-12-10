@@ -1,4 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
+import { Product } from 'src/core/interfaces/product.interface';
+import { ProductService } from './services/product.service';
 
 @Component({
   selector: 'app-product',
@@ -7,93 +11,17 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ProductComponent implements OnInit {
   panelOpenState = false;
-  product = {
-    _id: '1',
-    name: 'ساندویچ صاب',
-    price: 30000,
-    discountPercentage: 10,
-    available: true,
-    description: 'ژامبون، کالباس، خیارشور',
-    thumbnail: '/assets/pizza-sub.jpg',
-    breads: [
-      {
-        item: {
-          _id: '12',
-          name: 'جو',
-          price: 8800,
-          available: true,
-          thumbnail: '',
-        },
-        required: false,
-      },
-      {
-        item: {
-          _id: '4',
-          name: 'هفت غله',
-          price: 5550,
-          available: true,
-          thumbnail: '',
-        },
-        required: true,
-      },
-    ],
-    ingredients: [
-      {
-        item: {
-          _id: '123',
-          name: 'خیارشور',
-          price: 8000,
-          available: true,
-          thumbnail: '',
-        },
-        required: false,
-      },
-      {
-        item: {
-          _id: '4',
-          name: 'گوجه',
-          price: 7000,
-          available: true,
-          thumbnail: '',
-        },
-        required: false,
-      },
-      {
-        item: {
-          _id: '4',
-          name: 'هالوپینو',
-          price: 6000,
-          available: false,
-          thumbnail: '',
-        },
-        required: true,
-      },
-    ],
-    optional: [
-      {
-        item: {
-          _id: '5',
-          name: 'بیکن',
-          price: 7770,
-          available: true,
-          thumbnail: '',
-        },
-        required: false,
-      },
-      {
-        item: {
-          _id: '6',
-          name: 'پنیر',
-          price: 120,
-          available: false,
-          thumbnail: '',
-        },
-        required: false,
-      },
-    ],
-  };
+  product = new BehaviorSubject<Product>(undefined);
 
-  constructor() {}
+  constructor(
+    private productService: ProductService,
+    private route: ActivatedRoute
+  ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    const id = this.route.snapshot.paramMap.get('id');
+    this.productService.getProduct(id).subscribe((res: Product) => {
+      this.product.next(res);
+    });
+  }
 }
