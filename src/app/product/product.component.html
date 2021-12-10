@@ -1,14 +1,14 @@
 <div class="h-100 overflow-auto">
   <app-top-nav-spacing></app-top-nav-spacing>
-  <img [src]="product.thumbnail" class="w-100" />
+  <img [src]="(product | async).thumbnail" class="w-100" />
 
   <div class="container top-content d-flex justify-content-between mt-3">
     <div class="right-side">
-      <h2>{{ product.name }}</h2>
+      <h2>{{ (product | async).name }}</h2>
       <p class="description opacity-64 align-self-start">
-        {{ product.description }}
+        {{ (product | async).description }}
       </p>
-      <app-price [price]="product.price" [discountPercentage]="product.discountPercentage"></app-price>
+      <app-price [price]="(product | async).price" [discountPercentage]="(product | async).discount"></app-price>
     </div>
 
     <button mat-raised-button color="primary" class="add-button d-flex justify-content-center align-items-center">
@@ -24,7 +24,7 @@
           <h3>انتخاب نان</h3>
         </mat-panel-title>
       </mat-expansion-panel-header>
-      <div class="ingredients d-flex justify-content-between my-2" *ngFor="let bread of product.breads">
+      <div class="ingredients d-flex justify-content-between my-2" *ngFor="let bread of (product | async).bread">
         <div class="price-and-select">
           <p>{{ bread.item.name }}</p>
         </div>
@@ -41,7 +41,7 @@
         </mat-panel-title>
       </mat-expansion-panel-header>
 
-      <div class="d-flex justify-content-between my-2" *ngFor="let ingredient of product.ingredients">
+      <div class="d-flex justify-content-between my-2" *ngFor="let ingredient of (product | async).ingredients">
         <p>
           {{ ingredient.item.name }}
         </p>
@@ -56,7 +56,7 @@
           <h3>افزودنی</h3>
         </mat-panel-title>
       </mat-expansion-panel-header>
-      <div class="ingredients d-flex justify-content-between px-3 my-2" *ngFor="let option of product.optional">
+      <div class="ingredients d-flex justify-content-between px-3 my-2" *ngFor="let option of (product | async).optional">
         <div class="price-and-select d-flex justify-content-between w-50">
           <p>{{ option.item.name }}</p>
           <p class="price">+{{ option.item.price }} تومان</p>
