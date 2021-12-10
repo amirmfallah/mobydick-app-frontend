@@ -1,3 +1,4 @@
+import { Product } from './../../../../core/interfaces/product.interface';
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
@@ -6,20 +7,17 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./favourite-item.component.scss'],
 })
 export class FavouriteItemComponent implements OnInit {
-  @Input() id = '1';
-  @Input() image = '';
-  @Input() title = '';
-  @Input() description = '';
-  @Input() price = 0;
-  number = 0;
+  @Input() product: Product;
+
+  count = 0;
   incCount() {
-    this.number += 1;
+    this.count += 1;
   }
   decCount() {
-    if (this.number > 0) this.number -= 1;
+    if (this.count > 0) this.count -= 1;
   }
   resetnum() {
-    this.number = 0;
+    this.count = 0;
   }
   constructor() {}
 

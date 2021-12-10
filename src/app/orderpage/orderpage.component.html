@@ -1,8 +1,8 @@
 <div class="container d-flex flex-column h-100 overflow-auto mt-3">
   <app-top-nav-spacing></app-top-nav-spacing>
   <div class="item">
-    <app-favourite-item [image]="item.image" [title]="item.title" [description]="item.description" [price]="item.price">
-    </app-favourite-item>
+    <!-- <app-favourite-item [image]="item.image" [title]="item.title" [description]="item.description" [price]="item.price">
+    </app-favourite-item> -->
   </div>
   <div class="d-flex flex-1 flex-grow-1"></div>
   <div class="price-section mb-3">
@@ -31,9 +31,9 @@
   <div class="discount d-flex justify-content-between mt-3">
     <div class="d-flex align-self-center justify-content-center">
       <mat-icon matSuffix fontSet="material-icons-round">local_activity</mat-icon>
-      <p class="discount-text" >کد تخفیف</p>
+      <p class="discount-text">کد تخفیف</p>
     </div>
-    
+
     <button class="btn enter-discount-code" (click)="openDiscount()">وارد کردن</button>
   </div>
   <app-choose-address></app-choose-address>
