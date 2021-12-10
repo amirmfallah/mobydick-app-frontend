@@ -5,7 +5,7 @@ import { Tokens } from '../core.interface';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { tap, catchError } from 'rxjs/operators';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -14,6 +14,7 @@ export class AuthService {
   private readonly JWT_TOKEN = 'JWT_TOKEN';
   private readonly REFRESH_TOKEN = 'REFRESH_TOKEN';
   private loggedUser: string;
+  IsLoggedIn = new BehaviorSubject<boolean>(false);
 
   constructor(private http: HttpClient) {}
 
@@ -80,11 +81,13 @@ export class AuthService {
   private doLoginUser(username: string, tokens: Tokens): void {
     this.loggedUser = username;
     this.storeTokens(tokens);
+    this.IsLoggedIn.next(true);
   }
 
   private doLogoutUser(): void {
     this.loggedUser = null;
     this.removeTokens();
+    this.IsLoggedIn.next(false);
   }
 
   private getRefreshToken(): any {
