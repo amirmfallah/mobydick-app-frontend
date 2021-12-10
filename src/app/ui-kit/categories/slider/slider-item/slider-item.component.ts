@@ -6,9 +6,9 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./slider-item.component.scss'],
 })
 export class SliderItemComponent implements OnInit {
-  @Input() image = '';
-  @Input() title = '';
-  @Input() id = '1';
+  @Input() thumbnail = '';
+  @Input() name = '';
+  @Input() id;
   constructor() {}
 
   ngOnInit(): void {}

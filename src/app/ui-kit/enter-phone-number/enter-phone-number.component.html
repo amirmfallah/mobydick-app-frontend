@@ -18,7 +18,10 @@
         <input matInput formControlName="phone" />
         <mat-icon matSuffix fontSet="material-icons-round">smartphone</mat-icon>
       </mat-form-field>
-      <button mat-raised-button color="primary" class="w-100" type="submit">ورود</button>
+      <button mat-raised-button color="primary" class="w-100" type="submit" [class.btn_loading]="form.disabled"
+        [disabled]="form.disabled">ورود</button>
+      <mat-progress-bar [class.invisible]="!form.disabled" [class.visible]="form.disabled" mode="query">
+      </mat-progress-bar>
     </form>
   </div>
 

@@ -33,6 +33,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { HandlenumberComponent } from './handlenumber/handlenumber.component';
 import { MatTabsModule } from '@angular/material/tabs';
 import { BottomTabInprogressComponent } from './bottom-tab-inprogress/bottom-tab-inprogress.component';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 @NgModule({
   declarations: [
@@ -67,6 +68,7 @@ import { BottomTabInprogressComponent } from './bottom-tab-inprogress/bottom-tab
     RouterModule,
     MatTabsModule,
     ReactiveFormsModule,
+    MatProgressBarModule,
   ],
   exports: [
     MatSelectModule,
