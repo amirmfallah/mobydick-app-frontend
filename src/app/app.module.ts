@@ -39,8 +39,8 @@ import { ChooseAddressComponent } from './choose-address/choose-address.componen
     ProductComponent,
     HistoryComponent,
     ProfileComponent,
-    YourOrderComponent
-    BottomTabDiscountComponent
+    YourOrderComponent,
+    BottomTabDiscountComponent,
     SearchpageComponent,
     ChooseAddressComponent,
   ],
