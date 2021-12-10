@@ -11,6 +11,7 @@ import { ProductService } from './services/product.service';
 })
 export class ProductComponent implements OnInit {
   panelOpenState = false;
+
   product = new BehaviorSubject<Product>(undefined);
 
   constructor(
