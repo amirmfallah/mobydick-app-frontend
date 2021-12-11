@@ -1,6 +1,6 @@
 <mat-nav-list>
   <!--(click)="openLink($event)-->
-  <a mat-list-item (click)="openLink($event)" *ngFor="let branch of branches">
+  <a mat-list-item (click)="openLink($event)" *ngFor="let branch of (branches | async)">
     <span mat-line>{{branch.name}}</span>
   </a>
 </mat-nav-list>

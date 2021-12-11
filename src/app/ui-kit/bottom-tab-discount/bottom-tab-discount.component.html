@@ -2,11 +2,13 @@
 <mat-divider class="my-3"></mat-divider>
 
 
-<form class="example-form">
+<form class="example-form" [formGroup]="form">
   <mat-form-field class="example-full-width" appearance="fill">
     <input type="text" matInput />
     <mat-icon matSuffix>local_activity</mat-icon>
   </mat-form-field>
 </form>
 
-<button mat-raised-button color="primary" class="w-100 mt-4"><p class="button-text">بررسی کد تخفیف</p></button>
+<button mat-raised-button color="primary" class="w-100 mt-4">
+  <p class="button-text">بررسی کد تخفیف</p>
+</button>

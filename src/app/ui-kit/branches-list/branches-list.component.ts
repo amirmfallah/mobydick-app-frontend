@@ -1,3 +1,4 @@
+import { BehaviorSubject } from 'rxjs';
 import { MatBottomSheetRef } from '@angular/material/bottom-sheet';
 import { Component, OnInit } from '@angular/core';
 import { BranchesService } from './services/branches.service';
@@ -10,7 +11,7 @@ import { branchSearch } from './interfaces/branch.interfaces';
   styleUrls: ['./branches-list.component.scss'],
 })
 export class BranchesListComponent implements OnInit {
-  branches: Array<branchSearch>;
+  branches = new BehaviorSubject<branchSearch[]>(undefined);
   constructor(
     private _bottomSheetRef: MatBottomSheetRef<BranchesListComponent>,
     private branchesService: BranchesService,
@@ -23,8 +24,7 @@ export class BranchesListComponent implements OnInit {
   }
   ngOnInit(): void {
     this.branchesService.getBranches().subscribe((res: branchSearch[]) => {
-      this.branches = res;
-      console.log(this.branches);
+      this.branches.next(res);
     });
   }
 }
