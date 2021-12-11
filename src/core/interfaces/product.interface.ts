@@ -6,6 +6,12 @@ export interface Ingredients {
   available: boolean;
 }
 
+export interface IngredientItem {
+  item: Ingredients;
+  required: boolean;
+  included: boolean;
+}
+
 export interface Product {
   _id: string;
   name: string;
@@ -15,9 +21,9 @@ export interface Product {
   discount: number;
   available: boolean;
   category: string;
-  bread: Array<Ingredients>;
-  ingredients: Array<Ingredients>;
-  optional: Array<Ingredients>;
+  bread: Array<IngredientItem>;
+  ingredients: Array<IngredientItem>;
+  optional: Array<IngredientItem>;
 }
 
 export interface Category {
