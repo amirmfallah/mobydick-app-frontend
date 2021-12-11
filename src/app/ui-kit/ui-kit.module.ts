@@ -34,6 +34,7 @@ import { HandlenumberComponent } from './handlenumber/handlenumber.component';
 import { MatTabsModule } from '@angular/material/tabs';
 import { BottomTabInprogressComponent } from './bottom-tab-inprogress/bottom-tab-inprogress.component';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -68,6 +69,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     RouterModule,
     MatTabsModule,
     ReactiveFormsModule,
+    MatProgressSpinnerModule,
     MatProgressBarModule,
   ],
   exports: [
