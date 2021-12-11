@@ -7,17 +7,7 @@ import { Component, OnInit, ViewChild, Input } from '@angular/core';
   styleUrls: ['./carousel.component.scss'],
 })
 export class CarouselComponent implements OnInit {
-  sliderinfo=[
-    {
-      image: 'assets/chicago.jpg',
-    },
-    {
-      image: 'assets/dayaneese.jpg',
-    },
-    {
-      image: 'assets/caesar.jpg',
-    },
-  ]
+  @Input() sliderinfo;
   constructor() {}
   @ViewChild('ngcarousel') ngCarousel: NgbCarousel;
 

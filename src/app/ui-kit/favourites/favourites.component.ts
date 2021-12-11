@@ -1,25 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit, Input } from '@angular/core';
+import { ProductComponent } from 'src/app/product/product.component';
 @Component({
   selector: 'app-favourites',
   templateUrl: './favourites.component.html',
   styleUrls: ['./favourites.component.scss'],
 })
 export class FavouritesComponent implements OnInit {
-  items=[
-    {
-      image: 'assets/pizza-sub.jpg',
-      title: 'پیتزا صاب',
-      description: 'ژامبون، گوشت، پنیر',
-      price: 40000
-    },
-    {
-      image: 'assets/chicken-salad.jpg',
-      title: 'چیکن سالاد',
-      description: 'چیکن، گوجه، خیار، پیاز',
-      price: 20000
-    },
-  ]
+  @Input() items = [];
   constructor() {}
 
   ngOnInit(): void {}

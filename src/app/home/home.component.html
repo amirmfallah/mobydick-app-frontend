@@ -1,10 +1,10 @@
 <div class="w-100 h-100 overflow-auto">
   <app-top-nav-spacing></app-top-nav-spacing>
   <div class="container">
-    <app-carousel></app-carousel>
+    <app-carousel [sliderinfo]="carouselimages"></app-carousel>
     <app-search></app-search>
   </div>
   <app-categories></app-categories>
-  <app-favourites></app-favourites>
+  <app-favourites [items]="favouriteProducts"></app-favourites>
   <app-bottom-nav-spacing></app-bottom-nav-spacing>
 </div>
