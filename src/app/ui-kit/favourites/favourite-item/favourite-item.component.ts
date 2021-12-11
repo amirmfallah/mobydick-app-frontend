@@ -1,3 +1,4 @@
+import { BehaviorSubject } from 'rxjs';
 import { Product } from './../../../../core/interfaces/product.interface';
 import { Component, OnInit, Input } from '@angular/core';
 
@@ -8,7 +9,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class FavouriteItemComponent implements OnInit {
   @Input() product: Product;
-
+  price: BehaviorSubject<number>;
   count = 0;
   incCount() {
     this.count += 1;
@@ -21,5 +22,7 @@ export class FavouriteItemComponent implements OnInit {
   }
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.price = new BehaviorSubject<number>(this.product.price);
+  }
 }

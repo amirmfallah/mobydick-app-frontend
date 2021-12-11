@@ -1,3 +1,5 @@
+import { MatInputModule } from '@angular/material/input';
+import { ReactiveFormsModule } from '@angular/forms';
 import { TokenInterceptor } from './../core/interceptors/token.interceptor';
 import { CategorypageModule } from './categorypage/categorypage.module';
 import {
@@ -52,6 +54,8 @@ import { ChooseAddressComponent } from './choose-address/choose-address.componen
     NgbModule,
     HttpClientModule,
     CategorypageModule,
+    ReactiveFormsModule,
+    MatInputModule,
   ],
   providers: [
     {

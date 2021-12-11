@@ -1,3 +1,4 @@
+import { BehaviorSubject } from 'rxjs';
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
@@ -6,16 +7,17 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./price.component.scss'],
 })
 export class PriceComponent implements OnInit {
-  @Input() price: number;
+  @Input() price: BehaviorSubject<number>;
   @Input() discountPercentage: number;
-  pricebeforediscount = 0;
+  pricebeforediscount = new BehaviorSubject<number>(0);
 
   constructor() {}
 
   ngOnInit(): void {
     this.pricebeforediscount = this.price;
     if (this.discountPercentage) {
-      this.price = this.price - this.price * (this.discountPercentage / 100);
+      let price = this.price.getValue();
+      this.price.next(price - price * (this.discountPercentage / 100));
     }
   }
 }

@@ -1,6 +1,6 @@
 <div class="d-flex flex-column">
   <div class="discount d-flex align-items-center" [ngClass]="{ not: discountPercentage == undefined }">
-    <p class="price-before-discount">{{ pricebeforediscount }} تومان</p>
+    <p class="price-before-discount">{{ pricebeforediscount | async }} تومان</p>
     <div class="
       discount-percent-box
       d-flex
@@ -10,5 +10,5 @@
       <p class="discount-percent-text text-center">{{ discountPercentage }}%</p>
     </div>
   </div>
-  <h2 class="price" style="vertical-align: middle;">{{ price }} تومان</h2>
+  <h2 class="price" style="vertical-align: middle;">{{ price | async }} تومان</h2>
 </div>
