@@ -35,6 +35,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { BottomTabInprogressComponent } from './bottom-tab-inprogress/bottom-tab-inprogress.component';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import {MatButtonToggleModule} from '@angular/material/button-toggle'; 
 
 @NgModule({
   declarations: [
@@ -71,6 +72,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     ReactiveFormsModule,
     MatProgressSpinnerModule,
     MatProgressBarModule,
+    MatButtonToggleModule
   ],
   exports: [
     MatSelectModule,
@@ -101,6 +103,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     FavouritesComponent,
     FavouriteItemComponent,
     SearchItemComponent,
+    MatButtonToggleModule
   ],
 })
 export class UiKitModule {}

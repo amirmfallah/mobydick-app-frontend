@@ -9,11 +9,39 @@
           {{ (product | async).description }}
         </p>
 
-        <app-price [price]="price" [discountPercentage]="(product | async).discount"></app-price>
+        <app-price
+          [price]="price"
+          [discountPercentage]="(product | async).discount"
+        ></app-price>
+        <mat-button-toggle-group>
+          <mat-button-toggle
+            ><p class="text">
+              بزرگ
+              <app-price
+                [price]="price"
+                [discountPercentage]="(product | async).discount"
+              ></app-price></p
+          ></mat-button-toggle>
+          <mat-button-toggle
+            ><p  class="text">
+              کوچک
+              <app-price
+                [price]="price"
+                [discountPercentage]="(product | async).discount"
+              ></app-price></p
+          ></mat-button-toggle>
+        </mat-button-toggle-group>
       </div>
 
-      <button mat-raised-button color="primary" class="add-button" type="submit">
-        <div class="d-flex justify-content-center align-items-center button-stuff">
+      <button
+        mat-raised-button
+        color="primary"
+        class="add-button"
+        type="submit"
+      >
+        <div
+          class="d-flex justify-content-center align-items-center button-stuff"
+        >
           <p class="button-text">افزودن</p>
           <mat-icon class="material-icons-round"> add</mat-icon>
         </div>
@@ -21,65 +49,95 @@
     </div>
 
     <mat-accordion class="m-2">
-      <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false"
-        *ngIf="(product | async).bread.length > 0">
+      <mat-expansion-panel
+        (opened)="panelOpenState = true"
+        (closed)="panelOpenState = false"
+        *ngIf="(product | async).bread.length > 0"
+      >
         <mat-expansion-panel-header>
           <mat-panel-title>
             <h3>انتخاب نان</h3>
           </mat-panel-title>
         </mat-expansion-panel-header>
         <mat-radio-group (change)="onRadioChange($event)">
-          <div class="ingredients d-flex justify-content-between my-2" *ngFor="let bread of (product | async).bread">
+          <div
+            class="ingredients d-flex justify-content-between my-2"
+            *ngFor="let bread of (product | async).bread"
+          >
             <div class="price-and-select">
               <p>{{ bread.item.name }}</p>
             </div>
             <div class="d-flex flex-row align-items-center">
               <p class="price mx-3">+ {{ bread.item.price }} تومان</p>
-              <mat-radio-button [value]="bread.item._id" [disabled]="bread.item.available === false" color="primary"
-                [checked]="bread.required || bread.included">
+              <mat-radio-button
+                [value]="bread.item._id"
+                [disabled]="bread.item.available === false"
+                color="primary"
+                [checked]="bread.required || bread.included"
+              >
               </mat-radio-button>
             </div>
           </div>
         </mat-radio-group>
-
       </mat-expansion-panel>
 
-      <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false"
-        *ngIf="(product | async).ingredients.length > 0">
+      <mat-expansion-panel
+        (opened)="panelOpenState = true"
+        (closed)="panelOpenState = false"
+        *ngIf="(product | async).ingredients.length > 0"
+      >
         <mat-expansion-panel-header>
           <mat-panel-title>
             <h3>محتویات محصول</h3>
           </mat-panel-title>
         </mat-expansion-panel-header>
 
-        <div class="d-flex justify-content-between my-2" *ngFor="let ingredient of (product | async).ingredients">
+        <div
+          class="d-flex justify-content-between my-2"
+          *ngFor="let ingredient of (product | async).ingredients"
+        >
           <p>
             {{ ingredient.item.name }}
           </p>
-          <mat-checkbox color="primary" [disabled]="ingredient.item.available === false || ingredient.required"
-            [value]="ingredient.item._id" (change)="onCheckboxChange($event, 'ingredients')"
-            [checked]="ingredient.required">
+          <mat-checkbox
+            color="primary"
+            [disabled]="
+              ingredient.item.available === false || ingredient.required
+            "
+            [value]="ingredient.item._id"
+            (change)="onCheckboxChange($event, 'ingredients')"
+            [checked]="ingredient.required"
+          >
           </mat-checkbox>
         </div>
       </mat-expansion-panel>
 
-      <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false"
-        *ngIf="(product | async).optional.length > 0">
+      <mat-expansion-panel
+        (opened)="panelOpenState = true"
+        (closed)="panelOpenState = false"
+        *ngIf="(product | async).optional.length > 0"
+      >
         <mat-expansion-panel-header>
           <mat-panel-title>
             <h3>افزودنی</h3>
           </mat-panel-title>
         </mat-expansion-panel-header>
 
-        <div class="ingredients d-flex justify-content-between my-2 w-100"
-          *ngFor="let option of (product | async).optional">
+        <div
+          class="ingredients d-flex justify-content-between my-2 w-100"
+          *ngFor="let option of (product | async).optional"
+        >
           <p>{{ option.item.name }}</p>
 
           <div class="price-and-select d-flex">
             <p class="price">+{{ option.item.price }} تومان</p>
-            <mat-checkbox color="primary" [disabled]="option.item.available === false || option.required"
-              [checked]="option.required || option.included" [value]="option.item._id"
-              (change)="onCheckboxChange($event, 'optional')">
+            <mat-checkbox
+              color="primary"
+              [disabled]="option.item.available === false || option.required"
+              [checked]="option.required || option.included"
+              [value]="option.item._id"
+              (change)="onCheckboxChange($event, 'optional')"
+            >
             </mat-checkbox>
           </div>
         </div>
