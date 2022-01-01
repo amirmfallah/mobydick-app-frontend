@@ -1,7 +1,13 @@
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
 @import "~@angular/material/theming";
-@import "app/ui-kit/styles/fonts/KalamehWeb/KalamehWeb.css";
+
+@font-face {
+  font-family: "IranSans";
+  src: url("assets/fonts/IRANSansWeb.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
 
 //@import url("./assets/css/style.css");
 
@@ -49,7 +55,7 @@ body {
 }
 body {
   margin: 0;
-  font-family: Kalameh, Roboto, "Helvetica Neue", sans-serif;
+  font-family: "IranSans", "Helvetica Neue", sans-serif;
 }
 
 .md-navbar-light {
