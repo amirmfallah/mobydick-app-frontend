@@ -74,6 +74,7 @@ export class ProductComponent implements OnInit {
         product.optional.forEach((option) => {
           if (option.item._id === e.source.value) {
             price += option.item.price;
+            return;
           }
         });
         this.price.next(price);
