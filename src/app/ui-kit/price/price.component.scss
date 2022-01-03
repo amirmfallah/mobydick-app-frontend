@@ -1,35 +1,24 @@
 h2 {
-  font-size: 14px;
   margin-bottom: 0;
   color: #22a45d;
 }
 .discount-percent-box {
-  border-radius: 16px;
-  background-color: rgba(34, 164, 93, 0.08);
-  border: 1px solid #22a45d;
-  width: 39px;
-  height: 19px;
-  padding: 4px;
-  letter-spacing: -0.4px;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 16px;
-  margin-right: 4px;
+  border-radius: 4px;
+  background-color: rgba(164, 43, 34, 0.08);
+  border: 1px solid #ee413b;
+  margin-left: 8px;
+  color: #ff6565;
+  font-size: 18px;
+  padding: 0 4px;
 }
 .not {
   display: none !important;
-}
-.discount-percent-text {
-  color: #22a45d;
-  font-size: 10px;
-  margin: 0 !important;
-  padding: 0 !important;
-  transform: translate(-20%, 3%);
 }
 .price-before-discount {
   text-decoration-line: line-through;
   font-style: normal;
   font-weight: normal;
   font-size: 12px;
+  line-height: 12px;
   color: #868686;
 }

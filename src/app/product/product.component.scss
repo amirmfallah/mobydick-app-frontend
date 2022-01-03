@@ -3,8 +3,8 @@
   height: 36px;
 }
 h2 {
-  font-weight: bold;
-  font-size: 30px;
+  font-weight: 700;
+  font-size: 20px;
   margin-bottom: 0;
 }
 .expansion {
@@ -64,4 +64,66 @@ mat-expansion-panel {
 
 ::ng-deep .mat-expansion-panel-body {
   padding-left: 8px !important;
+}
+
+.place-order-btn {
+  border-radius: 32px;
+}
+.count-btn {
+  border-radius: 32px;
+  height: 32px;
+  width: 32px;
+}
+.add-to-cart {
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f2f9;
+  gap: 8px;
+  padding-top: 8px;
+}
+.count-div {
+  p {
+    margin: 0 8px;
+  }
+  border-radius: 32px;
+  background-color: #ffffff;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex: row;
+  border-radius: 32px;
+  height: 100%;
+}
+
+.description {
+  opacity: 0.64;
+}
+
+.mat-button-toggle-group-appearance-standard {
+  border: 0;
+}
+
+mat-button-toggle-group {
+  box-shadow: none;
+}
+
+mat-button-toggle {
+  border: 1px rgba(0, 0, 0, 0) solid !important;
+  border-radius: 4px !important;
+  line-height: unset !important;
+  margin-left: 8px;
+  border: none;
+  margin-top: 5px !important;
+  padding: 0 5px !important;
+  z-index: 3 !important;
+}
+
+mat-button-toggle:hover {
+  border: 1px rgb(60, 190, 60) solid !important;
+  background-color: rgba(72, 219, 53, 0.452) !important;
+}
+
+.mat-button-toggle-input {
+  background-color: none !important;
+  padding-left: 32px !important;
 }

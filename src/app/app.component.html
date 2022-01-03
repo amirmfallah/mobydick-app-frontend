@@ -1,3 +1,7 @@
-<app-top-nav-bar *ngIf="this.authService.isLoggedIn()"></app-top-nav-bar>
-<router-outlet></router-outlet>
-<app-bottom-tab *ngIf="this.authService.isLoggedIn()"></app-bottom-tab>
+<div class="d-flex flex-column h-100 w-100">
+  <app-top-nav-bar *ngIf="this.authService.isLoggedIn()"></app-top-nav-bar>
+  <div class="flex-1 flex-grow-1 overflow-auto">
+    <router-outlet></router-outlet>
+  </div>
+  <app-bottom-tab *ngIf="this.authService.isLoggedIn()"></app-bottom-tab>
+</div>
