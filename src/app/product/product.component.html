@@ -1,23 +1,30 @@
-<div class="h-100 overflow-auto">
+<div class="h-100 d-flex flex-column">
   <app-top-nav-spacing></app-top-nav-spacing>
-  <img [src]="(product | async).thumbnail" class="w-100" />
-  <form [formGroup]="form" (ngSubmit)="placeOrder()">
-    <div class="container top-content d-flex justify-content-between mt-3">
-      <div class="right-side">
-        <h2>{{ (product | async).name }}</h2>
-        <p class="description opacity-64 align-self-start">
-          {{ (product | async).description }}
-        </p>
+  <form [formGroup]="form" (ngSubmit)="placeOrder()" class="flex-1 overflow-auto">
+    <img [src]="(product | async).thumbnail" class="w-100" />
+    <div class="w-100 d-flex flex-column justify-content-between mt-3 container">
 
+      <div class="d-flex flex-row w-100 mb-2 align-items-center">
+        <h2>{{ (product | async).name }}</h2>
+        <div class="flex-1 flex-grow-1"></div>
         <app-price [price]="price" [discountPercentage]="(product | async).discount"></app-price>
       </div>
 
-      <button mat-raised-button color="primary" class="add-button" type="submit">
-        <div class="d-flex justify-content-center align-items-center button-stuff">
-          <p class="button-text">افزودن</p>
-          <mat-icon class="material-icons-round"> add</mat-icon>
-        </div>
-      </button>
+
+
+      <mat-button-toggle-group class="mb-2">
+        <mat-button-toggle>
+          بزرگ
+        </mat-button-toggle>
+        <mat-button-toggle>
+          کوچک
+        </mat-button-toggle>
+      </mat-button-toggle-group>
+
+
+      <p class="description align-self-start">
+        {{ (product | async).description }}
+      </p>
     </div>
 
     <div class="p-2">
@@ -86,7 +93,24 @@
           </div>
         </mat-expansion-panel>
       </mat-accordion>
+
+
     </div>
+
   </form>
-  <app-bottom-nav-spacing></app-bottom-nav-spacing>
+
+  <div class="add-to-cart d-flex flex-row p-2 mt-auto">
+    <button mat-raised-button class="place-order-btn w-100" color="primary" type="submit">افزودن به سبد
+      خرید</button>
+    <div class="count-div">
+      <button mat-icon-button color="primary" aria-label="Example icon button with a menu icon">
+        <mat-icon>add</mat-icon>
+      </button>
+      <p>0</p>
+      <button mat-icon-button color="warn" aria-label="Example icon button with a menu icon">
+        <mat-icon>remove</mat-icon>
+      </button>
+    </div>
+  </div>
+
 </div>
