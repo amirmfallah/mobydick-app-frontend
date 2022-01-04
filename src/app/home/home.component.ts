@@ -4,13 +4,18 @@ import { ActivatedRoute } from '@angular/router';
 import { branchbyid } from './interfaces/branchbyid.interface';
 import { ProductComponent } from '../product/product.component';
 import { Product } from 'src/core/interfaces/product.interface';
+import Glide, {
+  Controls,
+  Breakpoints,
+} from '@glidejs/glide/dist/glide.modular.esm';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  carouselimages = [];
+  carouselimages: any;
   favouriteProducts: Product[] = undefined;
   branch: branchbyid;
   constructor(
@@ -22,7 +27,12 @@ export class HomeComponent implements OnInit {
     const id = '61b359d03de833e1093b3786';
     this.branchService.getBranch(id).subscribe((res: branchbyid) => {
       this.branch = res;
-      this.carouselimages = res.sliderPictures;
+      this.carouselimages = res.sliderPictures.map((url) => {
+        return {
+          path: url,
+        };
+      });
+      console.log(this.carouselimages);
       this.favouriteProducts = res.favoriteProducts;
       console.log(this.favouriteProducts);
     });

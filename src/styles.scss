@@ -1,14 +1,7 @@
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
 @import "~@angular/material/theming";
-
-@font-face {
-  font-family: "IranSans";
-  src: url("assets/fonts/IRANSansWeb.ttf");
-  font-weight: normal;
-  font-style: normal;
-}
-
+@import url("assets/IRANSans.css");
 //@import url("./assets/css/style.css");
 
 // Plus imports for other components in your app.

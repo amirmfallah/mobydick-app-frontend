@@ -31,6 +31,9 @@ import { ProfileComponent } from './profile/profile.component';
 import { YourOrderComponent } from './your-order/your-order.component';
 import { BottomTabDiscountComponent } from './ui-kit/bottom-tab-discount/bottom-tab-discount.component';
 import { ChooseAddressComponent } from './choose-address/choose-address.component';
+import { IvyCarouselModule } from 'angular-responsive-carousel';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -56,6 +59,8 @@ import { ChooseAddressComponent } from './choose-address/choose-address.componen
     CategorypageModule,
     ReactiveFormsModule,
     MatInputModule,
+    IvyCarouselModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
   providers: [
     {

@@ -1,10 +1,13 @@
 .nav-container {
+  position: sticky;
+  bottom: 0;
   width: 100%;
   z-index: 1000;
   box-shadow: 0px -2px 4px rgba(0, 0, 0, 0.04),
     inset 0px 1px 0px rgba(0, 0, 0, 0.1);
-  padding: 12px;
+  padding: 8px 12px;
   background-color: #ffffff;
+  padding-bottom: calc(1.5rem + env(safe-area-inset-bottom)) !important;
 }
 p {
   color: #868686;
@@ -15,7 +18,6 @@ p {
 
 .nav-btn {
   width: 56px;
-  height: 48px;
 }
 
 @import "../../ui-kit/styles/themes/md-light/colors.scss";
