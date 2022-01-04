@@ -8,7 +8,7 @@
 
   <app-favourite-item *ngFor="let item of products" [product]="item"></app-favourite-item>
 
-  <div *ngIf="products == undefined">
+  <div *ngIf="products == undefined" class="mt-2">
     <app-fav-skeleton></app-fav-skeleton>
     <app-fav-skeleton></app-fav-skeleton>
   </div>
