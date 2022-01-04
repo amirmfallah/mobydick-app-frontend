@@ -3,15 +3,18 @@ import { Component, OnInit, Input } from '@angular/core';
 @Component({
   selector: 'app-search-item',
   templateUrl: './search-item.component.html',
-  styleUrls: ['./search-item.component.scss']
+  styleUrls: ['./search-item.component.scss'],
 })
 export class SearchItemComponent implements OnInit {
-  @Input() title='';
-  @Input() image='';
+  @Input() title = '';
+  @Input() image = '';
   @Input() id: string;
-  constructor() { }
+  load: boolean = false;
+  constructor() {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  imageLoad(e) {
+    this.load = true;
   }
-
 }

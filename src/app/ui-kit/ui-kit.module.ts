@@ -1,3 +1,6 @@
+import { SliderSkeletonComponent } from './categories/slider/slider-skeleton/slider-skeleton.component';
+import { FavSkeletonComponent } from './../ui-kit/favourites/fav-skeleton/fav-skeleton.component';
+import { MatChipsModule } from '@angular/material/chips';
 import { SearchItemComponent } from './search-item/search-item.component';
 import { FavouriteItemComponent } from './favourites/favourite-item/favourite-item.component';
 import { FavouritesComponent } from './favourites/favourites.component';
@@ -35,7 +38,8 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { BottomTabInprogressComponent } from './bottom-tab-inprogress/bottom-tab-inprogress.component';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import {MatButtonToggleModule} from '@angular/material/button-toggle'; 
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { EmptyPageComponent } from './empty-page/empty-page.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +61,9 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
     FavouritesComponent,
     FavouriteItemComponent,
     SearchItemComponent,
+    FavSkeletonComponent,
+    SliderSkeletonComponent,
+    EmptyPageComponent,
   ],
   imports: [
     CommonModule,
@@ -68,11 +75,12 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
     MatSelectModule,
     MatListModule,
     RouterModule,
+    MatChipsModule,
     MatTabsModule,
     ReactiveFormsModule,
     MatProgressSpinnerModule,
     MatProgressBarModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
   ],
   exports: [
     MatSelectModule,
@@ -103,7 +111,9 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
     FavouritesComponent,
     FavouriteItemComponent,
     SearchItemComponent,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    FavSkeletonComponent,
+    EmptyPageComponent,
   ],
 })
 export class UiKitModule {}

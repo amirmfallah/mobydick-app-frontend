@@ -1,5 +1,5 @@
 <div class="h-100 d-flex flex-column">
-  <app-top-nav-spacing></app-top-nav-spacing>
+
   <form [formGroup]="form" (ngSubmit)="placeOrder()" class="flex-1 overflow-auto">
     <img [src]="(product | async).thumbnail" class="w-100" />
     <div class="w-100 d-flex flex-column justify-content-between mt-3 container">

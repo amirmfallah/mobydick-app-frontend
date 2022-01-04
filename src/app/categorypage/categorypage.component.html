@@ -1,8 +1,18 @@
-<div class="container h-100 overflow-auto">
-  <app-top-nav-spacing></app-top-nav-spacing>
-  <div class="content overflow-auto">
-    <h2 class="title my-3">{{categoryName}}</h2>
-    <app-favourite-item *ngFor="let item of products" [product]="item"></app-favourite-item>
+<mat-button-toggle-group class="header">
+
+  <mat-button-toggle *ngFor="let category of categories" [checked]="category._id == id"
+    [routerLink]="['/categories', category._id]">
+    {{category.name}}
+  </mat-button-toggle>
+</mat-button-toggle-group>
+
+
+
+<div class="h-100 w-100 container overflow-auto">
+  <app-favourite-item *ngFor="let item of products" [product]="item"></app-favourite-item>
+  <div *ngIf="products == undefined">
+    <app-fav-skeleton></app-fav-skeleton>
+    <app-fav-skeleton></app-fav-skeleton>
   </div>
-  <app-bottom-nav-spacing></app-bottom-nav-spacing>
+  <app-empty-page *ngIf="products !== undefined && products.length == 0"></app-empty-page>
 </div>

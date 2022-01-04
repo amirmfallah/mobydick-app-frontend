@@ -1,3 +1,49 @@
 .title {
-  font-size: 18px;
+  font-size: 14px;
+  opacity: 0.64;
+}
+
+.header {
+  width: 100%;
+  overflow-x: scroll;
+  margin-top: 12px;
+}
+
+.mat-button-toggle-group-appearance-standard {
+  border: 0;
+}
+
+::ng-deep .mat-button-toggle-label-content {
+  line-height: 32px !important;
+}
+
+mat-button-toggle-group {
+  box-shadow: none;
+  & :last-child {
+    margin-left: 12px;
+  }
+}
+
+mat-button-toggle {
+  border: 1px rgba(0, 0, 0, 0) solid !important;
+  border-radius: 16px !important;
+  line-height: unset !important;
+  margin-right: 12px;
+  border: none;
+  padding: 0 5px !important;
+  z-index: 3 !important;
+  font-size: 14px;
+}
+
+mat-button-toggle:hover,
+.mat-button-toggle-checked {
+  border-radius: 16px !important;
+  border: 1px rgb(60, 190, 60) solid !important;
+  background-color: rgba(72, 219, 53, 0.452) !important;
+}
+
+.mat-button-toggle-input {
+  border-radius: 16px !important;
+  background-color: none !important;
+  padding-left: 32px !important;
 }

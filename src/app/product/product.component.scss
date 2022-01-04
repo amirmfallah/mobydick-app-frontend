@@ -118,7 +118,8 @@ mat-button-toggle {
   z-index: 3 !important;
 }
 
-mat-button-toggle:hover {
+mat-button-toggle:hover,
+.mat-button-toggle-checked {
   border: 1px rgb(60, 190, 60) solid !important;
   background-color: rgba(72, 219, 53, 0.452) !important;
 }

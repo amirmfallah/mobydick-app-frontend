@@ -1,11 +1,49 @@
 @import "../../styles/themes/md-light/colors.scss";
 
+@-webkit-keyframes breathing {
+  0% {
+    opacity: 0.3;
+  }
+
+  25% {
+    opacity: 0.5;
+  }
+
+  60% {
+    opocity: 0.4;
+  }
+
+  100% {
+    opocity: 0.3;
+  }
+}
+
+@keyframes breathing {
+  0% {
+    opacity: 0.3;
+  }
+
+  25% {
+    opacity: 0.5;
+  }
+
+  60% {
+    opocity: 0.3;
+  }
+
+  100% {
+    opocity: 0.3;
+  }
+}
+
 $warn: map-get(
   $map: $md-warn-palette,
   $key: 600,
 );
 
 .item {
+  -webkit-animation: breathing 0.7s ease-in-out infinite alternate;
+  animation: breathing 0.7s ease-out infinite alternate;
   text-align: right;
   margin-bottom: 16px;
   background-color: #fff;
@@ -14,8 +52,13 @@ $warn: map-get(
 }
 
 .price {
-  color: #22a45d;
+  width: 80px;
+  border-radius: 4px;
+  height: 32px;
+  content: " ";
+  background-color: rgb(160, 160, 160);
 }
+
 .middle-content {
   width: 100%;
 }
@@ -35,11 +78,10 @@ $warn: map-get(
 .image-container {
   width: 110px;
   height: 110px;
-  img {
-    object-fit: cover;
-    border-radius: 8px;
-    margin-right: 4px;
-  }
+  background-color: rgb(160, 160, 160);
+  content: "";
+  border-radius: 8px;
+  margin-right: auto;
   margin-bottom: 4px;
 }
 #remove-btn {
@@ -49,7 +91,12 @@ $warn: map-get(
   background-color: #22a45d;
 }
 h2 {
-  margin-bottom: 0;
+  margin-bottom: 12px !important;
+  width: 60px;
+  border-radius: 4px;
+  height: 16px;
+  content: " ";
+  background-color: rgb(160, 160, 160);
 }
 
 .number {
@@ -59,16 +106,12 @@ h2 {
 }
 
 .description {
-  opacity: 0.64;
-  line-height: 16px;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  // Addition lines for 2 line or multiline ellipsis
-  display: -webkit-box !important;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  white-space: normal;
-  margin-top: 4px;
+  margin-bottom: 4px !important;
+  width: 120px;
+  border-radius: 4px;
+  height: 14px;
+  content: " ";
+  background-color: rgb(160, 160, 160);
 }
 
 .tags-container {

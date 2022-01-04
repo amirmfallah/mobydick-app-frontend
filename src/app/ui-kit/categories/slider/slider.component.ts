@@ -10,7 +10,7 @@ import { CategoriesService } from './../services/categories.service';
 export class SliderComponent implements OnInit {
   categoryName: string;
   thumbnail: string;
-  Categories: categoryItem[];
+  Categories: categoryItem[] = undefined;
   constructor(
     private categoryService: CategoriesService,
     private route: ActivatedRoute

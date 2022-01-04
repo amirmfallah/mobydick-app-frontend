@@ -1,10 +1,18 @@
 <div class="w-100 h-100 overflow-auto">
-  <app-top-nav-spacing></app-top-nav-spacing>
+
   <div class="container">
     <app-carousel [sliderinfo]="carouselimages"></app-carousel>
     <app-search></app-search>
   </div>
   <app-categories></app-categories>
-  <app-favourites [items]="favouriteProducts"></app-favourites>
-  <app-bottom-nav-spacing></app-bottom-nav-spacing>
+  <div class="container">
+    <div class="d-flex flex-row justify-content-between top-navbar">
+      <h2 class="title">پرطرفدارها</h2>
+      <app-see-more></app-see-more>
+    </div>
+    <div *ngFor="let product of favouriteProducts">
+      <app-favourite-item [product]="product"></app-favourite-item>
+    </div>
+    <app-fav-skeleton *ngIf="favouriteProducts == undefined"></app-fav-skeleton>
+  </div>
 </div>

@@ -1,20 +1,18 @@
-<div class="d-flex justify-content-start item">
-  <img [src]="product.thumbnail" [routerLink]="['/product', product._id]" />
-  <div class="middle-content" [routerLink]="['/product', product._id]">
-    <div class="upper-section align-items-baseline">
-      <h2>{{ product.name }}</h2>
-      <p class="description opacity-64 align-self-start">{{ product.description }}</p>
-    </div>
-    <app-price [price]="price" [discountPercentage]="product.discount"></app-price>
-  </div>
+<div class="d-flex item flex-column w-100 overflow-hidden">
+  <div class="d-flex flex-row flex-1 flex-nowrap" [routerLink]="['/product', product._id]">
 
-  <div class="bottom-section d-flex flex-column justify-content-start align-self-center" style="padding-left: 12px;">
-    <button mat-mini-fab class="bt d-flex align-items-center justify-content-center" id="add-btn">
-      <mat-icon matSuffix fontSet="material-icons-round" (click)="incCount()">add</mat-icon>
-    </button>
-    <h2 class="number">{{ count }}</h2>
-    <button mat-mini-fab class="bt d-flex align-items-center justify-content-center" id="remove-btn">
-      <mat-icon matSuffix fontSet="material-icons-round" (click)="decCount()">remove</mat-icon>
-    </button>
+    <div class="d-flex flex-column w-100 ">
+      <h2>{{ product.name }}</h2>
+      <p class="description">{{ product.description }}</p>
+    </div>
+
+    <div class="image-container">
+      <img [src]="product.thumbnail" width="110px" />
+    </div>
+  </div>
+  <div class="middle-content d-flex flex-row w-100">
+    <app-price [price]="price" [discountPercentage]="product.discount" [routerLink]="['/product', product._id]">
+    </app-price>
+    <button mat-stroked-button color="primary" class="add-btn">افزودن</button>
   </div>
 </div>

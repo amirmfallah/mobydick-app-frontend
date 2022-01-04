@@ -11,7 +11,7 @@ import { Product } from 'src/core/interfaces/product.interface';
 })
 export class HomeComponent implements OnInit {
   carouselimages = [];
-  favouriteProducts: Product[]
+  favouriteProducts: Product[] = undefined;
   branch: branchbyid;
   constructor(
     private branchService: GetBranchByIdService,
@@ -19,14 +19,12 @@ export class HomeComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const id="61b359d03de833e1093b3786";
+    const id = '61b359d03de833e1093b3786';
     this.branchService.getBranch(id).subscribe((res: branchbyid) => {
       this.branch = res;
-      this.carouselimages=res.sliderPictures;
-      this.favouriteProducts=res.favoriteProducts;
-      console.log(this.favouriteProducts)
+      this.carouselimages = res.sliderPictures;
+      this.favouriteProducts = res.favoriteProducts;
+      console.log(this.favouriteProducts);
     });
   }
 }
-
-

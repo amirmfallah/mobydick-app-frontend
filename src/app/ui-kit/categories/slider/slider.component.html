@@ -1,4 +1,10 @@
 <div class="d-flex flex-row w-100 overflow-auto slider-container">
-  <app-slider-item class="item-container" *ngFor="let category of Categories" [id]="category._id" [name]="category.name" [thumbnail]="category.thumbnail">
+  <app-slider-item class="item-container" *ngFor="let category of Categories" [id]="category._id" [name]="category.name"
+    [thumbnail]="category.thumbnail">
   </app-slider-item>
+  <app-slider-skeleton *ngIf="Categories == undefined"></app-slider-skeleton>
+  <app-slider-skeleton *ngIf="Categories == undefined"></app-slider-skeleton>
+  <app-slider-skeleton *ngIf="Categories == undefined"></app-slider-skeleton>
+  <app-slider-skeleton *ngIf="Categories == undefined"></app-slider-skeleton>
+
 </div>

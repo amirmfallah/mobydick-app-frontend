@@ -10,21 +10,29 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class CategorypageComponent implements OnInit {
   categoryName: string;
-  products: Array<Product>;
+  products: Array<Product> = undefined;
+  categories: Array<Category>;
+  id: string;
   constructor(
     private categoryService: CategorypageService,
     private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
-    const id = this.route.snapshot.paramMap.get('id');
-    console.log(id);
-    this.categoryService
-      .getProductsByCategory(id)
-      .subscribe((res: Category) => {
-        this.categoryName = res.name;
-        this.products = res.products;
-        console.log(this.products);
+    this.route.params.subscribe((params) => {
+      this.products = undefined;
+      this.id = params['id'];
+      this.categoryService
+        .getProductsByCategory(this.id)
+        .subscribe((res: Category) => {
+          this.categoryName = res.name;
+          this.products = res.products;
+          console.log(this.products);
+        });
+
+      this.categoryService.getCategories().subscribe((res: Array<Category>) => {
+        this.categories = res;
       });
+    });
   }
 }
