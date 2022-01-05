@@ -41,6 +41,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { EmptyPageComponent } from './empty-page/empty-page.component';
 import { NewAddressComponent } from './new-address/new-address.component';
+import { HistoryItemComponent } from './history-item/history-item.component';
+import { MatBadgeModule } from '@angular/material/badge';
 
 @NgModule({
   declarations: [
@@ -66,6 +68,7 @@ import { NewAddressComponent } from './new-address/new-address.component';
     SliderSkeletonComponent,
     EmptyPageComponent,
     NewAddressComponent,
+    HistoryItemComponent,
   ],
   imports: [
     CommonModule,
@@ -83,6 +86,7 @@ import { NewAddressComponent } from './new-address/new-address.component';
     MatProgressSpinnerModule,
     MatProgressBarModule,
     MatButtonToggleModule,
+    MatBadgeModule,
   ],
   exports: [
     MatSelectModule,
@@ -116,6 +120,7 @@ import { NewAddressComponent } from './new-address/new-address.component';
     MatButtonToggleModule,
     FavSkeletonComponent,
     EmptyPageComponent,
+    HistoryItemComponent,
   ],
 })
 export class UiKitModule {}

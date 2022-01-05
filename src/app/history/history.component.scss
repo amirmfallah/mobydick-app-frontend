@@ -1,3 +1,9 @@
 .mat-tab-label {
   width: 50%;
 }
+::ng-deep mat-tab-header {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 1000;
+  background-color: #f0f2f9;
+}
