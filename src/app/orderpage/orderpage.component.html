@@ -1,5 +1,10 @@
-<div class="container d-flex flex-column h-100 overflow-auto mt-3">
-
+<div class="container d-flex flex-column h-100 overflow-auto">
+  <div class="d-flex flex-row justify-content-between align-items-center mt-3">
+    <h2>آدرس تحویل</h2>
+    <button mat-stroked-button color="primary" (click)="openAddress()">افزودن آدرس جدید</button>
+  </div>
+  <div id="map" class="map-container mt-2"></div>
+  <app-choose-address class="mt-3"></app-choose-address>
   <div class="item">
     <!-- <app-favourite-item [image]="item.image" [title]="item.title" [description]="item.description" [price]="item.price">
     </app-favourite-item> -->
@@ -7,7 +12,7 @@
   <div class="d-flex flex-1 flex-grow-1"></div>
   <div class="price-section mb-3">
     <div class="price-content d-flex justify-content-between">
-      <p>جمع فروش</p>
+      <p>جمع خرید</p>
       <p>120000 تومان</p>
     </div>
     <div class="price-content d-flex justify-content-between">
@@ -19,26 +24,21 @@
       <p>0 تومان</p>
     </div>
     <div class="pay-able d-flex justify-content-between">
-      <p>قابل پرداخت</p>
-      <p>130000 تومان</p>
-    </div>
-    <div class="discount d-flex justify-content-between">
-      <p>تخفیف</p>
-      <p>0 تومان</p>
+      <p class="font-weight-bold">قابل پرداخت</p>
+      <p class="font-weight-bold">130000 تومان</p>
     </div>
   </div>
   <mat-divider></mat-divider>
+
   <div class="discount d-flex justify-content-between mt-3">
     <div class="d-flex align-self-center justify-content-center">
       <mat-icon matSuffix fontSet="material-icons-round">local_activity</mat-icon>
       <p class="discount-text">کد تخفیف</p>
     </div>
 
-    <button class="btn enter-discount-code" (click)="openDiscount()">وارد کردن</button>
+    <button class=" enter-discount-code" (click)="openDiscount()">وارد کردن</button>
   </div>
-  <app-choose-address class="mt-3"></app-choose-address>
   <button mat-raised-button color="primary" class="w-100 mb-4 mt-4" (click)="openInProgress()">
     تکمیل فرایند خرید
   </button>
-  <app-bottom-nav-spacing></app-bottom-nav-spacing>
 </div>

@@ -10,4 +10,44 @@
 .slider {
   margin-top: 12px;
   box-shadow: 0px -2px 4px rgba(0, 0, 0, 0.04);
+  background-color: rgba(20, 20, 20, 0.3);
+  -webkit-animation: breathing 0.7s ease-in-out infinite alternate;
+  animation: breathing 0.7s ease-out infinite alternate;
+  border-radius: 8px;
+}
+
+@-webkit-keyframes breathing {
+  0% {
+    background-color: rgba(160, 160, 160, 0.3);
+  }
+
+  25% {
+    background-color: rgba(160, 160, 160, 0.5);
+  }
+
+  60% {
+    background-color: rgba(160, 160, 160, 0.4);
+  }
+
+  100% {
+    background-color: rgba(160, 160, 160, 0.3);
+  }
+}
+
+@keyframes breathing {
+  0% {
+    background-color: rgba(160, 160, 160, 0.3);
+  }
+
+  25% {
+    background-color: rgba(160, 160, 160, 0.5);
+  }
+
+  60% {
+    background-color: rgba(160, 160, 160, 0.4);
+  }
+
+  100% {
+    background-color: rgba(160, 160, 160, 0.3);
+  }
 }

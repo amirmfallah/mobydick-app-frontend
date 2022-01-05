@@ -60,7 +60,9 @@ import { environment } from '../environments/environment';
     ReactiveFormsModule,
     MatInputModule,
     IvyCarouselModule,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+    }),
   ],
   providers: [
     {

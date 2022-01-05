@@ -23,6 +23,6 @@ export class FavouriteItemComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    this.price = new BehaviorSubject<number>(this.product.price);
+    this.price = new BehaviorSubject<number>(this.product.price[0].price);
   }
 }

@@ -1,6 +1,5 @@
 p {
   font-weight: bold;
-  font-size: 20px;
 }
 .pay-able {
   margin-top: 13px;
@@ -9,10 +8,7 @@ p {
 .item {
   margin-top: 7px;
 }
-button {
-  font-size: 20px;
-  font-weight: bold;
-}
+
 .discount-text {
   margin-right: 7px;
 }
@@ -20,4 +16,10 @@ button {
   border: 1px solid #22a45d;
   border-radius: 4px;
   color: #22a45d;
+}
+.map-container {
+  width: 100%;
+  height: 200px;
+  border: 1px solid #22a45c;
+  border-radius: 8px;
 }

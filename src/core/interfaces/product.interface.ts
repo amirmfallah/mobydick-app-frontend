@@ -12,12 +12,19 @@ export interface IngredientItem {
   included: boolean;
 }
 
+export interface priceItem {
+  _id: string;
+  optionName: string;
+  avaiable: string;
+  price: number;
+}
+
 export interface Product {
   _id: string;
   name: string;
   description: string;
   thumbnail: string;
-  price: number;
+  price: Array<priceItem>;
   discount: number;
   available: boolean;
   category: string;

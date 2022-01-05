@@ -1,5 +1,13 @@
+import { CartService } from './../../core/services/cart.service';
+import { CartItem } from './../../core/interfaces/cart.interface';
 import { Ingredients } from './../../core/interfaces/product.interface';
-import { FormGroup, FormBuilder, FormArray, FormControl } from '@angular/forms';
+import {
+  FormGroup,
+  FormBuilder,
+  FormArray,
+  FormControl,
+  Validators,
+} from '@angular/forms';
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
@@ -13,19 +21,23 @@ import { ProductService } from './services/product.service';
 })
 export class ProductComponent implements OnInit {
   panelOpenState = false;
-
+  count: number = 0;
   product = new BehaviorSubject<Product>(undefined);
   price = new BehaviorSubject<number>(undefined);
   form: FormGroup;
+  cartItemId: string = undefined;
+
   constructor(
     private productService: ProductService,
     private route: ActivatedRoute,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private cartService: CartService
   ) {
     this.form = this.fb.group({
       bread: this.fb.array([]),
       optional: this.fb.array([]),
       ingredients: this.fb.array([]),
+      option: [],
     });
   }
 
@@ -33,7 +45,7 @@ export class ProductComponent implements OnInit {
     const id = this.route.snapshot.paramMap.get('id');
     this.productService.getProduct(id).subscribe((res: Product) => {
       this.product.next(res);
-      this.price.next(res.price);
+      this.price.next(res.price[0].price);
 
       const breads: FormArray = this.form.get('bread') as FormArray;
       res.bread.forEach((bread) => {
@@ -60,7 +72,11 @@ export class ProductComponent implements OnInit {
 
   placeOrder(): void {
     console.log('place order');
-    console.log(this.form.value);
+    let cartItem = <CartItem>this.form.value;
+    cartItem.productId = this.product.getValue()._id;
+    cartItem.count = this.count;
+    this.cartService.addToCart(cartItem);
+    console.log(this.cartService.getCartList());
   }
 
   onCheckboxChange(e, field) {
@@ -106,5 +122,14 @@ export class ProductComponent implements OnInit {
     const radioArray: FormArray = this.form.get('bread') as FormArray;
     radioArray.clear();
     radioArray.push(new FormControl(e.value));
+  }
+
+  optionChange(e) {
+    this.product.getValue().price.forEach((option) => {
+      if (option._id === e.value) {
+        this.price.next(option.price);
+        this.form.get('option').setValue(option._id);
+      }
+    });
   }
 }

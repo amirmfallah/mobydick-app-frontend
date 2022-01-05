@@ -40,6 +40,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { EmptyPageComponent } from './empty-page/empty-page.component';
+import { NewAddressComponent } from './new-address/new-address.component';
 
 @NgModule({
   declarations: [
@@ -64,6 +65,7 @@ import { EmptyPageComponent } from './empty-page/empty-page.component';
     FavSkeletonComponent,
     SliderSkeletonComponent,
     EmptyPageComponent,
+    NewAddressComponent,
   ],
   imports: [
     CommonModule,

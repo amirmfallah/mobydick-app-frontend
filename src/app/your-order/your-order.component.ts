@@ -1,15 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+declare var L: any;
 @Component({
   selector: 'app-your-order',
   templateUrl: './your-order.component.html',
-  styleUrls: ['./your-order.component.scss']
+  styleUrls: ['./your-order.component.scss'],
 })
 export class YourOrderComponent implements OnInit {
-
-  constructor() { }
+  constructor() {}
+  @ViewChild('map') map: ElementRef;
 
   ngOnInit(): void {
+    console.log(L);
   }
-
 }

@@ -12,12 +12,9 @@
 
 
 
-      <mat-button-toggle-group class="mb-2">
-        <mat-button-toggle>
-          بزرگ
-        </mat-button-toggle>
-        <mat-button-toggle>
-          کوچک
+      <mat-button-toggle-group class="mb-2" (change)="optionChange($event)">
+        <mat-button-toggle *ngFor="let option of (product| async).price" [value]="option._id">
+          {{option.optionName}}
         </mat-button-toggle>
       </mat-button-toggle-group>
 
@@ -100,13 +97,14 @@
   </form>
 
   <div class="add-to-cart d-flex flex-row p-2 mt-auto">
-    <button mat-raised-button class="place-order-btn w-100" color="primary" type="submit">افزودن به سبد
+    <button mat-raised-button class="place-order-btn w-100" color="primary" type="submit" (click)="placeOrder()">افزودن
+      به سبد
       خرید</button>
     <div class="count-div">
       <button mat-icon-button color="primary" aria-label="Example icon button with a menu icon">
         <mat-icon>add</mat-icon>
       </button>
-      <p>0</p>
+      <p>{{this.count}}</p>
       <button mat-icon-button color="warn" aria-label="Example icon button with a menu icon">
         <mat-icon>remove</mat-icon>
       </button>

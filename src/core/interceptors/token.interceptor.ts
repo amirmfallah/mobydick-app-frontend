@@ -1,3 +1,4 @@
+import { Configuration } from 'src/core/configuration';
 import { AuthService } from '../services/auth.service';
 import { Injectable } from '@angular/core';
 import {
@@ -23,22 +24,26 @@ export class TokenInterceptor implements HttpInterceptor {
     request: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    if (this.authService.getJwtToken()) {
-      request = this.addToken(request, this.authService.getJwtToken());
-      this.authService.IsLoggedIn.next(true);
-    }
+    if (request.url.indexOf(Configuration.MobydickApiUrl) >= 0) {
+      if (this.authService.getJwtToken()) {
+        request = this.addToken(request, this.authService.getJwtToken());
+        this.authService.IsLoggedIn.next(true);
+      }
 
-    return next.handle(request).pipe(
-      catchError((error) => {
-        if (error instanceof HttpErrorResponse && error.status === 401) {
-          this.authService.logout();
-          window.location.reload();
-          return this.handle401Error(request, next);
-        } else {
-          return throwError(error);
-        }
-      })
-    ) as Observable<HttpEvent<any>>;
+      return next.handle(request).pipe(
+        catchError((error) => {
+          if (error instanceof HttpErrorResponse && error.status === 401) {
+            this.authService.logout();
+            window.location.reload();
+            return this.handle401Error(request, next);
+          } else {
+            return throwError(error);
+          }
+        })
+      ) as Observable<HttpEvent<any>>;
+    } else {
+      return next.handle(request);
+    }
   }
 
   private addToken(request: HttpRequest<any>, token: string): HttpRequest<any> {
