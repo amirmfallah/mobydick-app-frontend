@@ -36,6 +36,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { ProfileSettingComponent } from './profile-setting/profile-setting.component';
 import { TransactionsComponent } from './transactions/transactions.component';
+import { ProfileAddressesComponent } from './profile-addresses/profile-addresses.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,7 +51,8 @@ import { TransactionsComponent } from './transactions/transactions.component';
     SearchpageComponent,
     ChooseAddressComponent,
     ProfileSettingComponent,
-    TransactionsComponent
+    TransactionsComponent,
+    ProfileAddressesComponent
   ],
   imports: [
     BrowserModule,
