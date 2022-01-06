@@ -21,11 +21,10 @@ import { ProductService } from './services/product.service';
 })
 export class ProductComponent implements OnInit {
   panelOpenState = false;
-  count: number = 0;
+  count = new BehaviorSubject<number>(0);
   product = new BehaviorSubject<Product>(undefined);
   price = new BehaviorSubject<number>(undefined);
   form: FormGroup;
-  cartItemId: string = undefined;
 
   constructor(
     private productService: ProductService,
@@ -46,7 +45,9 @@ export class ProductComponent implements OnInit {
     this.productService.getProduct(id).subscribe((res: Product) => {
       this.product.next(res);
       this.price.next(res.price[0].price);
-
+      if (res.price.length > 0) {
+        this.optionChange({ value: res.price[res.price.length - 1]._id });
+      }
       const breads: FormArray = this.form.get('bread') as FormArray;
       res.bread.forEach((bread) => {
         if (bread.included) {
@@ -68,15 +69,32 @@ export class ProductComponent implements OnInit {
         }
       });
     });
+
+    this.form.valueChanges.subscribe((x) => {
+      let cartItem = <CartItem>this.form.value;
+      cartItem.productId = this.product.value._id;
+      this.count.next(this.cartService.getCountItem(cartItem));
+    });
   }
 
-  placeOrder(): void {
-    console.log('place order');
+  addOrder(): void {
     let cartItem = <CartItem>this.form.value;
-    cartItem.productId = this.product.getValue()._id;
-    cartItem.count = this.count;
-    this.cartService.addToCart(cartItem);
+    cartItem.productId = this.product.value._id;
+    cartItem.count = this.count.value;
+    console.log(cartItem);
+    const added = this.cartService.addToCart(cartItem);
+    this.count.next(added.count);
     console.log(this.cartService.getCartList());
+  }
+  removeOrder(): void {
+    if (this.count.value <= 0) {
+      return;
+    }
+    let cartItem = <CartItem>this.form.value;
+    cartItem.productId = this.product.value._id;
+    cartItem.count = this.count.value;
+    const removed = this.cartService.removeFromCart(cartItem);
+    this.count.next(removed);
   }
 
   onCheckboxChange(e, field) {
@@ -125,6 +143,9 @@ export class ProductComponent implements OnInit {
   }
 
   optionChange(e) {
+    let cartItem = <CartItem>this.form.value;
+    cartItem.productId = this.product.value._id;
+    this.count.next(this.cartService.getCountItem(cartItem));
     this.product.getValue().price.forEach((option) => {
       if (option._id === e.value) {
         this.price.next(option.price);
