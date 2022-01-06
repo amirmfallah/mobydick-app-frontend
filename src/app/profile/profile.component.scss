@@ -1,12 +1,18 @@
-.mat{
-    padding-left: 10px;
+.mat {
+  padding-left: 10px;
 }
-h2{
-    font-weight: bold;
-font-size: 28px;
+h2 {
+  font-weight: bold;
+  font-size: 24px;
 }
-h3{
-    font-weight: bold;
-font-size: 16px;
-opacity: 0.74;
+h3 {
+  font-weight: bold;
+  font-size: 16px;
+  opacity: 0.74;
+}
+
+mat-list-item {
+  background-color: #fff;
+  border-radius: 8px;
+  margin: 12px 0;
 }

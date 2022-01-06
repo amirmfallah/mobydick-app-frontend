@@ -1,8 +1,8 @@
 <div class="container">
-  <h2 class="w-100 text-center mb-2">افزودن آدرس جدید</h2>
+  <h2 class="w-100 text-center mb-2">ویرایش نشانی</h2>
   <mat-divider></mat-divider>
   <div class="map">
-    <div id="newMap" class="map-container mt-3">
+    <div id="editMap" class="map-container mt-3">
     </div>
     <button mat-mini-fab class="loc" color="primary" (click)="$getLocation.next('')">
       <mat-icon matSuffix fontSet="material-icons-round">gps_fixed</mat-icon>
@@ -17,6 +17,6 @@
       <mat-label>شماره تلفن</mat-label>
       <input matInput formControlName="phone">
     </mat-form-field>
-    <button mat-flat-button color="primary" class="w-100" type="submit">افزودن</button>
+    <button mat-flat-button color="primary" class="w-100" type="submit">ویرایش</button>
   </form>
 </div>

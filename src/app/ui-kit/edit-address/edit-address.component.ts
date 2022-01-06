@@ -1,17 +1,17 @@
-import { interval, Observable, Subject, BehaviorSubject } from 'rxjs';
-import { NeshanService } from './../../../core/services/neshan.service';
-import { Configuration } from './../../../core/configuration';
-import { FormBuilder, Validators } from '@angular/forms';
-import { Component, OnInit } from '@angular/core';
 import { debounce, map } from 'rxjs/operators';
+import { Configuration } from 'src/core/configuration';
+import { NeshanService } from './../../../core/services/neshan.service';
+import { Observable, Subject, interval, BehaviorSubject } from 'rxjs';
+import { Validators, FormBuilder } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
 declare var L: any;
 
 @Component({
-  selector: 'app-new-address',
-  templateUrl: './new-address.component.html',
-  styleUrls: ['./new-address.component.scss'],
+  selector: 'app-edit-address',
+  templateUrl: './edit-address.component.html',
+  styleUrls: ['./edit-address.component.scss'],
 })
-export class NewAddressComponent implements OnInit {
+export class EditAddressComponent implements OnInit {
   form = this.fb.group({
     address: ['', Validators.required],
     phone: ['', Validators.required],
@@ -25,7 +25,7 @@ export class NewAddressComponent implements OnInit {
   constructor(private fb: FormBuilder, private neshanService: NeshanService) {}
 
   ngOnInit(): void {
-    var newMap = new L.Map('newMap', {
+    var newMap = new L.Map('editMap', {
       key: Configuration.NeshanWebMapApiToken,
       maptype: 'neshan',
       poi: true,

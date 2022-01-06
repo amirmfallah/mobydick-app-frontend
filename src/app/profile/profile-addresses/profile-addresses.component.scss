@@ -1,0 +1,41 @@
+.btn {
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+}
+.edit-btn {
+  margin-left: 8px;
+}
+h2 {
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.address-container {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 8px;
+  min-height: 70px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+.header {
+  background-color: #f0f2f9;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.phone {
+  font-size: 14px;
+}
+.address {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 4px !important;
+}
+.edit {
+  font-size: 14px;
+  color: #008c15;
+  font-weight: 700;
+}

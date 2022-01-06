@@ -1,0 +1,45 @@
+.hour {
+  margin-right: 10px;
+}
+.icon {
+  margin-left: 3px;
+}
+.isSuccessbox {
+  width: 60px;
+  height: 25px;
+  border-radius: 10px;
+  background-color: rgba($color: #868686, $alpha: 0.3);
+  margin-right: 5px;
+}
+.Successful {
+  color: #22a45d;
+}
+.unSuccessful {
+  color: #ff6464;
+}
+.price-number {
+  margin-left: 5px;
+  font-size: 20px;
+}
+h2 {
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.trans-container {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 8px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.04);
+  margin: 12px 0;
+}
+
+.title {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 8px !important;
+}
+
+.date {
+  opacity: 0.72;
+}

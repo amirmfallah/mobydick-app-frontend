@@ -1,51 +1,49 @@
 <div class="container d-flex flex-column h-100 overflow-auto">
-  <h2 class="mt-5">تنظیمات</h2>
+  <div class="d-flex flex-row mt-4">
+    <mat-icon matSuffix fontSet="material-icons-round" [inline]="true"
+      style="font-size: 32px; margin-left: 12px !important;">settings
+    </mat-icon>
+    <h2>تنظیمات</h2>
+  </div>
+
   <mat-list role="list">
-    <mat-list-item role="listitem">
-      <mat-icon matSuffix fontSet="material-icons-round" class="mat"
-        >person</mat-icon
-      >
+    <mat-list-item role="listitem" routerLink="profile">
+      <mat-icon matSuffix fontSet="material-icons-round" class="mat">person</mat-icon>
       <p>اطلاعات حساب</p>
       <div class="flex-grow-1"></div>
 
-      <mat-icon matSuffix fontSet="material-icons-round">chevron_left</mat-icon>
+      <mat-icon color="primary" matSuffix fontSet="material-icons-round">chevron_left</mat-icon>
 
-      <mat-divider></mat-divider>
+
     </mat-list-item>
-    
-    <mat-list-item role="listitem">
-      <mat-icon matSuffix fontSet="material-icons-round" class="mat"
-        >location_on</mat-icon
-      >
+
+    <mat-list-item role="listitem" routerLink="addresses">
+      <mat-icon matSuffix fontSet="material-icons-round" class="mat">location_on</mat-icon>
       <p>آدرس ها</p>
       <div class="flex-grow-1"></div>
-      <mat-icon matSuffix fontSet="material-icons-round">chevron_left</mat-icon>
+      <mat-icon matSuffix fontSet="material-icons-round" color="primary">chevron_left</mat-icon>
 
-      <mat-divider></mat-divider>
+
     </mat-list-item>
-   
-      <mat-list-item role="listitem">
-        <mat-icon matSuffix fontSet="material-icons-round" class="mat"
-          >paid</mat-icon
-        >
-        <p>تراکنش ها</p>
-        <div class="flex-grow-1"></div>
-  
-        <mat-icon matSuffix fontSet="material-icons-round">chevron_left</mat-icon>
-  
-        <mat-divider></mat-divider>
-      </mat-list-item>
-     
-      <mat-list-item role="listitem">
-        <mat-icon matSuffix fontSet="material-icons-round" class="mat"
-          >logout</mat-icon
-        >
-        <p>خروج</p>
-        <div class="flex-grow-1"></div>
-  
-        <mat-icon matSuffix fontSet="material-icons-round">chevron_left</mat-icon>
-      </mat-list-item>
-    </mat-list>
 
-  
+    <mat-list-item role="listitem" routerLink="transactions">
+      <mat-icon matSuffix fontSet="material-icons-round" class="mat">paid</mat-icon>
+      <p>تراکنش ها</p>
+      <div class="flex-grow-1"></div>
+
+      <mat-icon matSuffix fontSet="material-icons-round" color="primary">chevron_left</mat-icon>
+
+
+    </mat-list-item>
+
+    <mat-list-item role="listitem">
+      <mat-icon matSuffix fontSet="material-icons-round" class="mat">logout</mat-icon>
+      <p>خروج</p>
+      <div class="flex-grow-1"></div>
+
+      <mat-icon matSuffix fontSet="material-icons-round" color="primary">chevron_left</mat-icon>
+    </mat-list-item>
+  </mat-list>
+
+
 </div>

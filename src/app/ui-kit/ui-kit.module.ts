@@ -43,9 +43,10 @@ import { EmptyPageComponent } from './empty-page/empty-page.component';
 import { NewAddressComponent } from './new-address/new-address.component';
 import { HistoryItemComponent } from './history-item/history-item.component';
 import { MatBadgeModule } from '@angular/material/badge';
-import {MatSlideToggleModule} from '@angular/material/slide-toggle'; 
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { CartItemComponent } from './cart-item/cart-item.component';
 import { CartItemSkeletonComponent } from './cart-item/cart-item-skeleton/cart-item-skeleton.component';
+import { EditAddressComponent } from './edit-address/edit-address.component';
 
 @NgModule({
   declarations: [
@@ -74,6 +75,7 @@ import { CartItemSkeletonComponent } from './cart-item/cart-item-skeleton/cart-i
     HistoryItemComponent,
     CartItemComponent,
     CartItemSkeletonComponent,
+    EditAddressComponent,
   ],
   imports: [
     CommonModule,
@@ -92,7 +94,7 @@ import { CartItemSkeletonComponent } from './cart-item/cart-item-skeleton/cart-i
     MatProgressBarModule,
     MatButtonToggleModule,
     MatBadgeModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
   ],
   exports: [
     MatSelectModule,
@@ -127,7 +129,7 @@ import { CartItemSkeletonComponent } from './cart-item/cart-item-skeleton/cart-i
     FavSkeletonComponent,
     EmptyPageComponent,
     HistoryItemComponent,
-    MatSlideToggleModule
+    MatSlideToggleModule,
     CartItemComponent,
     CartItemSkeletonComponent,
   ],

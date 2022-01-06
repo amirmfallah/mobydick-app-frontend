@@ -1,3 +1,5 @@
+import { ChooseAddressComponent } from './choose-address/choose-address.component';
+import { ProfileModule } from './profile/profile.module';
 import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TokenInterceptor } from './../core/interceptors/token.interceptor';
@@ -16,27 +18,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UiKitModule } from './ui-kit/ui-kit.module';
 import { HomeComponent } from './home/home.component';
 import { CategoriesComponent } from './ui-kit/categories/categories.component';
-import { SliderComponent } from './ui-kit/categories/slider/slider.component';
-import { SliderItemComponent } from './ui-kit/categories/slider/slider-item/slider-item.component';
-import { SearchComponent } from './ui-kit/search/search.component';
-import { FavouritesComponent } from './ui-kit/favourites/favourites.component';
-import { FavouriteItemComponent } from './ui-kit/favourites/favourite-item/favourite-item.component';
 import { SearchpageComponent } from './searchpage/searchpage.component';
-import { SearchItemComponent } from './ui-kit/search-item/search-item.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { OrderpageComponent } from './orderpage/orderpage.component';
 import { ProductComponent } from './product/product.component';
 import { HistoryComponent } from './history/history.component';
-import { ProfileComponent } from './profile/profile.component';
 import { YourOrderComponent } from './your-order/your-order.component';
 import { BottomTabDiscountComponent } from './ui-kit/bottom-tab-discount/bottom-tab-discount.component';
-import { ChooseAddressComponent } from './choose-address/choose-address.component';
 import { IvyCarouselModule } from 'angular-responsive-carousel';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
-import { ProfileSettingComponent } from './profile-setting/profile-setting.component';
-import { TransactionsComponent } from './transactions/transactions.component';
-import { ProfileAddressesComponent } from './profile-addresses/profile-addresses.component';
 import { CartComponent } from './cart/cart.component';
 
 @NgModule({
@@ -47,15 +38,11 @@ import { CartComponent } from './cart/cart.component';
     OrderpageComponent,
     ProductComponent,
     HistoryComponent,
-    ProfileComponent,
     YourOrderComponent,
     BottomTabDiscountComponent,
     SearchpageComponent,
-    ChooseAddressComponent,
-    ProfileSettingComponent,
-    TransactionsComponent,
-    ProfileAddressesComponent
     CartComponent,
+    ChooseAddressComponent,
   ],
   imports: [
     BrowserModule,
@@ -68,6 +55,7 @@ import { CartComponent } from './cart/cart.component';
     ReactiveFormsModule,
     MatInputModule,
     IvyCarouselModule,
+    ProfileModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
     }),

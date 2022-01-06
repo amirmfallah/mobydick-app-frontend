@@ -1,0 +1,28 @@
+<div class="container d-flex flex-column h-100 overflow-auto">
+  <div class="d-flex justify-content-between py-4 header">
+    <div class="d-flex flex-row">
+      <mat-icon matSuffix fontSet="material-icons-round" [inline]="true"
+        style="font-size: 32px; margin-left: 12px !important;">place
+      </mat-icon>
+      <h2>نشانی‌ها</h2>
+    </div>
+    <mat-icon routerLink="/settings" matSuffix fontSet="material-icons-round" [inline]="true" style="font-size: 32px;">
+      chevron_left</mat-icon>
+  </div>
+  <div *ngFor="let adr of addresses">
+    <div class="d-flex flex-column justify-content-between align-items-start my-1 address-container w-100">
+      <p class="address">{{ adr.address }}</p>
+      <p class="phone">09112475534</p>
+      <div class="d-flex flex-row justify-content-between align-items-center w-100">
+        <div class="d-flex flex-row align-items-center" (click)="openAddress()">
+          <span class="edit">ویرایش نشانی</span>
+          <mat-icon matSuffix fontSet="material-icons-round" color="primary">chevron_left</mat-icon>
+
+        </div>
+        <button mat-icon-button color="warn">
+          <mat-icon matSuffix fontSet="material-icons-round">delete</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
