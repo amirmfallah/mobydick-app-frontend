@@ -34,6 +34,7 @@ import { ChooseAddressComponent } from './choose-address/choose-address.componen
 import { IvyCarouselModule } from 'angular-responsive-carousel';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { ProfileSettingComponent } from './profile-setting/profile-setting.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { environment } from '../environments/environment';
     BottomTabDiscountComponent,
     SearchpageComponent,
     ChooseAddressComponent,
+    ProfileSettingComponent,
   ],
   imports: [
     BrowserModule,

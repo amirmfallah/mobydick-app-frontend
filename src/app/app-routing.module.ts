@@ -10,6 +10,7 @@ import { CategoriesComponent } from './ui-kit/categories/categories.component';
 import { ProductComponent } from './product/product.component';
 import { HistoryComponent } from './history/history.component';
 import { YourOrderComponent } from './your-order/your-order.component';
+import { ProfileSettingComponent } from './profile-setting/profile-setting.component';
 
 const routes: Routes = [
   {
@@ -45,7 +46,12 @@ const routes: Routes = [
   {
     path: 'profile',
     component: ProfileComponent,
-    //canActivate: [SignedInGuard],
+    canActivate: [SignedInGuard],
+  },
+  {
+    path: 'profile-setting',
+    component: ProfileSettingComponent,
+    canActivate: [SignedInGuard],
   },
   {
     path: 'your-order',
