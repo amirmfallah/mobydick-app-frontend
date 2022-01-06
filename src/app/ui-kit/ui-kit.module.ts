@@ -44,6 +44,7 @@ import { NewAddressComponent } from './new-address/new-address.component';
 import { HistoryItemComponent } from './history-item/history-item.component';
 import { MatBadgeModule } from '@angular/material/badge';
 import { CartItemComponent } from './cart-item/cart-item.component';
+import { CartItemSkeletonComponent } from './cart-item/cart-item-skeleton/cart-item-skeleton.component';
 
 @NgModule({
   declarations: [
@@ -71,6 +72,7 @@ import { CartItemComponent } from './cart-item/cart-item.component';
     NewAddressComponent,
     HistoryItemComponent,
     CartItemComponent,
+    CartItemSkeletonComponent,
   ],
   imports: [
     CommonModule,
@@ -124,6 +126,7 @@ import { CartItemComponent } from './cart-item/cart-item.component';
     EmptyPageComponent,
     HistoryItemComponent,
     CartItemComponent,
+    CartItemSkeletonComponent,
   ],
 })
 export class UiKitModule {}

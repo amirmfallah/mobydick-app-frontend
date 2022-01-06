@@ -104,7 +104,7 @@
       <button mat-icon-button color="primary" aria-label="Example icon button with a menu icon" (click)="addOrder()">
         <mat-icon>add</mat-icon>
       </button>
-      <p>{{(count | async)}}</p>
+      <p class="count">{{(count | async)}}</p>
       <button mat-icon-button color="warn" aria-label="Example icon button with a menu icon" (click)="removeOrder()"
         [disabled]="this.count.value <= 0">
         <mat-icon>remove</mat-icon>

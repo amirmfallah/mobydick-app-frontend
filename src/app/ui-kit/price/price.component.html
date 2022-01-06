@@ -7,6 +7,6 @@
     <div class="d-flex align-items-center price-before-discount" [ngClass]="{ not: discountPercentage == undefined }">
       {{ pricebeforediscount | async }} تومان
     </div>
-    <h2 class="price" style="vertical-align: middle;">{{ price | async }} تومان</h2>
+    <h2 class="price" style="vertical-align: middle;">{{ after | async }} تومان</h2>
   </div>
 </div>

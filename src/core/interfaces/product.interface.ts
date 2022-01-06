@@ -12,6 +12,11 @@ export interface IngredientItem {
   included: boolean;
 }
 
+export interface IngredientItemUnpopulated {
+  item: string;
+  required: boolean;
+  included: boolean;
+}
 export interface priceItem {
   _id: string;
   optionName: string;
@@ -32,9 +37,30 @@ export interface Product {
   optional?: Array<IngredientItem>;
 }
 
+export interface ProductUnpopulated {
+  _id: string;
+  name: string;
+  description: string;
+  thumbnail: string;
+  price: Array<priceItem>;
+  discount: number;
+  available: boolean;
+  category: string;
+  bread?: Array<IngredientItemUnpopulated>;
+  ingredients?: Array<IngredientItemUnpopulated>;
+  optional?: Array<IngredientItemUnpopulated>;
+}
+
 export interface Category {
   _id: string;
   name: string;
   thumbnail: string;
   products: Array<Product>;
+}
+
+export interface CategoryUnpopulated {
+  _id: string;
+  name: string;
+  thumbnail: string;
+  products: Array<ProductUnpopulated>;
 }

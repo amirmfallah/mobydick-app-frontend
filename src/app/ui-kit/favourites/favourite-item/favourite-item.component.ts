@@ -1,6 +1,11 @@
+import { CartItem } from './../../../../core/interfaces/cart.interface';
 import { BehaviorSubject } from 'rxjs';
-import { Product } from './../../../../core/interfaces/product.interface';
+import {
+  Product,
+  ProductUnpopulated,
+} from './../../../../core/interfaces/product.interface';
 import { Component, OnInit, Input } from '@angular/core';
+import { CartService } from 'src/core/services/cart.service';
 
 @Component({
   selector: 'app-favourite-item',
@@ -8,7 +13,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./favourite-item.component.scss'],
 })
 export class FavouriteItemComponent implements OnInit {
-  @Input() product: Product;
+  @Input() product: ProductUnpopulated;
   price: BehaviorSubject<number>;
   count = 0;
   incCount() {
@@ -20,9 +25,25 @@ export class FavouriteItemComponent implements OnInit {
   resetnum() {
     this.count = 0;
   }
-  constructor() {}
+  constructor(private cartService: CartService) {}
 
   ngOnInit(): void {
     this.price = new BehaviorSubject<number>(this.product.price[0].price);
+  }
+
+  addToCart() {
+    console.log(this.product);
+    const cartItem = <CartItem>{
+      bread: this.product.bread.filter((x) => x.included).map((x) => x.item),
+      ingredients: this.product.ingredients.map((x) => x.item),
+      productId: this.product._id,
+      optional: this.product.optional
+        .filter((x) => x.included)
+        .map((x) => x.item),
+      option: this.product.price[0]._id,
+      count: 0,
+    };
+    console.log(cartItem);
+    this.cartService.addToCart(cartItem);
   }
 }

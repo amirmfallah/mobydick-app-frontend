@@ -1,3 +1,4 @@
+import { BehaviorSubject } from 'rxjs';
 import { CartService } from './../../../core/services/cart.service';
 import {
   CartItem,
@@ -14,6 +15,7 @@ export class CartItemComponent implements OnInit {
   constructor(private cartService: CartService) {}
   detail: string = '';
   @Input() item: CartItemPopulated;
+  @Input() changed: BehaviorSubject<any>;
 
   ngOnInit(): void {
     this.item.bread.forEach((i) => {
@@ -33,7 +35,9 @@ export class CartItemComponent implements OnInit {
     const added = this.cartService.addToCart(cartItem);
     this.item.count = added.count;
     console.log(this.cartService.getCartList());
+    this.changed.next('');
   }
+
   removeOrder(): void {
     if (this.item.count <= 0) {
       return;
@@ -41,6 +45,7 @@ export class CartItemComponent implements OnInit {
     let cartItem = <CartItem>this.getCartItem(this.item);
     const removed = this.cartService.removeFromCart(cartItem);
     this.item.count = removed;
+    this.changed.next('');
   }
 
   getCartItem(item: CartItemPopulated): CartItem {
