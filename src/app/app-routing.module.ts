@@ -11,6 +11,7 @@ import { ProductComponent } from './product/product.component';
 import { HistoryComponent } from './history/history.component';
 import { YourOrderComponent } from './your-order/your-order.component';
 import { ProfileSettingComponent } from './profile-setting/profile-setting.component';
+import { TransactionsComponent } from './transactions/transactions.component';
 
 const routes: Routes = [
   {
@@ -52,6 +53,11 @@ const routes: Routes = [
     path: 'profile-setting',
     component: ProfileSettingComponent,
     canActivate: [SignedInGuard],
+  },
+  {
+    path: 'profile-transactions',
+    component: TransactionsComponent,
+    //canActivate: [SignedInGuard],
   },
   {
     path: 'your-order',

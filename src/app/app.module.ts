@@ -35,7 +35,7 @@ import { IvyCarouselModule } from 'angular-responsive-carousel';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { ProfileSettingComponent } from './profile-setting/profile-setting.component';
-
+import { TransactionsComponent } from './transactions/transactions.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,6 +50,7 @@ import { ProfileSettingComponent } from './profile-setting/profile-setting.compo
     SearchpageComponent,
     ChooseAddressComponent,
     ProfileSettingComponent,
+    TransactionsComponent
   ],
   imports: [
     BrowserModule,
