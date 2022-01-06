@@ -1,0 +1,50 @@
+<div class="h-100 w-100 container overflow-auto">
+  <div class="d-flex justify-content-between mt-5">
+    <div></div>
+    <h2>تنظیمات پروفایل</h2>
+    <mat-icon matSuffix fontSet="material-icons-round">chevron_left</mat-icon>
+  </div>
+  <p class="my-4">
+    در پرداخت های ناموفق بانکی اگر مبلغ از حسابتان کسر شود معمولا در کمتر از یک
+    ساعت و نهایتا 72 ساعت به حساب شما برگردانده خواهد شد.
+  </p>
+  <div class="" *ngFor="let transaction of transactions">
+    <p>سفارش از {{ transaction.name }}</p>
+    <div class="d-flex">
+      <mat-icon matSuffix fontSet="material-icons-round" class="icon"
+        >event</mat-icon
+      >
+      <p>
+        {{ transaction.year }}/{{ transaction.month }}/{{ transaction.date }}
+      </p>
+      <mat-icon matSuffix fontSet="material-icons-round" class="icon hour"
+        >schedule</mat-icon
+      >
+      <p>{{ transaction.hour }}:{{ transaction.minute }}</p>
+    </div>
+    <div class="d-flex justify-content-between mt-2">
+      <div class="d-flex">
+        <p>پرداخت آنلاین</p>
+        <div
+          *ngIf="transaction.isSuccess; else unsuccess"
+          class=" Successful d-flex justify-content-center align-items-center isSuccessbox"
+        >
+          <p>موفق</p>
+        </div>
+        <ng-template #unsuccess>
+          <div
+            class="unSuccessful d-flex justify-content-center align-items-center isSuccessbox"
+          >
+            <p>ناموفق</p>
+          </div>
+        </ng-template>
+      </div>
+      <div class="d-flex">
+        <p class="price-number">{{ transaction.price }}</p>
+        <p>تومان</p>
+      </div>
+    </div>
+
+    <mat-divider class="mt-2"></mat-divider>
+  </div>
+</div>

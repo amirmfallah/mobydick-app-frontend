@@ -34,6 +34,9 @@ import { ChooseAddressComponent } from './choose-address/choose-address.componen
 import { IvyCarouselModule } from 'angular-responsive-carousel';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { ProfileSettingComponent } from './profile-setting/profile-setting.component';
+import { TransactionsComponent } from './transactions/transactions.component';
+import { ProfileAddressesComponent } from './profile-addresses/profile-addresses.component';
 import { CartComponent } from './cart/cart.component';
 
 @NgModule({
@@ -49,6 +52,9 @@ import { CartComponent } from './cart/cart.component';
     BottomTabDiscountComponent,
     SearchpageComponent,
     ChooseAddressComponent,
+    ProfileSettingComponent,
+    TransactionsComponent,
+    ProfileAddressesComponent
     CartComponent,
   ],
   imports: [
