@@ -30,20 +30,7 @@ export class AuthService {
 
   login(user: { phone: string; code: string }): Observable<any> {
     return this.http
-      .post<any>(`${Configuration.MobydickApiUrl}/api/v1/auth/login`, user)
-      .pipe(
-        tap((res) =>
-          this.doLoginUser(user.phone, {
-            token: res.accessToken,
-            refreshToken: res.refreshToken,
-          })
-        )
-      );
-  }
-
-  signUp(user: { phone: string; code: string }): Observable<any> {
-    return this.http
-      .post<any>(`${Configuration.MobydickApiUrl}/api/v1/auth/signup`, user)
+      .post<any>(`${Configuration.MobydickApiUrl}/api/v1/auth/signin`, user)
       .pipe(
         tap((res) =>
           this.doLoginUser(user.phone, {

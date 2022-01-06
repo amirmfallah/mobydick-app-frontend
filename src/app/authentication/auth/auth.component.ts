@@ -40,9 +40,7 @@ export class AuthComponent implements OnInit {
     console.log(this.phoneForm.controls);
     this.authService.sendOtp(this.phoneForm.value).subscribe(
       (res: OtpSent) => {
-        this.action = res.action;
         this.phone = res.phone;
-        console.log(res);
         this.codeSend.next(true);
         this.phoneForm.enable();
       },
@@ -57,36 +55,20 @@ export class AuthComponent implements OnInit {
       return;
     }
     this.codeForm.disable();
-    if (this.action === AuthAction.SignIn) {
-      this.authService
-        .login({
-          code: this.codeForm.value?.code,
-          phone: this.phone,
-        })
-        .subscribe(
-          () => {
-            this.router.navigate(['/', 'home']);
-            this.codeForm.enable();
-          },
-          (err) => {
-            this.codeForm.enable();
-          }
-        );
-    } else if (this.action === AuthAction.SignUp) {
-      this.authService
-        .signUp({
-          code: this.codeForm.value?.code,
-          phone: this.phone,
-        })
-        .subscribe(
-          () => {
-            this.router.navigate(['/', 'home']);
-            this.codeForm.enable();
-          },
-          (err) => {
-            this.codeForm.enable();
-          }
-        );
-    }
+
+    this.authService
+      .login({
+        code: this.codeForm.value?.code,
+        phone: this.phone,
+      })
+      .subscribe(
+        () => {
+          this.router.navigate(['/', 'home']);
+          this.codeForm.enable();
+        },
+        (err) => {
+          this.codeForm.enable();
+        }
+      );
   }
 }

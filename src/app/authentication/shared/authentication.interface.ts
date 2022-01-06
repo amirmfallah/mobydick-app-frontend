@@ -11,9 +11,7 @@ export enum AuthAction {
 }
 
 export interface OtpSent {
-  action: AuthAction;
   expiration: number;
-  expiresAt: string;
   phone: string;
 }
 
