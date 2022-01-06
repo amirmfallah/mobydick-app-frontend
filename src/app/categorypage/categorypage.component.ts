@@ -1,4 +1,9 @@
-import { Category, Product } from './../../core/interfaces/product.interface';
+import {
+  Category,
+  CategoryUnpopulated,
+  Product,
+  ProductUnpopulated,
+} from './../../core/interfaces/product.interface';
 import { CategorypageService } from './services/categorypage.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
@@ -10,8 +15,8 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class CategorypageComponent implements OnInit {
   categoryName: string;
-  products: Array<Product> = undefined;
-  categories: Array<Category>;
+  products: Array<ProductUnpopulated> = undefined;
+  categories: Array<CategoryUnpopulated>;
   id: string;
   constructor(
     private categoryService: CategorypageService,
@@ -24,15 +29,17 @@ export class CategorypageComponent implements OnInit {
       this.id = params['id'];
       this.categoryService
         .getProductsByCategory(this.id)
-        .subscribe((res: Category) => {
+        .subscribe((res: CategoryUnpopulated) => {
           this.categoryName = res.name;
           this.products = res.products;
           console.log(this.products);
         });
 
-      this.categoryService.getCategories().subscribe((res: Array<Category>) => {
-        this.categories = res;
-      });
+      this.categoryService
+        .getCategories()
+        .subscribe((res: Array<CategoryUnpopulated>) => {
+          this.categories = res;
+        });
     });
   }
 }

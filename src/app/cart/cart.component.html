@@ -1,0 +1,14 @@
+<div class="w-100 h-100 container">
+  <div *ngFor="let item of (cartItems | async)">
+    <app-cart-item [item]="item" [changed]="fetch" [routerLink]="['/', 'product', item.productId._id]"></app-cart-item>
+  </div>
+  <div *ngIf="(cartItems | async) === undefined">
+    <app-cart-item-skeleton></app-cart-item-skeleton>
+    <app-cart-item-skeleton></app-cart-item-skeleton>
+    <app-cart-item-skeleton></app-cart-item-skeleton>
+    <app-cart-item-skeleton></app-cart-item-skeleton>
+    <app-cart-item-skeleton></app-cart-item-skeleton>
+  </div>
+
+  <app-empty-page *ngIf="(cartItems | async).length <= 0" class="h-100"></app-empty-page>
+</div>

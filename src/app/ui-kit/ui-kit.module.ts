@@ -44,6 +44,9 @@ import { NewAddressComponent } from './new-address/new-address.component';
 import { HistoryItemComponent } from './history-item/history-item.component';
 import { MatBadgeModule } from '@angular/material/badge';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle'; 
+import { CartItemComponent } from './cart-item/cart-item.component';
+import { CartItemSkeletonComponent } from './cart-item/cart-item-skeleton/cart-item-skeleton.component';
+
 @NgModule({
   declarations: [
     TopNavBarComponent,
@@ -69,6 +72,8 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
     EmptyPageComponent,
     NewAddressComponent,
     HistoryItemComponent,
+    CartItemComponent,
+    CartItemSkeletonComponent,
   ],
   imports: [
     CommonModule,
@@ -123,6 +128,8 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
     EmptyPageComponent,
     HistoryItemComponent,
     MatSlideToggleModule
+    CartItemComponent,
+    CartItemSkeletonComponent,
   ],
 })
 export class UiKitModule {}

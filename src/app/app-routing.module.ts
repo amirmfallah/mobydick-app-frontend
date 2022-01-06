@@ -1,3 +1,4 @@
+import { CartComponent } from './cart/cart.component';
 import { SignedInGuard } from './authentication/guards/signed-in.guard';
 import { ProfileComponent } from './profile/profile.component';
 import { NgModule } from '@angular/core';
@@ -22,6 +23,11 @@ const routes: Routes = [
   },
   {
     path: 'cart',
+    component: CartComponent,
+    canActivate: [SignedInGuard],
+  },
+  {
+    path: 'checkout',
     component: OrderpageComponent,
     canActivate: [SignedInGuard],
   },

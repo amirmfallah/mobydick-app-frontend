@@ -1,4 +1,5 @@
-import { BehaviorSubject } from 'rxjs';
+import { tap, switchMap } from 'rxjs/operators';
+import { BehaviorSubject, of } from 'rxjs';
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
@@ -10,14 +11,22 @@ export class PriceComponent implements OnInit {
   @Input() price: BehaviorSubject<number>;
   @Input() discountPercentage: number;
   pricebeforediscount = new BehaviorSubject<number>(0);
-
+  after = new BehaviorSubject<number>(0);
   constructor() {}
 
   ngOnInit(): void {
-    this.pricebeforediscount = this.price;
-    if (this.discountPercentage) {
-      let price = this.price.getValue();
-      this.price.next(price - price * (this.discountPercentage / 100));
-    }
+    this.price
+      .pipe(
+        switchMap((x) => {
+          if (this.discountPercentage) {
+            this.pricebeforediscount.next(x);
+            return of(x - x * (this.discountPercentage / 100));
+          }
+          return of(x);
+        })
+      )
+      .subscribe((x) => {
+        this.after.next(x);
+      });
   }
 }

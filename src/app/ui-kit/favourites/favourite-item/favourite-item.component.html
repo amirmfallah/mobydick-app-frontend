@@ -13,6 +13,6 @@
   <div class="middle-content d-flex flex-row w-100">
     <app-price [price]="price" [discountPercentage]="product.discount" [routerLink]="['/product', product._id]">
     </app-price>
-    <button mat-stroked-button color="primary" class="add-btn">افزودن</button>
+    <button mat-stroked-button color="primary" class="add-btn" (click)="addToCart()">افزودن</button>
   </div>
 </div>

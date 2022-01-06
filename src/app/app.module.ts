@@ -37,6 +37,8 @@ import { environment } from '../environments/environment';
 import { ProfileSettingComponent } from './profile-setting/profile-setting.component';
 import { TransactionsComponent } from './transactions/transactions.component';
 import { ProfileAddressesComponent } from './profile-addresses/profile-addresses.component';
+import { CartComponent } from './cart/cart.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,6 +55,7 @@ import { ProfileAddressesComponent } from './profile-addresses/profile-addresses
     ProfileSettingComponent,
     TransactionsComponent,
     ProfileAddressesComponent
+    CartComponent,
   ],
   imports: [
     BrowserModule,

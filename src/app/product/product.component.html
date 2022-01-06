@@ -12,8 +12,8 @@
 
 
 
-      <mat-button-toggle-group class="mb-2" (change)="optionChange($event)">
-        <mat-button-toggle *ngFor="let option of (product| async).price" [value]="option._id" checked="true">
+      <mat-button-toggle-group class="mb-2" (change)="optionChange($event)" [value]="selectedOption">
+        <mat-button-toggle *ngFor="let option of (product| async).price" [value]="option._id">
           {{option.optionName}}
         </mat-button-toggle>
       </mat-button-toggle-group>
@@ -104,7 +104,7 @@
       <button mat-icon-button color="primary" aria-label="Example icon button with a menu icon" (click)="addOrder()">
         <mat-icon>add</mat-icon>
       </button>
-      <p>{{(count | async)}}</p>
+      <p class="count">{{(count | async)}}</p>
       <button mat-icon-button color="warn" aria-label="Example icon button with a menu icon" (click)="removeOrder()"
         [disabled]="this.count.value <= 0">
         <mat-icon>remove</mat-icon>
