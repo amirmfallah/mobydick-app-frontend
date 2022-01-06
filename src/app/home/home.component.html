@@ -2,7 +2,8 @@
 
   <div class="container">
     <!-- <app-carousel [sliderinfo]="carouselimages"></app-carousel> -->
-    <carousel [images]="carouselimages" [cellWidth]="'100%'" class="slider" [borderRadius]="8"></carousel>
+    <carousel [images]="carouselimages" [cellWidth]="'100%'" class="slider" [borderRadius]="8"
+      [class.loading-slider]="!carouselimages"></carousel>
     <app-search></app-search>
   </div>
   <app-categories></app-categories>

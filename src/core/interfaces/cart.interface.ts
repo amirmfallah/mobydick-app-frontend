@@ -1,9 +1,9 @@
 export interface CartItem {
-  _id?: string;
   productId: string;
   sizeId: string;
   bread: string[];
   optional: string[];
   ingredients: string[];
+  option: string;
   count: number;
 }

@@ -1,6 +1,6 @@
 <div class="h-100 d-flex flex-column">
 
-  <form [formGroup]="form" (ngSubmit)="placeOrder()" class="flex-1 overflow-auto">
+  <form [formGroup]="form" class="flex-1 overflow-auto">
     <img [src]="(product | async).thumbnail" class="w-100" />
     <div class="w-100 d-flex flex-column justify-content-between mt-3 container">
 
@@ -13,7 +13,7 @@
 
 
       <mat-button-toggle-group class="mb-2" (change)="optionChange($event)">
-        <mat-button-toggle *ngFor="let option of (product| async).price" [value]="option._id">
+        <mat-button-toggle *ngFor="let option of (product| async).price" [value]="option._id" checked="true">
           {{option.optionName}}
         </mat-button-toggle>
       </mat-button-toggle-group>
@@ -97,15 +97,16 @@
   </form>
 
   <div class="add-to-cart d-flex flex-row p-2 mt-auto">
-    <button mat-flat-button class="place-order-btn w-100" color="primary" type="submit" (click)="placeOrder()">افزودن
+    <button mat-flat-button class="place-order-btn w-100" color="primary" type="submit" (click)="addOrder()">افزودن
       به سبد
       خرید</button>
     <div class="count-div">
-      <button mat-icon-button color="primary" aria-label="Example icon button with a menu icon">
+      <button mat-icon-button color="primary" aria-label="Example icon button with a menu icon" (click)="addOrder()">
         <mat-icon>add</mat-icon>
       </button>
-      <p>{{this.count}}</p>
-      <button mat-icon-button color="warn" aria-label="Example icon button with a menu icon">
+      <p>{{(count | async)}}</p>
+      <button mat-icon-button color="warn" aria-label="Example icon button with a menu icon" (click)="removeOrder()"
+        [disabled]="this.count.value <= 0">
         <mat-icon>remove</mat-icon>
       </button>
     </div>

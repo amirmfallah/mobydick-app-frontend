@@ -64,10 +64,10 @@ mat-expansion-panel {
 }
 
 .place-order-btn {
-  border-radius: 32px;
+  border-radius: 12px;
 }
 .count-btn {
-  border-radius: 32px;
+  border-radius: 12px !important;
   height: 32px;
   width: 32px;
 }
@@ -82,14 +82,16 @@ mat-expansion-panel {
   p {
     margin: 0 8px;
   }
-  border-radius: 32px;
+  border-radius: 12px;
   background-color: #ffffff;
   justify-content: center;
   align-items: center;
   display: flex;
   flex: row;
-  border-radius: 32px;
   height: 100%;
+  button {
+    border-radius: 12px !important;
+  }
 }
 
 .description {
