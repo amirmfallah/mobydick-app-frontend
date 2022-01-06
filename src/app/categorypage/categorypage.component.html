@@ -1,5 +1,6 @@
-<div class="h-100 w-100 container overflow-auto">
-  <mat-button-toggle-group class="header p-0">
+<div class="h-100 w-100 container overflow-auto"
+  [class.overflow-hidden]="products !== undefined && products.length == 0">
+  <mat-button-toggle-group class="header">
     <mat-button-toggle *ngFor="let category of categories" [checked]="category._id == id"
       [routerLink]="['/categories', category._id]">
       {{category.name}}
