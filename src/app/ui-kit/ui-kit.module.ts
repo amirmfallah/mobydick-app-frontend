@@ -43,7 +43,7 @@ import { EmptyPageComponent } from './empty-page/empty-page.component';
 import { NewAddressComponent } from './new-address/new-address.component';
 import { HistoryItemComponent } from './history-item/history-item.component';
 import { MatBadgeModule } from '@angular/material/badge';
-
+import {MatSlideToggleModule} from '@angular/material/slide-toggle'; 
 @NgModule({
   declarations: [
     TopNavBarComponent,
@@ -87,6 +87,7 @@ import { MatBadgeModule } from '@angular/material/badge';
     MatProgressBarModule,
     MatButtonToggleModule,
     MatBadgeModule,
+    MatSlideToggleModule
   ],
   exports: [
     MatSelectModule,
@@ -121,6 +122,7 @@ import { MatBadgeModule } from '@angular/material/badge';
     FavSkeletonComponent,
     EmptyPageComponent,
     HistoryItemComponent,
+    MatSlideToggleModule
   ],
 })
 export class UiKitModule {}
