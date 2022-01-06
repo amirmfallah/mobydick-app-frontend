@@ -45,7 +45,7 @@ const routes: Routes = [
   {
     path: 'profile',
     component: ProfileComponent,
-    canActivate: [SignedInGuard],
+    //canActivate: [SignedInGuard],
   },
   {
     path: 'your-order',
