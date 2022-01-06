@@ -12,8 +12,8 @@
 
 
 
-      <mat-button-toggle-group class="mb-2" (change)="optionChange($event)">
-        <mat-button-toggle *ngFor="let option of (product| async).price" [value]="option._id" checked="true">
+      <mat-button-toggle-group class="mb-2" (change)="optionChange($event)" [value]="selectedOption">
+        <mat-button-toggle *ngFor="let option of (product| async).price" [value]="option._id">
           {{option.optionName}}
         </mat-button-toggle>
       </mat-button-toggle-group>

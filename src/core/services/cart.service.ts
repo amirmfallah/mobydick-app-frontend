@@ -38,6 +38,14 @@ export class CartService {
     return this.cartItemList;
   }
 
+  getItemCount(item: CartItem) {
+    for (let i = 0; i < this.cartItemList.length; i++) {
+      if (this.isSameCartItem(item, this.cartItemList[i])) {
+        return this.cartItemList[i].count;
+      }
+    }
+  }
+
   isSameCartItem(x: CartItem, y: CartItem) {
     const x1 = {
       bread: x.bread,

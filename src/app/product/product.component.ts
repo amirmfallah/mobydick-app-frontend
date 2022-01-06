@@ -1,6 +1,9 @@
 import { CartService } from './../../core/services/cart.service';
 import { CartItem } from './../../core/interfaces/cart.interface';
-import { Ingredients } from './../../core/interfaces/product.interface';
+import {
+  Ingredients,
+  priceItem,
+} from './../../core/interfaces/product.interface';
 import {
   FormGroup,
   FormBuilder,
@@ -10,9 +13,10 @@ import {
 } from '@angular/forms';
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, from, of } from 'rxjs';
 import { Product } from 'src/core/interfaces/product.interface';
 import { ProductService } from './services/product.service';
+import { first } from 'rxjs/operators';
 
 @Component({
   selector: 'app-product',
@@ -25,6 +29,7 @@ export class ProductComponent implements OnInit {
   product = new BehaviorSubject<Product>(undefined);
   price = new BehaviorSubject<number>(undefined);
   form: FormGroup;
+  selectedOption: string = '';
 
   constructor(
     private productService: ProductService,
@@ -45,9 +50,15 @@ export class ProductComponent implements OnInit {
     this.productService.getProduct(id).subscribe((res: Product) => {
       this.product.next(res);
       this.price.next(res.price[0].price);
-      if (res.price.length > 0) {
-        this.optionChange({ value: res.price[res.price.length - 1]._id });
-      }
+
+      from(res.price)
+        .pipe(first())
+        .subscribe((x) => {
+          this.selectedOption = x._id;
+          this.price.next(x.price);
+          this.optionChange({ value: x._id });
+        });
+
       const breads: FormArray = this.form.get('bread') as FormArray;
       res.bread.forEach((bread) => {
         if (bread.included) {
@@ -68,6 +79,8 @@ export class ProductComponent implements OnInit {
           optional.push(new FormControl(option.item._id));
         }
       });
+
+      this.count.next(this.getCartItemCount());
     });
 
     this.form.valueChanges.subscribe((x) => {
@@ -75,6 +88,13 @@ export class ProductComponent implements OnInit {
       cartItem.productId = this.product.value._id;
       this.count.next(this.cartService.getCountItem(cartItem));
     });
+  }
+
+  getCartItemCount(): number {
+    let cartItem = <CartItem>this.form.value;
+    cartItem.productId = this.product.value._id;
+    console.log(cartItem);
+    return this.cartService.getCountItem(cartItem);
   }
 
   addOrder(): void {
