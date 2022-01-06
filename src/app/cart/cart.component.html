@@ -1,1 +1,5 @@
-<p>cart works!</p>
+<div class="w-100 container">
+  <div *ngFor="let item of (cartItems | async)">
+    <app-cart-item [item]="item"></app-cart-item>
+  </div>
+</div>

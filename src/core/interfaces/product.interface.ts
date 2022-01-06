@@ -15,7 +15,6 @@ export interface IngredientItem {
 export interface priceItem {
   _id: string;
   optionName: string;
-  avaiable: string;
   price: number;
 }
 
@@ -28,9 +27,9 @@ export interface Product {
   discount: number;
   available: boolean;
   category: string;
-  bread: Array<IngredientItem>;
-  ingredients: Array<IngredientItem>;
-  optional: Array<IngredientItem>;
+  bread?: Array<IngredientItem>;
+  ingredients?: Array<IngredientItem>;
+  optional?: Array<IngredientItem>;
 }
 
 export interface Category {

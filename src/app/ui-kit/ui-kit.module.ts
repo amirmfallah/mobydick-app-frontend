@@ -43,6 +43,7 @@ import { EmptyPageComponent } from './empty-page/empty-page.component';
 import { NewAddressComponent } from './new-address/new-address.component';
 import { HistoryItemComponent } from './history-item/history-item.component';
 import { MatBadgeModule } from '@angular/material/badge';
+import { CartItemComponent } from './cart-item/cart-item.component';
 
 @NgModule({
   declarations: [
@@ -69,6 +70,7 @@ import { MatBadgeModule } from '@angular/material/badge';
     EmptyPageComponent,
     NewAddressComponent,
     HistoryItemComponent,
+    CartItemComponent,
   ],
   imports: [
     CommonModule,
@@ -121,6 +123,7 @@ import { MatBadgeModule } from '@angular/material/badge';
     FavSkeletonComponent,
     EmptyPageComponent,
     HistoryItemComponent,
+    CartItemComponent,
   ],
 })
 export class UiKitModule {}

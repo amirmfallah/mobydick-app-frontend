@@ -1,0 +1,36 @@
+.item {
+  background-color: #fff;
+  border-radius: 8px;
+  margin-top: 12px;
+  padding: 8px;
+  h2 {
+    font-size: 14px;
+    font-weight: 600;
+  }
+  .thumbnail {
+    border-radius: 8px;
+    margin-left: 8px;
+    height: 110px;
+    width: 110px;
+  }
+}
+
+.price {
+  font-weight: 600;
+}
+
+.count-div {
+  p {
+    margin: 0 8px;
+  }
+  border-radius: 12px;
+  background-color: #f0f2f9;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex: row;
+  height: 100%;
+  button {
+    border-radius: 12px !important;
+  }
+}
