@@ -13,10 +13,10 @@ import {
 } from '@angular/forms';
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { BehaviorSubject, from, of } from 'rxjs';
+import { BehaviorSubject, from, of, Subject } from 'rxjs';
 import { Product } from 'src/core/interfaces/product.interface';
 import { ProductService } from './services/product.service';
-import { first } from 'rxjs/operators';
+import { first, tap, map, switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-product',
@@ -27,9 +27,11 @@ export class ProductComponent implements OnInit {
   panelOpenState = false;
   count = new BehaviorSubject<number>(0);
   product = new BehaviorSubject<Product>(undefined);
-  price = new BehaviorSubject<number>(undefined);
+  price = new Subject<number>();
   form: FormGroup;
   selectedOption: string = '';
+  $updatedPrice = new BehaviorSubject<number>(0);
+  basePrice: number = 0;
 
   constructor(
     private productService: ProductService,
@@ -46,18 +48,35 @@ export class ProductComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.price
+      .pipe(
+        switchMap(() => {
+          let extra = 0;
+
+          let checkArray: FormArray = this.form.get('bread') as FormArray;
+          for (let i = 0; i < checkArray.value.length; i++) {
+            const element = checkArray.value[i];
+            extra += this.product
+              .getValue()
+              .bread.find((x) => x.item._id == element).item.price;
+          }
+
+          checkArray = this.form.get('optional') as FormArray;
+          for (let i = 0; i < checkArray.value.length; i++) {
+            const element = checkArray.value[i];
+            extra += this.product.value.optional.find(
+              (x) => x.item._id == element
+            ).item.price;
+          }
+
+          return of(this.basePrice + extra);
+        })
+      )
+      .subscribe((x) => this.$updatedPrice.next(x));
+
     const id = this.route.snapshot.paramMap.get('id');
     this.productService.getProduct(id).subscribe((res: Product) => {
       this.product.next(res);
-      this.price.next(res.price[0].price);
-
-      from(res.price)
-        .pipe(first())
-        .subscribe((x) => {
-          this.selectedOption = x._id;
-          this.price.next(x.price);
-          this.optionChange({ value: x._id });
-        });
 
       const breads: FormArray = this.form.get('bread') as FormArray;
       res.bread.forEach((bread) => {
@@ -80,6 +99,13 @@ export class ProductComponent implements OnInit {
         }
       });
 
+      from(res.price)
+        .pipe(first())
+        .subscribe((x) => {
+          this.selectedOption = x._id;
+          this.optionChange({ value: x._id });
+        });
+      //this.$updatePrice.next();
       this.count.next(this.getCartItemCount());
     });
 
@@ -93,7 +119,6 @@ export class ProductComponent implements OnInit {
   getCartItemCount(): number {
     let cartItem = <CartItem>this.form.value;
     cartItem.productId = this.product.value._id;
-    console.log(cartItem);
     return this.cartService.getCountItem(cartItem);
   }
 
@@ -101,11 +126,10 @@ export class ProductComponent implements OnInit {
     let cartItem = <CartItem>this.form.value;
     cartItem.productId = this.product.value._id;
     cartItem.count = this.count.value;
-    console.log(cartItem);
     const added = this.cartService.addToCart(cartItem);
     this.count.next(added.count);
-    console.log(this.cartService.getCartList());
   }
+
   removeOrder(): void {
     if (this.count.value <= 0) {
       return;
@@ -119,58 +143,32 @@ export class ProductComponent implements OnInit {
 
   onCheckboxChange(e, field) {
     const checkArray: FormArray = this.form.get(field) as FormArray;
-    console.log(e);
     if (e.checked) {
       checkArray.push(new FormControl(e.source.value));
-      if (field === 'optional') {
-        let product = this.product.getValue();
-        let price = this.price.getValue();
-        product.optional.forEach((option) => {
-          if (option.item._id === e.source.value) {
-            price += option.item.price;
-            return;
-          }
-        });
-        this.price.next(price);
-      }
     } else {
-      let i: number = 0;
-      checkArray.controls.forEach((item: FormControl) => {
-        if (item.value == e.source.value) {
-          checkArray.removeAt(i);
-          if (field === 'optional') {
-            let product = this.product.getValue();
-            let price = this.price.getValue();
-            product.optional.forEach((option) => {
-              if (option.item._id === e.source.value) {
-                price -= option.item.price;
-              }
-            });
-            this.price.next(price);
-          }
-          return;
-        }
-        i++;
-      });
+      checkArray.removeAt(
+        checkArray.controls.findIndex((x) => x.value == e.source.value)
+      );
     }
+    this.price.next();
   }
 
   onRadioChange(e) {
-    console.log(e);
     const radioArray: FormArray = this.form.get('bread') as FormArray;
     radioArray.clear();
     radioArray.push(new FormControl(e.value));
+    this.price.next();
   }
 
   optionChange(e) {
     let cartItem = <CartItem>this.form.value;
     cartItem.productId = this.product.value._id;
     this.count.next(this.cartService.getCountItem(cartItem));
-    this.product.getValue().price.forEach((option) => {
-      if (option._id === e.value) {
-        this.price.next(option.price);
-        this.form.get('option').setValue(option._id);
-      }
-    });
+    const option = this.product.value.price.find(
+      (option) => option._id == e.value
+    );
+    this.basePrice = option.price;
+    this.price.next();
+    this.form.get('option').setValue(option._id);
   }
 }

@@ -1,5 +1,5 @@
 <div class="d-flex flex-row ">
-  <div class="discount-percent-box d-flex align-items-center" *ngIf="discountPercentage">
+  <div class="discount-percent-box d-flex align-items-center" *ngIf="discountPercentage &&  !hideDiscount">
     {{ discountPercentage }}%
   </div>
 

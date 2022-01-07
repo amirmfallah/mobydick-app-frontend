@@ -15,6 +15,7 @@ import { CartService } from 'src/core/services/cart.service';
 export class FavouriteItemComponent implements OnInit {
   @Input() product: ProductUnpopulated;
   price: BehaviorSubject<number>;
+  extra: number;
   count = 0;
   incCount() {
     this.count += 1;

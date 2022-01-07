@@ -10,6 +10,8 @@ import { Component, OnInit, Input } from '@angular/core';
 export class PriceComponent implements OnInit {
   @Input() price: BehaviorSubject<number>;
   @Input() discountPercentage: number;
+  @Input() hideDiscount?: boolean;
+
   pricebeforediscount = new BehaviorSubject<number>(0);
   after = new BehaviorSubject<number>(0);
   constructor() {}

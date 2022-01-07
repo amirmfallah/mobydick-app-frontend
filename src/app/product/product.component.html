@@ -7,7 +7,7 @@
       <div class="d-flex flex-row w-100 mb-2 align-items-center">
         <h2>{{ (product | async).name }}</h2>
         <div class="flex-1 flex-grow-1"></div>
-        <app-price [price]="price" [discountPercentage]="(product | async).discount"></app-price>
+        <app-price [price]="$updatedPrice" [discountPercentage]="(product | async).discount"></app-price>
       </div>
 
 
