@@ -1,3 +1,9 @@
+import { first, tap } from 'rxjs/operators';
+import { CartDto } from './../../core/interfaces/cart.interface';
+import { switchMap } from 'rxjs/operators';
+import { Address } from './../../core/interfaces/addresses.interface';
+import { BehaviorSubject, Subject, of, from } from 'rxjs';
+import { CustomerCartService } from './../cart/services/customer-cart.service';
 import { Configuration } from 'src/core/configuration';
 import { NewAddressComponent } from './../ui-kit/new-address/new-address.component';
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
@@ -7,6 +13,9 @@ import {
 } from '@angular/material/bottom-sheet';
 import { BottomTabDiscountComponent } from '../ui-kit/bottom-tab-discount/bottom-tab-discount.component';
 import { BottomTabInprogressComponent } from '../ui-kit/bottom-tab-inprogress/bottom-tab-inprogress.component';
+import { AddressesService } from 'src/core/services/addresses.service';
+import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
+import { MatAccordion } from '@angular/material/expansion';
 declare var L: any;
 
 @Component({
@@ -15,26 +24,82 @@ declare var L: any;
   styleUrls: ['./orderpage.component.scss'],
 })
 export class OrderpageComponent implements OnInit {
-  item = {
-    image: 'assets/pizza-sub.jpg',
-    title: 'پیتزا صاب',
-    description: 'ژامبون، گوشت، پنیر',
-    price: 40000,
-  };
   @ViewChild('map') map: ElementRef;
-  constructor(private _bottomSheet: MatBottomSheet) {}
+  @ViewChild(MatAccordion) accordion: MatAccordion;
+
+  form: FormGroup;
+  $addresses = new BehaviorSubject<Array<Address>>([]);
+  $cart = new BehaviorSubject<CartDto>({
+    total: 0,
+    totalDiscount: 0,
+    _id: '',
+    items: [],
+    ownerId: '',
+    status: 0,
+  });
+
+  $fetchAddress = new Subject<any>();
+  $selectedAddress: BehaviorSubject<string>;
+  myMap: any;
+  marker: any;
+  addrClosed: boolean;
+
+  constructor(
+    private _bottomSheet: MatBottomSheet,
+    private customerCartService: CustomerCartService,
+    private addressesService: AddressesService,
+    private fb: FormBuilder
+  ) {
+    this.form = this.fb.group({
+      cart: [],
+      address: [],
+    });
+
+    this.$fetchAddress
+      .pipe(
+        switchMap(() => {
+          console.log('here');
+          return this.addressesService.getAllAddresses();
+        })
+      )
+      .subscribe((res: Address[]) => {
+        this.$addresses.next(res);
+        from(res)
+          .pipe(first())
+          .subscribe(
+            (x: Address) =>
+              (this.$selectedAddress = new BehaviorSubject<string>(x._id))
+          );
+      });
+  }
 
   openInProgress(): void {
     this._bottomSheet.open(BottomTabInprogressComponent);
   }
   openDiscount(): void {
-    this._bottomSheet.open(BottomTabDiscountComponent);
+    const ref = this._bottomSheet.open(BottomTabDiscountComponent, {
+      data: { cartId: this.$cart.value._id },
+    });
+    ref.afterDismissed().subscribe(() => {
+      this.customerCartService.getOpenCart().subscribe((cart: CartDto) => {
+        this.$cart.next(cart);
+      });
+    });
   }
   openAddress(): void {
-    this._bottomSheet.open(NewAddressComponent);
+    const ref = this._bottomSheet.open(NewAddressComponent);
+    ref.afterDismissed().subscribe((address: Address) => {
+      this.addressesService.getAllAddresses().subscribe((addresses) => {
+        this.$addresses.next(addresses);
+        this.$selectedAddress.next(address._id);
+        this.myMap.panTo(new L.LatLng(address.lat, address.lng));
+        this.marker.setLatLng(this.myMap.getCenter());
+      });
+    });
   }
   ngOnInit(): void {
-    var myMap = new L.Map('map', {
+    this.$fetchAddress.next();
+    this.myMap = new L.Map('map', {
       key: Configuration.NeshanWebMapApiToken,
       maptype: 'neshan',
       poi: true,
@@ -45,12 +110,19 @@ export class OrderpageComponent implements OnInit {
       zoomControl: false,
       scrollWheelZoom: false,
     });
-    console.log(myMap.getCenter());
-    console.log(L);
-    var marker = L.marker([35.699739, 51.338097]).addTo(myMap);
+    this.marker = L.marker([35.699739, 51.338097]).addTo(this.myMap);
+    this.customerCartService.getOpenCart().subscribe((cart: CartDto) => {
+      this.$cart.next(cart);
+    });
+  }
 
-    // myMap.on('move', function () {
-    //   marker.setLatLng(myMap.getCenter());
-    // });
+  onRadioChange(e) {
+    this.form.controls['address'].setValue(e.value);
+    console.log(this.form.value);
+    const addr = this.$addresses.value.find((x) => x._id == e.value);
+    console.log(addr);
+    this.myMap.panTo(new L.LatLng(addr.lat, addr.lng));
+    this.marker.setLatLng(this.myMap.getCenter());
+    this.accordion.closeAll();
   }
 }

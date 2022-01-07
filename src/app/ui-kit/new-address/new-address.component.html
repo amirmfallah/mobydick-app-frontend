@@ -17,6 +17,10 @@
       <mat-label>شماره تلفن</mat-label>
       <input matInput formControlName="phone">
     </mat-form-field>
-    <button mat-flat-button color="primary" class="w-100" type="submit">افزودن</button>
+    <button mat-flat-button color="primary" class="w-100" type="submit"
+      [disabled]="this.form.disabled || !this.form.valid">افزودن</button>
+    <mat-progress-bar [class.invisible]="!form.disabled" [class.visible]="form.disabled" mode="query">
+    </mat-progress-bar>
+
   </form>
 </div>

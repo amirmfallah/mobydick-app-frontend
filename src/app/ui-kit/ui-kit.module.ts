@@ -132,6 +132,7 @@ import { EditAddressComponent } from './edit-address/edit-address.component';
     MatSlideToggleModule,
     CartItemComponent,
     CartItemSkeletonComponent,
+    MatProgressBarModule,
   ],
 })
 export class UiKitModule {}

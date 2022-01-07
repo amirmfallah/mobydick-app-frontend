@@ -1,4 +1,3 @@
-import { ChooseAddressComponent } from './choose-address/choose-address.component';
 import { ProfileModule } from './profile/profile.module';
 import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -42,7 +41,6 @@ import { CartComponent } from './cart/cart.component';
     BottomTabDiscountComponent,
     SearchpageComponent,
     CartComponent,
-    ChooseAddressComponent,
   ],
   imports: [
     BrowserModule,

@@ -20,6 +20,9 @@ export class CustomerCartService {
         })
       );
   }
+  getOpenCart(): Observable<any> {
+    return this.http.get(`${Configuration.MobydickApiUrl}/api/v1/carts/open`);
+  }
   patchCart(cartItemList, cartId: string) {
     return this.http.patch(
       `${Configuration.MobydickApiUrl}/api/v1/carts/${cartId}`,

@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { CustomerCartService } from '../cart/services/customer-cart.service';
 declare var L: any;
 @Component({
   selector: 'app-your-order',
@@ -9,7 +10,5 @@ export class YourOrderComponent implements OnInit {
   constructor() {}
   @ViewChild('map') map: ElementRef;
 
-  ngOnInit(): void {
-    console.log(L);
-  }
+  ngOnInit(): void {}
 }

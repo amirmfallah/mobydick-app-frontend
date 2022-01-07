@@ -1,6 +1,6 @@
 {
-  "name": "mobydick-app-frontend",
-  "short_name": "mobydick-app-frontend",
+  "name": "MobyDick",
+  "short_name": "MobyDick",
   "theme_color": "#ffffff",
   "background_color": "#f0f2f9",
   "display": "standalone",

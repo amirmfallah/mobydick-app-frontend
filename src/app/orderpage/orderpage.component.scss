@@ -23,3 +23,30 @@ p {
   border: 1px solid #22a45c;
   border-radius: 8px;
 }
+
+p {
+  font-style: normal;
+  font-weight: normal;
+}
+
+mat-expansion-panel-header {
+  box-shadow: none !important;
+  background: #ffffff !important;
+  border-radius: 12px !important;
+  height: 48px !important;
+}
+
+mat-expansion-panel {
+  background: #f0f2f9 !important;
+  box-shadow: none !important;
+  margin-bottom: 16px;
+}
+
+::ng-deep .mat-expansion-indicator::after {
+  color: #22a45d !important;
+  font-size: 18px;
+}
+
+::ng-deep .mat-expansion-panel-body {
+  padding-left: 8px !important;
+}

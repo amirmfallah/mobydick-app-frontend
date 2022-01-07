@@ -1,9 +1,12 @@
+import { MatBottomSheetRef } from '@angular/material/bottom-sheet';
+import { Address } from './../../../core/interfaces/addresses.interface';
 import { interval, Observable, Subject, BehaviorSubject } from 'rxjs';
 import { NeshanService } from './../../../core/services/neshan.service';
 import { Configuration } from './../../../core/configuration';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { debounce, map } from 'rxjs/operators';
+import { AddressesService } from 'src/core/services/addresses.service';
 declare var L: any;
 
 @Component({
@@ -14,15 +17,20 @@ declare var L: any;
 export class NewAddressComponent implements OnInit {
   form = this.fb.group({
     address: ['', Validators.required],
-    phone: ['', Validators.required],
-    x: [],
-    y: [],
+    phone: [],
+    lng: [],
+    lat: [],
   });
   $address: Observable<any>;
   subject = new Subject();
   $getLocation = new BehaviorSubject<any>(undefined);
 
-  constructor(private fb: FormBuilder, private neshanService: NeshanService) {}
+  constructor(
+    private fb: FormBuilder,
+    private neshanService: NeshanService,
+    private addressesService: AddressesService,
+    private _bottomSheetRef: MatBottomSheetRef<NewAddressComponent>
+  ) {}
 
   ngOnInit(): void {
     var newMap = new L.Map('newMap', {
@@ -39,8 +47,8 @@ export class NewAddressComponent implements OnInit {
     var marker = L.marker([35.699739, 51.338097]).addTo(newMap);
 
     const updatePoint = (point) => {
-      this.form.get('x').setValue(point.lng);
-      this.form.get('y').setValue(point.lat);
+      this.form.get('lng').setValue(point.lng);
+      this.form.get('lat').setValue(point.lat);
     };
 
     newMap.on('move', function () {
@@ -74,6 +82,20 @@ export class NewAddressComponent implements OnInit {
   }
 
   submitAddress() {
+    if (!this.form.valid) {
+      return;
+    }
     console.log(this.form.value);
+    this.form.disable();
+    this.addressesService.newAddress(this.form.value).subscribe(
+      (res: Address) => {
+        this.form.enable;
+        this._bottomSheetRef.dismiss(res);
+        event.preventDefault();
+      },
+      (err) => {
+        this.form.enable();
+      }
+    );
   }
 }

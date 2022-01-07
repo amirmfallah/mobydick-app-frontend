@@ -26,4 +26,13 @@ export interface CartDto {
   items: CartItemPopulated[];
   total: number;
   totalDiscount: number;
+  giftId?: Gift;
+}
+
+export interface Gift {
+  _id: string;
+  validUntil: Date;
+  code: string;
+  amount?: number;
+  percent?: number;
 }
