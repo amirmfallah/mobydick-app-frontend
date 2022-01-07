@@ -20,4 +20,17 @@ export class AddressesService {
   getAllAddresses(): Observable<any> {
     return this.http.get(`${Configuration.MobydickApiUrl}/api/v1/addresses`);
   }
+
+  removeAddress(id: string): Observable<any> {
+    return this.http.delete(
+      `${Configuration.MobydickApiUrl}/api/v1/addresses/${id}`
+    );
+  }
+
+  patchAddress(id: string, address: Address): Observable<any> {
+    return this.http.patch(
+      `${Configuration.MobydickApiUrl}/api/v1/addresses/${id}`,
+      address
+    );
+  }
 }

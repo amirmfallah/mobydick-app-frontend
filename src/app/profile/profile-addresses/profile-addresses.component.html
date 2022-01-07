@@ -9,17 +9,17 @@
     <mat-icon routerLink="/settings" matSuffix fontSet="material-icons-round" [inline]="true" style="font-size: 32px;">
       chevron_left</mat-icon>
   </div>
-  <div *ngFor="let adr of addresses">
+  <div *ngFor="let adr of (addresses | async)">
     <div class="d-flex flex-column justify-content-between align-items-start my-1 address-container w-100">
       <p class="address">{{ adr.address }}</p>
-      <p class="phone">09112475534</p>
+      <p class="phone">{{adr.phone}}</p>
       <div class="d-flex flex-row justify-content-between align-items-center w-100">
-        <div class="d-flex flex-row align-items-center" (click)="openAddress()">
+        <div class="d-flex flex-row align-items-center" (click)="openAddress(adr)">
           <span class="edit">ویرایش نشانی</span>
           <mat-icon matSuffix fontSet="material-icons-round" color="primary">chevron_left</mat-icon>
 
         </div>
-        <button mat-icon-button color="warn">
+        <button mat-icon-button color="warn" (click)="deleteAddress(adr)">
           <mat-icon matSuffix fontSet="material-icons-round">delete</mat-icon>
         </button>
       </div>

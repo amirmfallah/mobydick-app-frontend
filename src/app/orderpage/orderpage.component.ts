@@ -91,7 +91,7 @@ export class OrderpageComponent implements OnInit {
     ref.afterDismissed().subscribe((address: Address) => {
       this.addressesService.getAllAddresses().subscribe((addresses) => {
         this.$addresses.next(addresses);
-        this.$selectedAddress.next(address._id);
+        this.$selectedAddress = new BehaviorSubject<any>(address._id);
         this.myMap.panTo(new L.LatLng(address.lat, address.lng));
         this.marker.setLatLng(this.myMap.getCenter());
       });
