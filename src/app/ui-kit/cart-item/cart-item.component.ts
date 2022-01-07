@@ -16,8 +16,12 @@ export class CartItemComponent implements OnInit {
   detail: string = '';
   @Input() item: CartItemPopulated;
   @Input() changed: BehaviorSubject<any>;
+  price: BehaviorSubject<number>;
 
   ngOnInit(): void {
+    this.price = new BehaviorSubject<any>(
+      this.item.calculatedPrice * this.item.count
+    );
     this.item.bread.forEach((i) => {
       this.detail += i.name + ' ،';
     });

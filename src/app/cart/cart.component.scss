@@ -4,3 +4,24 @@
   background-color: #f0f2f9;
   padding: 8px 0;
 }
+
+.header {
+  background-color: #f0f2f9;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.icon {
+  font-size: 32px !important;
+  height: 32px !important;
+  width: 32px !important;
+}
+
+.icon-right {
+  margin-left: 8px;
+}
+
+.delete-btn {
+  border-radius: 8px;
+}

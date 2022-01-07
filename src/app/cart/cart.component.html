@@ -1,17 +1,29 @@
-<div class="w-100 h-100 container">
+<div class="w-100 h-100 px-3 d-flex flex-column">
+  <div class="d-flex justify-content-between pt-3 pb-2 header" *ngIf="(cartItems | async)">
+    <div class="d-flex flex-row align-items-center">
+      <mat-icon matSuffix fontSet="material-icons-outlined" class="icon icon-right">shopping_bag_outline
+      </mat-icon>
+      <h2>سبد خرید</h2>
+    </div>
+    <button mat-icon-button class="delete-btn">
+      <mat-icon matSuffix fontSet="material-icons-round">
+        delete_outlined</mat-icon>
+    </button>
+  </div>
   <div *ngFor="let item of (cartItems | async)">
-    <app-cart-item [item]="item" [changed]="fetch" [routerLink]="['/', 'product', item.productId._id]"></app-cart-item>
+    <app-cart-item [item]="item" [changed]="fetch" [routerLink]="['/', 'product', item.productId._id]">
+    </app-cart-item>
   </div>
-  <div *ngIf="(cartItems | async) === undefined">
+  <div *ngIf="(cartItems | async) == undefined">
     <app-cart-item-skeleton></app-cart-item-skeleton>
     <app-cart-item-skeleton></app-cart-item-skeleton>
     <app-cart-item-skeleton></app-cart-item-skeleton>
     <app-cart-item-skeleton></app-cart-item-skeleton>
     <app-cart-item-skeleton></app-cart-item-skeleton>
   </div>
-
-  <app-empty-page *ngIf="(cartItems | async).length <= 0" class="h-100"></app-empty-page>
-  <div class="checkout-button-container w-100" *ngIf="(cartItems | async).length > 0">
-    <button mat-flat-button color="primary" class="w-100">ادامه خرید</button>
+  <app-empty-page *ngIf="(cartItems | async) && (cartItems | async).length <= 0" class="h-100"></app-empty-page>
+  <div class="flex-1 flex-grow-1" *ngIf="(cartItems | async) && (cartItems | async).length > 0"></div>
+  <div class="checkout-button-container w-100" *ngIf="(cartItems | async) && (cartItems | async).length > 0">
+    <button mat-flat-button color="primary" class="w-100 my-2">ادامه خرید</button>
   </div>
 </div>

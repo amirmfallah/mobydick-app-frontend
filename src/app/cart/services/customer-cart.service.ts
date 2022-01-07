@@ -26,7 +26,7 @@ export class CustomerCartService {
       cartItemList
     );
   }
-  createCart(cartItemList) {
+  createCart(cartItemList): Observable<any> {
     return this.http.post(
       `${Configuration.MobydickApiUrl}/api/v1/carts`,
       cartItemList

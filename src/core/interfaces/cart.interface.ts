@@ -16,4 +16,14 @@ export interface CartItemPopulated {
   ingredients: Array<Ingredients>;
   option: string;
   count: number;
+  calculatedPrice: number;
+}
+
+export interface CartDto {
+  _id: string;
+  ownerId: string;
+  status: number;
+  items: CartItemPopulated[];
+  total: number;
+  totalDiscount: number;
 }

@@ -1,3 +1,5 @@
+import { CartDto } from './../../core/interfaces/cart.interface';
+import { first } from 'lodash';
 import { tap, catchError } from 'rxjs/operators';
 import { CustomerCartService } from './services/customer-cart.service';
 import { CartService } from './../../core/services/cart.service';
@@ -17,19 +19,21 @@ export class CartComponent implements OnInit {
     private cartService: CartService
   ) {
     this.fetch.subscribe(() => {
+      console.log('trigred');
       this.cartItems.next(undefined);
       const cart = { items: this.cartService.getCartList() };
       this.customerCartService.loadCart(cart).subscribe(
-        (res) => {
-          console.log(res);
+        (res: CartDto) => {
           this.cartItems.next(res.items);
         },
         (err) => {
           console.log('here');
           if (err instanceof HttpErrorResponse && err.status === 404) {
-            this.customerCartService.createCart(cart).subscribe((x) => {
-              console.log('new cart generated');
-            });
+            this.customerCartService
+              .createCart(cart)
+              .subscribe((res: CartDto) => {
+                this.cartItems.next(res.items);
+              });
           }
         }
       );
@@ -38,7 +42,5 @@ export class CartComponent implements OnInit {
   cartItems = new BehaviorSubject<CartItemPopulated[]>(undefined);
   fetch = new BehaviorSubject<any>(undefined);
 
-  ngOnInit(): void {
-    this.fetch.next('');
-  }
+  ngOnInit(): void {}
 }

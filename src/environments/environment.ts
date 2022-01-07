@@ -9,6 +9,7 @@ export const environment = {
   NeshanServiceApiToken: 'service.buJIfUG7ZgLXEnOrwUYdQogI8jLSDTMeeeq7zakX',
   NeshanUri: 'https://api.neshan.org/v4',
 };
+//https://beta-api.mobydickfoods.com
 /*
  * For easier debugging in development mode, you can import the following file
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.
