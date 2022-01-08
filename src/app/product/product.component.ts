@@ -28,6 +28,8 @@ export class ProductComponent implements OnInit {
   count = new BehaviorSubject<number>(0);
   product = new BehaviorSubject<Product>(undefined);
   price = new Subject<number>();
+  $updateForm = new Subject<any>();
+
   form: FormGroup;
   selectedOption: string = '';
   $updatedPrice = new BehaviorSubject<number>(0);
@@ -77,27 +79,7 @@ export class ProductComponent implements OnInit {
     const id = this.route.snapshot.paramMap.get('id');
     this.productService.getProduct(id).subscribe((res: Product) => {
       this.product.next(res);
-
-      const breads: FormArray = this.form.get('bread') as FormArray;
-      res.bread.forEach((bread) => {
-        if (bread.included) {
-          breads.push(new FormControl(bread.item._id));
-        }
-      });
-
-      const ingredients: FormArray = this.form.get('ingredients') as FormArray;
-      res.ingredients.forEach((ingredient) => {
-        if (ingredient.included) {
-          ingredients.push(new FormControl(ingredient.item._id));
-        }
-      });
-
-      const optional: FormArray = this.form.get('optional') as FormArray;
-      res.optional.forEach((option) => {
-        if (option.included) {
-          optional.push(new FormControl(option.item._id));
-        }
-      });
+      console.log(res);
 
       from(res.price)
         .pipe(first())
@@ -123,6 +105,7 @@ export class ProductComponent implements OnInit {
   }
 
   addOrder(): void {
+    console.log(this.form.value);
     let cartItem = <CartItem>this.form.value;
     cartItem.productId = this.product.value._id;
     cartItem.count = this.count.value;
@@ -167,8 +150,49 @@ export class ProductComponent implements OnInit {
     const option = this.product.value.price.find(
       (option) => option._id == e.value
     );
+
+    this.form.get('option').setValue(option._id);
+    this.updateFormValue();
     this.basePrice = option.price;
     this.price.next();
-    this.form.get('option').setValue(option._id);
+    this.product.next(this.product.value);
   }
+
+  getOptionIndex() {
+    return this.product.value.price.findIndex((x) => {
+      return x._id == this.form.controls['option'].value;
+    });
+  }
+
+  updateFormValue() {
+    const breads: FormArray = this.form.get('bread') as FormArray;
+    breads.clear();
+    this.product.value.bread.forEach((bread) => {
+      if (bread.included && this.optionFor(bread)) {
+        breads.push(new FormControl(bread.item._id));
+      }
+    });
+
+    const ingredients: FormArray = this.form.get('ingredients') as FormArray;
+    ingredients.clear();
+    this.product.value.ingredients.forEach((ingredient) => {
+      if (ingredient.included && this.optionFor(ingredient)) {
+        ingredients.push(new FormControl(ingredient.item._id));
+      }
+    });
+
+    const optional: FormArray = this.form.get('optional') as FormArray;
+    optional.clear();
+    this.product.value.optional.forEach((option) => {
+      if (option.included && this.optionFor(option)) {
+        optional.push(new FormControl(option.item._id));
+      }
+    });
+    this.price.next();
+  }
+
+  optionFor = (option) =>
+    undefined == option.forOption ||
+    (undefined !== option.forOption &&
+      option.forOption == this.getOptionIndex());
 }

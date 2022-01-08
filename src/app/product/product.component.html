@@ -78,14 +78,18 @@
 
           <div class="ingredients d-flex justify-content-between my-2 w-100"
             *ngFor="let option of (product | async).optional">
-            <p>{{ option.item.name }}</p>
+            <div class="d-flex flex-row w-100 justify-content-between"
+              *ngIf="undefined == option.forOption || (undefined !== option.forOption && option.forOption == getOptionIndex())">
 
-            <div class="price-and-select d-flex">
-              <p class="price">+{{ option.item.price }} تومان</p>
-              <mat-checkbox color="primary" [disabled]="option.item.available === false || option.required"
-                [checked]="option.required || option.included" [value]="option.item._id"
-                (change)="onCheckboxChange($event, 'optional')">
-              </mat-checkbox>
+              <p>{{ option.item.name }}</p>
+
+              <div class="price-and-select d-flex">
+                <p class="price">+{{ option.item.price }} تومان</p>
+                <mat-checkbox color="primary" [disabled]="option.item.available === false || option.required"
+                  [checked]="option.required || option.included" [value]="option.item._id"
+                  (change)="onCheckboxChange($event, 'optional')">
+                </mat-checkbox>
+              </div>
             </div>
           </div>
         </mat-expansion-panel>
