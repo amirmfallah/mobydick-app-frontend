@@ -7,23 +7,18 @@
     h-100
     w-100
   ">
-  <div class="top-space"></div>
-  <div class="content">
-    <p class="mb-2">
-      لطفا شماره موبایل خود را وارد کنید. برایتان کد فعالسازی ارسال می شود.
-    </p>
-    <form class="example-form" [formGroup]="form" (ngSubmit)="formSubmit.next()">
-      <mat-form-field class="w-100" appearance="fill">
-        <mat-label></mat-label>
-        <input matInput formControlName="phone" />
-        <mat-icon matSuffix fontSet="material-icons-round">smartphone</mat-icon>
-      </mat-form-field>
-      <button mat-flat-button color="primary" class="w-100" type="submit" [class.btn_loading]="form.disabled"
-        [disabled]="form.disabled">ورود</button>
-      <mat-progress-bar [class.invisible]="!form.disabled" [class.visible]="form.disabled" mode="query">
-      </mat-progress-bar>
-    </form>
-  </div>
-
-  <div class="bottom-space"></div>
+  <p class="mb-2">
+    لطفا شماره موبایل خود را وارد کنید. برایتان کد فعالسازی ارسال می شود.
+  </p>
+  <form class="example-form" [formGroup]="form" (ngSubmit)="formSubmit.next()">
+    <mat-form-field class="w-100" appearance="fill">
+      <mat-label></mat-label>
+      <input matInput formControlName="phone" />
+      <mat-icon matSuffix fontSet="material-icons-round">smartphone</mat-icon>
+    </mat-form-field>
+    <button mat-flat-button color="primary" class="w-100" type="submit" [class.btn_loading]="form.disabled"
+      [disabled]="form.disabled">ورود</button>
+    <mat-progress-bar [class.invisible]="!form.disabled" [class.visible]="form.disabled" mode="query">
+    </mat-progress-bar>
+  </form>
 </div>

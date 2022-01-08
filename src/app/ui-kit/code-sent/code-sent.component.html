@@ -20,13 +20,15 @@
         <input matInput formControlName="code" />
         <mat-icon matSuffix fontSet="material-icons-round">lock</mat-icon>
       </mat-form-field>
-      <button mat-flat-button color="primary" class="w-100">ورود</button>
-      <button mat-flat-button color="accent" class="w-100 mt-2" type="submit" [class.btn_loading]="form.disabled"
-        [disabled]="form.disabled">
-        ارسال مجدد
-      </button>
+      <button mat-flat-button color="primary" class="w-100" [class.btn_loading]="form.disabled"
+        [disabled]="form.disabled">ورود</button>
       <mat-progress-bar [class.invisible]="!form.disabled" [class.visible]="form.disabled" mode="query">
       </mat-progress-bar>
+
+      <button mat-flat-button color="accent" class="w-100 mt-2" type="submit" (click)="back()">
+        ارسال مجدد
+      </button>
+
     </form>
   </div>
 

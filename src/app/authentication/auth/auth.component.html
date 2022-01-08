@@ -8,8 +8,13 @@
     w-100
   ">
   <img src="/assets/Logotype.png" alt="" class="align-self-center logo-image" />
-  <app-code-sent *ngIf="codeSend | async" [form]="codeForm" (formSubmit)="onCodeSubmit()"></app-code-sent>
-  <app-enter-phone-number *ngIf="!(codeSend | async)" [form]="phoneForm" (formSubmit)="onPhoneSubmit()">
-  </app-enter-phone-number>
+  <div>
+    <h1 class="mx-2"> خوش آمدید 😄</h1>
+    <app-code-sent *ngIf="codeSend | async" [form]="codeForm" (formSubmit)="onCodeSubmit()" [codeSent]="codeSend">
+    </app-code-sent>
+    <app-enter-phone-number *ngIf="!(codeSend | async)" [form]="phoneForm" (formSubmit)="onPhoneSubmit()">
+    </app-enter-phone-number>
+  </div>
+
   <div class="bottom-space"></div>
 </div>
