@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class TransactionsComponent implements OnInit {
   transactions = [
     {
-      name: 'زنجبیل',
+      name: 'موبی‌دیک گلسار',
       date: 14,
       month: 12,
       year: 1400,
@@ -18,7 +18,7 @@ export class TransactionsComponent implements OnInit {
       price: 27000,
     },
     {
-      name: 'جهانگیر',
+      name: 'موبی‌دیک گلسار',
       date: 21,
       month: 12,
       year: 1400,
@@ -28,7 +28,7 @@ export class TransactionsComponent implements OnInit {
       price: 22000,
     },
     {
-      name: 'زنجبیل',
+      name: 'موبی‌دیک گلسار',
       date: 14,
       month: 12,
       year: 1400,
@@ -38,7 +38,7 @@ export class TransactionsComponent implements OnInit {
       price: 27000,
     },
     {
-      name: 'زنجبیل',
+      name: 'موبی‌دیک گلسار',
       date: 14,
       month: 12,
       year: 1400,

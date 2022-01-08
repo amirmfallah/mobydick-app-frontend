@@ -8,7 +8,6 @@
   overflow-x: scroll;
   padding-top: 12px;
   padding-bottom: 12px;
-  overflow: hidden;
   position: sticky;
   background-color: #f0f2f9;
   top: 0;
@@ -24,6 +23,9 @@
 }
 
 mat-button-toggle-group {
+  :first-child {
+    margin-right: 12px;
+  }
   box-shadow: none;
 }
 
