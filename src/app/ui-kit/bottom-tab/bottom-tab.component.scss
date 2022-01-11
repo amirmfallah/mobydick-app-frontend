@@ -18,6 +18,9 @@ p {
 
 .nav-btn {
   width: 56px;
+  :focus {
+    outline: none !important;
+  }
 }
 
 @import "../../ui-kit/styles/themes/md-light/colors.scss";
@@ -29,4 +32,12 @@ $primary: map-get(
 
 .active > * {
   color: $primary !important;
+}
+
+div:focus {
+  outline: none !important;
+}
+
+*:focus {
+  outline: none !important;
 }
