@@ -159,9 +159,9 @@ export class ProductComponent implements OnInit {
   }
 
   getOptionIndex() {
-    return this.product.value.price.findIndex((x) => {
-      return x._id == this.form.controls['option'].value;
-    });
+    return this.product.value.price.filter(
+      (x) => x._id == this.form.controls['option'].value
+    )[0].index;
   }
 
   updateFormValue() {
