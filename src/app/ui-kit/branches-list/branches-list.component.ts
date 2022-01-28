@@ -18,12 +18,13 @@ export class BranchesListComponent implements OnInit {
     private route: ActivatedRoute
   ) {}
 
-  openLink(event: MouseEvent): void {
+  openLink(event: MouseEvent, branch): void {
+    this.branchesService.selectedBranch.next(branch);
     this._bottomSheetRef.dismiss();
     event.preventDefault();
   }
   ngOnInit(): void {
-    this.branchesService.getBranches().subscribe((res: branchSearch[]) => {
+    this.branchesService.branches.subscribe((res: branchSearch[]) => {
       this.branches.next(res);
     });
   }

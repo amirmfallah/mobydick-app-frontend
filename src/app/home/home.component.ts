@@ -1,3 +1,5 @@
+import { switchMap } from 'rxjs/operators';
+import { BranchesService } from './../ui-kit/branches-list/services/branches.service';
 import { Component, OnInit } from '@angular/core';
 import { GetBranchByIdService } from './services/get-branch-by-id.service';
 import { ActivatedRoute } from '@angular/router';
@@ -8,7 +10,8 @@ import Glide, {
   Controls,
   Breakpoints,
 } from '@glidejs/glide/dist/glide.modular.esm';
-
+import { branchSearch } from '../ui-kit/branches-list/interfaces/branch.interfaces';
+import * as _ from 'lodash';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -20,21 +23,25 @@ export class HomeComponent implements OnInit {
   branch: branchbyid;
   constructor(
     private branchService: GetBranchByIdService,
+    private branchesService: BranchesService,
     private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
-    const id = '61b359d03de833e1093b3786';
-    this.branchService.getBranch(id).subscribe((res: branchbyid) => {
-      this.branch = res;
-      this.carouselimages = res.sliderPictures.map((url) => {
-        return {
-          path: url,
-        };
-      });
-      console.log(this.carouselimages);
-      this.favouriteProducts = res.favoriteProducts;
-      console.log(this.favouriteProducts);
+    this.branchesService.selectedBranch.subscribe((branch: branchSearch) => {
+      this.branchService
+        .getBranch(_.get(branch, '_id'))
+        .subscribe((res: branchbyid) => {
+          this.branch = res;
+          this.carouselimages = res.sliderPictures.map((url) => {
+            return {
+              path: url,
+            };
+          });
+          console.log(this.carouselimages);
+          this.favouriteProducts = res.favoriteProducts;
+          console.log(this.favouriteProducts);
+        });
     });
   }
 }

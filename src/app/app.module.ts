@@ -1,3 +1,4 @@
+import { BranchesService } from './ui-kit/branches-list/services/branches.service';
 import { ProfileModule } from './profile/profile.module';
 import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -67,4 +68,8 @@ import { CartComponent } from './cart/cart.component';
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule {
+  constructor(private branchesService: BranchesService) {
+    this.branchesService.selectNearestBranch();
+  }
+}

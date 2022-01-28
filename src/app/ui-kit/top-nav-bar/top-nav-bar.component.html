@@ -1,6 +1,6 @@
 <div class="d-flex flex-row justify-content-center w-100 align-items-center nav-container ">
   <div (click)="openBottomSheet()" class="d-flex flex-row align-items-center">
-    <span class="branch-name">گلسار</span>
+    <span class="branch-name">{{branchName$ | async}}</span>
     <mat-icon fontSet="material-icons-round">arrow_drop_down</mat-icon>
   </div>
 </div>

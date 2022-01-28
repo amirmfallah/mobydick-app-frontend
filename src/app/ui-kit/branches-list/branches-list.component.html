@@ -3,7 +3,7 @@
     <mat-spinner *ngIf="(branches | async) === undefined" [diameter]="30"></mat-spinner>
   </div>
   <!--(click)="openLink($event)-->
-  <a mat-list-item (click)="openLink($event)" *ngFor="let branch of (branches | async)">
+  <a mat-list-item (click)="openLink($event, branch)" *ngFor="let branch of (branches | async)">
     <span mat-line>{{branch.name}}</span>
   </a>
 </mat-nav-list>
