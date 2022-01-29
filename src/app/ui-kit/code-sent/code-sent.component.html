@@ -16,7 +16,7 @@
     <form class="example-form" [formGroup]="form" (ngSubmit)="formSubmit.next()">
       <mat-form-field class="w-100" appearance="fill">
         <mat-label></mat-label>
-        <input matInput formControlName="code" />
+        <input matInput formControlName="code" class="code-input" />
         <mat-icon matSuffix fontSet="material-icons-round">lock</mat-icon>
       </mat-form-field>
       <button mat-flat-button color="primary" class="w-100" [class.btn_loading]="form.disabled"

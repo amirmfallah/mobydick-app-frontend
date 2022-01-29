@@ -25,7 +25,9 @@ export class HomeComponent implements OnInit {
     private branchService: GetBranchByIdService,
     private branchesService: BranchesService,
     private route: ActivatedRoute
-  ) {}
+  ) {
+    this.branchesService.selectNearestBranch();
+  }
 
   ngOnInit(): void {
     this.branchesService.selectedBranch.subscribe((branch: branchSearch) => {

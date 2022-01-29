@@ -69,7 +69,5 @@ import { CartComponent } from './cart/cart.component';
   bootstrap: [AppComponent],
 })
 export class AppModule {
-  constructor(private branchesService: BranchesService) {
-    this.branchesService.selectNearestBranch();
-  }
+  constructor() {}
 }
