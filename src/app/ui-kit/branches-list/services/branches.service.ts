@@ -1,3 +1,4 @@
+import { searchResponse } from './../../../../core/interfaces/shared.interface';
 import { branchSearch } from 'src/app/ui-kit/branches-list/interfaces/branch.interfaces';
 import { Configuration } from './../../../../core/configuration';
 import { HttpClient } from '@angular/common/http';
@@ -40,7 +41,8 @@ export class BranchesService {
   }
 
   async selectNearestBranch() {
-    this.getBranches().subscribe(async (branches: branchSearch[]) => {
+    this.getBranches().subscribe(async (res: searchResponse<branchSearch>) => {
+      const branches = res.items;
       this.branches.next(branches);
       let coords;
       try {
