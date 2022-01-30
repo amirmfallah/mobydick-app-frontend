@@ -1,3 +1,4 @@
+import { searchResponse } from './../../core/interfaces/shared.interface';
 import {
   Category,
   CategoryUnpopulated,
@@ -37,8 +38,8 @@ export class CategorypageComponent implements OnInit {
 
       this.categoryService
         .getCategories()
-        .subscribe((res: Array<CategoryUnpopulated>) => {
-          this.categories = res;
+        .subscribe((res: searchResponse<CategoryUnpopulated>) => {
+          this.categories = res.items;
         });
     });
   }

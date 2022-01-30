@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { categoryItem } from 'src/app/searchpage/shared/search.interface';
+import { searchResponse } from 'src/core/interfaces/shared.interface';
 import { CategoriesService } from './../services/categories.service';
 @Component({
   selector: 'app-slider',
@@ -17,8 +18,10 @@ export class SliderComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.categoryService.getCategories().subscribe((res: categoryItem[]) => {
-      this.Categories = res;
-    });
+    this.categoryService
+      .getCategories()
+      .subscribe((res: searchResponse<categoryItem>) => {
+        this.Categories = res.items;
+      });
   }
 }

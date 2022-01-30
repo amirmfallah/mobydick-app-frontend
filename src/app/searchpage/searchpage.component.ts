@@ -1,5 +1,6 @@
+import { CategoriesService } from './../ui-kit/categories/services/categories.service';
+import { searchResponse } from './../../core/interfaces/shared.interface';
 import { Component, OnInit } from '@angular/core';
-import { SearchpageService } from './services/searchpage.service';
 import { categoryItem } from './shared/search.interface';
 
 @Component({
@@ -9,11 +10,13 @@ import { categoryItem } from './shared/search.interface';
 })
 export class SearchpageComponent implements OnInit {
   searchitems: categoryItem[];
-  constructor(private searchpageService: SearchpageService) {}
+  constructor(private categoriesService: CategoriesService) {}
 
   ngOnInit(): void {
-    this.searchpageService.getCategories().subscribe((res: categoryItem[]) => {
-      this.searchitems = res;
-    });
+    this.categoriesService
+      .getCategories()
+      .subscribe((res: searchResponse<categoryItem>) => {
+        this.searchitems = res.items;
+      });
   }
 }
