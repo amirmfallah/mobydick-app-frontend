@@ -22,11 +22,8 @@ export interface CartItemPopulated {
 export interface CartDto {
   _id: string;
   ownerId: string;
-  status: number;
+  status: CartStatus;
   items: CartItemPopulated[];
-  total: number;
-  totalDiscount: number;
-  giftId?: Gift;
 }
 
 export interface Gift {
@@ -35,4 +32,12 @@ export interface Gift {
   code: string;
   amount?: number;
   percent?: number;
+}
+
+export enum CartStatus {
+  OPEN = 'OPEN',
+  REGISTERED = 'REGISTERED',
+  PREPARING = 'PREPARING',
+  SENT = 'SENT',
+  DELIVERED = 'DELIVERED',
 }

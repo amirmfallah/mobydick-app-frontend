@@ -1,5 +1,5 @@
 import { first, tap } from 'rxjs/operators';
-import { CartDto } from './../../core/interfaces/cart.interface';
+import { CartDto, CartStatus } from './../../core/interfaces/cart.interface';
 import { switchMap } from 'rxjs/operators';
 import { Address } from './../../core/interfaces/addresses.interface';
 import { BehaviorSubject, Subject, of, from } from 'rxjs';
@@ -30,12 +30,10 @@ export class OrderpageComponent implements OnInit {
   form: FormGroup;
   $addresses = new BehaviorSubject<Array<Address>>([]);
   $cart = new BehaviorSubject<CartDto>({
-    total: 0,
-    totalDiscount: 0,
     _id: '',
     items: [],
     ownerId: '',
-    status: 0,
+    status: CartStatus.OPEN,
   });
 
   $fetchAddress = new Subject<any>();

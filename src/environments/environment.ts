@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  MobydickApiUrl: 'https://beta-api.mobydickfoods.com',
+  MobydickApiUrl: 'http://127.0.0.1:4000',
   NeshanWebMapApiToken: 'web.SJFu4qzp7zEIHMCpo2sRt1gTehcofEOxDle0t1C9',
   NeshanServiceApiToken: 'service.buJIfUG7ZgLXEnOrwUYdQogI8jLSDTMeeeq7zakX',
   NeshanUri: 'https://api.neshan.org/v4',
