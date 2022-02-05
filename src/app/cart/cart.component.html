@@ -24,6 +24,7 @@
   <app-empty-page *ngIf="(cartItems | async) && (cartItems | async).length <= 0" class="h-100"></app-empty-page>
   <div class="flex-1 flex-grow-1" *ngIf="(cartItems | async) && (cartItems | async).length > 0"></div>
   <div class="checkout-button-container w-100" *ngIf="(cartItems | async) && (cartItems | async).length > 0">
-    <button mat-flat-button color="primary" class="w-100 my-2" routerLink="/checkout">ادامه خرید</button>
+    <button mat-flat-button color="primary" class="w-100 my-2" [routerLink]="['/', 'checkout', cartId]">ادامه
+      خرید</button>
   </div>
 </div>

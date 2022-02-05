@@ -3,7 +3,7 @@
     <h2>آدرس تحویل</h2>
     <button mat-stroked-button color="primary" (click)="openAddress()">افزودن آدرس جدید</button>
   </div>
-  <div id="map" class="map-container mt-2"></div>
+  <div id="map" class="map-container mt-2" [class.d-none]="($addresses | async).length == 0"></div>
 
   <mat-accordion class="mt-3" multi>
     <mat-expansion-panel>
@@ -16,19 +16,22 @@
           <mat-radio-button [value]="address._id" color="primary">
           </mat-radio-button>
         </div>
+        <div *ngIf="($addresses | async).length == 0"
+          class="d-flex flex-row justify-content-between align-items-center mt-3">
+          <p>شما هنوز آدرسی ثبت نکرده‌اید.</p>
+          <button mat-mini-fab color="primary" class="flat-mini" (click)="openAddress()">
+            <mat-icon>add</mat-icon>
+          </button>
+        </div>
       </mat-radio-group>
     </mat-expansion-panel>
   </mat-accordion>
 
-  <div class="item">
-    <!-- <app-favourite-item [image]="item.image" [title]="item.title" [description]="item.description" [price]="item.price">
-    </app-favourite-item> -->
-  </div>
   <div class="d-flex flex-1 flex-grow-1"></div>
-  <div class="price-section mb-3">
+  <div class="price-section mb-3" *ngIf="$selectedAddress | async">
     <div class="price-content d-flex justify-content-between">
       <p>جمع خرید</p>
-      <p> تومان</p>
+      <p>{{(this.$order | async).total}} تومان</p>
     </div>
     <div class="price-content d-flex justify-content-between">
       <p>هزینه ارسال</p>
@@ -36,11 +39,11 @@
     </div>
     <div class="price-content d-flex justify-content-between">
       <p>تخفیف</p>
-      <p> تومان</p>
+      <p>{{(this.$order | async).totalDiscount}} تومان</p>
     </div>
     <div class="pay-able d-flex justify-content-between">
       <p class="font-weight-bold">قابل پرداخت</p>
-      <p class="font-weight-bold">تومان</p>
+      <p class="font-weight-bold">{{(this.$order | async).total - (this.$order | async).totalDiscount}} تومان</p>
     </div>
   </div>
   <mat-divider></mat-divider>

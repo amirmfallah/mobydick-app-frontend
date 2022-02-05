@@ -25,6 +25,8 @@ export class CartComponent implements OnInit {
       this.customerCartService.loadCart(cart).subscribe(
         (res: CartDto) => {
           this.cartItems.next(res.items);
+          console.log(res);
+          this.cartId = res._id;
         },
         (err) => {
           console.log('here');
@@ -32,7 +34,9 @@ export class CartComponent implements OnInit {
             this.customerCartService
               .createCart(cart)
               .subscribe((res: CartDto) => {
+                console.log(res);
                 this.cartItems.next(res.items);
+                this.cartId = res._id;
               });
           }
         }
@@ -41,6 +45,6 @@ export class CartComponent implements OnInit {
   }
   cartItems = new BehaviorSubject<CartItemPopulated[]>(undefined);
   fetch = new BehaviorSubject<any>(undefined);
-
+  cartId: string;
   ngOnInit(): void {}
 }

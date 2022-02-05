@@ -40,7 +40,7 @@ export class BottomTabDiscountComponent implements OnInit {
     this.giftService.applyGift(this.form.value).subscribe(
       (res) => {
         this.form.enable();
-        this._bottomSheetRef.dismiss();
+        this._bottomSheetRef.dismiss(res);
         event.preventDefault();
       },
       (err) => {

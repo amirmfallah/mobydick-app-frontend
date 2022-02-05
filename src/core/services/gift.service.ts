@@ -20,19 +20,11 @@ export class GiftService {
     let params = new HttpParams();
     params = params.append('code', req.code);
 
-    return this.http
-      .get(`${Configuration.MobydickApiUrl}/api/v1/gifts/verify`, {
+    return this.http.get(
+      `${Configuration.MobydickApiUrl}/api/v1/gifts/verify`,
+      {
         params: params,
-      })
-      .pipe(
-        switchMap((gift: Gift) => {
-          return this.customerCartService.patchCart(
-            {
-              giftId: gift._id,
-            },
-            req.cartId
-          );
-        })
-      );
+      }
+    );
   }
 }

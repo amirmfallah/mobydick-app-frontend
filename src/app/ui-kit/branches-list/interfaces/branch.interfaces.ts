@@ -7,6 +7,7 @@ export interface branchSearch {
 }
 
 export interface Address {
+  _id: string;
   address: string;
   lat: number;
   lng: number;

@@ -50,3 +50,8 @@ mat-expansion-panel {
 ::ng-deep .mat-expansion-panel-body {
   padding-left: 8px !important;
 }
+
+.flat-mini {
+  border-radius: 8px;
+  box-shadow: none !important;
+}

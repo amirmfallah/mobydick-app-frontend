@@ -27,7 +27,7 @@ const routes: Routes = [
     canActivate: [SignedInGuard],
   },
   {
-    path: 'checkout',
+    path: 'checkout/:id',
     component: OrderpageComponent,
     canActivate: [SignedInGuard],
   },
