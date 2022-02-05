@@ -17,15 +17,12 @@ import { BehaviorSubject } from 'rxjs';
 export class BottomTabDiscountComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
-    @Inject(MAT_BOTTOM_SHEET_DATA) public data: { cartId: string },
     private giftService: GiftService,
     private _bottomSheetRef: MatBottomSheetRef<NewAddressComponent>
   ) {
     this.form = this.fb.group({
       code: ['', Validators.required],
-      cartId: ['', Validators.required],
     });
-    this.form.controls['cartId'].setValue(this.data.cartId);
   }
   form: FormGroup;
   $error = new BehaviorSubject<string>('');

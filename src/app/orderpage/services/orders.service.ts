@@ -31,4 +31,10 @@ export class OrdersService {
       order
     );
   }
+
+  checkout(orderId: string) {
+    return this.http.get(
+      `${Configuration.MobydickApiUrl}/api/v1/orders/checkout/${orderId}`
+    );
+  }
 }

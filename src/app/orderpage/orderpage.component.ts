@@ -1,6 +1,6 @@
 import { BranchesService } from './../ui-kit/branches-list/services/branches.service';
 import { HttpErrorResponse } from '@angular/common/http';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { OrdersService } from './services/orders.service';
 import { OrderDto, OrderExistingDto } from './interfaces/orders.interface';
 import { first, map, skip, tap } from 'rxjs/operators';
@@ -61,6 +61,7 @@ export class OrderpageComponent implements OnInit {
     private fb: FormBuilder,
     private ordersService: OrdersService,
     private route: ActivatedRoute,
+    private router: Router,
     private branchesService: BranchesService
   ) {
     this.form = this.fb.group({
@@ -142,11 +143,23 @@ export class OrderpageComponent implements OnInit {
             },
             (error) => {
               if (error instanceof HttpErrorResponse && error.status == 404) {
-                this.createOrder({
-                  addressId: this.$selectedAddress.value,
-                  branchId: this.branchesService.selectedBranch.value._id,
-                  cartId: this.cartId,
-                });
+                this.ordersService
+                  .createOrder({
+                    addressId: this.$selectedAddress.value,
+                    branchId: _.get(
+                      this.branchesService.selectedBranch.value,
+                      '_id'
+                    ),
+                    cartId: this.cartId,
+                  })
+                  .subscribe(
+                    (order: OrderExistingDto) => {
+                      this.$order.next(order);
+                    },
+                    (error) => {
+                      this.router.navigate(['/', 'history']);
+                    }
+                  );
               }
             }
           );
@@ -166,9 +179,6 @@ export class OrderpageComponent implements OnInit {
       scrollWheelZoom: false,
     });
     this.marker = L.marker([35.699739, 51.338097]).addTo(this.myMap);
-    this.customerCartService.getOpenCart().subscribe((cart: CartDto) => {
-      this.$cart.next(cart);
-    });
   }
 
   onRadioChange(e) {
@@ -187,5 +197,14 @@ export class OrderpageComponent implements OnInit {
         this.$order.value._id
       )
       .subscribe();
+  }
+
+  checkout() {
+    this.ordersService
+      .checkout(this.$order.value._id)
+      .subscribe((res: { url: string }) => {
+        console.log(res);
+        window.open(res.url);
+      });
   }
 }

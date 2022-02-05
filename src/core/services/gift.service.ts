@@ -16,7 +16,7 @@ export class GiftService {
     private customerCartService: CustomerCartService
   ) {}
 
-  applyGift(req: { code: string; cartId: string }): Observable<any> {
+  applyGift(req: { code: string }): Observable<any> {
     let params = new HttpParams();
     params = params.append('code', req.code);
 
