@@ -37,4 +37,8 @@ export class OrdersService {
       `${Configuration.MobydickApiUrl}/api/v1/orders/checkout/${orderId}`
     );
   }
+
+  getAll() {
+    return this.http.get(`${Configuration.MobydickApiUrl}/api/v1/orders/user`);
+  }
 }

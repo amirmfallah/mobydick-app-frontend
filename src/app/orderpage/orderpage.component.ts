@@ -143,6 +143,7 @@ export class OrderpageComponent implements OnInit {
             },
             (error) => {
               if (error instanceof HttpErrorResponse && error.status == 404) {
+                console.log('here');
                 this.ordersService
                   .createOrder({
                     addressId: this.$selectedAddress.value,

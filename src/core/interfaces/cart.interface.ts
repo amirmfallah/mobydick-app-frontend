@@ -35,6 +35,7 @@ export interface Gift {
 }
 
 export enum CartStatus {
+  CANCELED = 'CANCELED',
   OPEN = 'OPEN',
   REGISTERED = 'REGISTERED',
   PREPARING = 'PREPARING',

@@ -1,23 +1,16 @@
 <div clas="h-100 w-100 overflow-auto">
   <mat-tab-group class="w-100" mat-stretch-tabs>
     <mat-tab label="سفارش‌های فعال">
-      <app-history-item></app-history-item>
-      <app-history-item></app-history-item>
-      <app-history-item></app-history-item>
-      <app-history-item></app-history-item>
-      <app-history-item></app-history-item>
-      <app-history-item></app-history-item>
-      <app-history-item></app-history-item>
+
+      <div *ngFor="let order of ($orders | async)">
+        <app-history-item *ngIf="!isDoneOrder(order)" [order]="order"></app-history-item>
+      </div>
 
     </mat-tab>
     <mat-tab label="سفارش‌های قبلی">
-      <app-history-item></app-history-item>
-      <app-history-item></app-history-item>
-      <app-history-item></app-history-item>
-      <app-history-item></app-history-item>
-      <app-history-item></app-history-item>
-      <app-history-item></app-history-item>
-      <app-history-item></app-history-item>
+      <div *ngFor="let order of ($orders | async)">
+        <app-history-item *ngIf="isDoneOrder(order)" [order]="order"></app-history-item>
+      </div>
     </mat-tab>
   </mat-tab-group>
 </div>
