@@ -1,3 +1,5 @@
+import { searchResponse } from './../../../core/interfaces/shared.interface';
+import { switchMap } from 'rxjs/operators';
 import { BehaviorSubject } from 'rxjs';
 import { MatBottomSheetRef } from '@angular/material/bottom-sheet';
 import { Component, OnInit } from '@angular/core';
@@ -24,8 +26,10 @@ export class BranchesListComponent implements OnInit {
     event.preventDefault();
   }
   ngOnInit(): void {
-    this.branchesService.branches.subscribe((res: branchSearch[]) => {
-      this.branches.next(res);
-    });
+    this.branchesService
+      .getBranches()
+      .subscribe((res: searchResponse<branchSearch>) => {
+        this.branches.next(res.items);
+      });
   }
 }

@@ -3,7 +3,15 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
 import { OrdersService } from './services/orders.service';
 import { OrderDto, OrderExistingDto } from './interfaces/orders.interface';
-import { first, map, skip, tap } from 'rxjs/operators';
+import {
+  first,
+  map,
+  skip,
+  skipUntil,
+  tap,
+  filter,
+  catchError,
+} from 'rxjs/operators';
 import { CartDto, CartStatus } from './../../core/interfaces/cart.interface';
 import { switchMap } from 'rxjs/operators';
 import { Address } from './../../core/interfaces/addresses.interface';
@@ -22,6 +30,7 @@ import { AddressesService } from 'src/core/services/addresses.service';
 import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
 import { MatAccordion } from '@angular/material/expansion';
 import * as _ from 'lodash';
+import { BranchesListComponent } from '../ui-kit/branches-list/branches-list.component';
 declare var L: any;
 
 @Component({
@@ -33,6 +42,8 @@ export class OrderpageComponent implements OnInit {
   @ViewChild('map') map: ElementRef;
   @ViewChild(MatAccordion) accordion: MatAccordion;
 
+  $loading = new BehaviorSubject<boolean>(false);
+
   form: FormGroup;
   $addresses = new BehaviorSubject<Array<Address>>([]);
   $cart = new BehaviorSubject<CartDto>({
@@ -43,7 +54,7 @@ export class OrderpageComponent implements OnInit {
   });
 
   $fetchAddress = new Subject<any>();
-  $selectedAddress: BehaviorSubject<string>;
+  $selectedAddress = new BehaviorSubject<string>('');
   myMap: any;
   marker: any;
   addrClosed: boolean;
@@ -64,34 +75,33 @@ export class OrderpageComponent implements OnInit {
     private router: Router,
     private branchesService: BranchesService
   ) {
+    this.$loading.next(true);
     this.form = this.fb.group({
       cart: [],
       address: [],
     });
     this.cartId = this.route.snapshot.paramMap.get('id');
 
-    this.$fetchAddress
-      .pipe(switchMap(() => this.addressesService.getAllAddresses()))
-      .subscribe((res: Address[]) => {
-        this.$addresses.next(res);
-        from(res)
-          .pipe(first())
-          .subscribe((x: Address) => {
-            this.$selectedAddress = new BehaviorSubject<string>(x._id);
-            this.myMap.panTo(new L.LatLng(x.lat, x.lng));
-            this.marker.setLatLng(new L.LatLng(x.lat, x.lng));
-          });
-      });
-
     this.$refreshOrder
-      .pipe(skip(1))
+      .pipe(
+        skip(1),
+        tap(() => {
+          this.$loading.next(true);
+        })
+      )
       .pipe(switchMap(() => this.ordersService.loadOrder(this.cartId)))
-      .subscribe((res: OrderExistingDto) => {
-        if (res.addressId) {
-          this.$selectedAddress.next(_.get(res, 'addressId._id'));
+      .subscribe(
+        (res: OrderExistingDto) => {
+          if (res.addressId) {
+            this.$selectedAddress.next(_.get(res, 'addressId._id'));
+          }
+          this.$order.next(res);
+          this.$loading.next(false);
+        },
+        (err) => {
+          this.$loading.next(false);
         }
-        this.$order.next(res);
-      });
+      );
   }
 
   createOrder(order: OrderDto) {
@@ -110,13 +120,20 @@ export class OrderpageComponent implements OnInit {
       data: { cartId: this.$cart.value._id },
     });
     ref.afterDismissed().subscribe((res) => {
+      this.$loading.next(true);
       const order = this.$order.value;
       order.giftId = res._id;
       this.ordersService
         .updateOrder({ giftId: res._id }, this.$order.value._id)
-        .subscribe(() => {
-          this.$refreshOrder.next('');
-        });
+        .subscribe(
+          () => {
+            this.$refreshOrder.next('');
+            this.$loading.next(false);
+          },
+          (err) => {
+            this.$loading.next(true);
+          }
+        );
     });
   }
   openAddress(): void {
@@ -131,43 +148,47 @@ export class OrderpageComponent implements OnInit {
     });
   }
   ngOnInit(): void {
-    this.$fetchAddress
+    of('')
       .pipe(
-        map(() => {
-          this.ordersService.loadOrder(this.cartId).subscribe(
-            (res: OrderExistingDto) => {
-              this.$order.next(res);
-              if (this.$order.value.addressId) {
-                this.$selectedAddress.next(this.$order.value.addressId._id);
-              }
-            },
-            (error) => {
-              if (error instanceof HttpErrorResponse && error.status == 404) {
-                console.log('here');
-                this.ordersService
-                  .createOrder({
-                    addressId: this.$selectedAddress.value,
-                    branchId: _.get(
-                      this.branchesService.selectedBranch.value,
-                      '_id'
-                    ),
-                    cartId: this.cartId,
-                  })
-                  .subscribe(
-                    (order: OrderExistingDto) => {
-                      this.$order.next(order);
-                    },
-                    (error) => {
-                      this.router.navigate(['/', 'history']);
-                    }
-                  );
-              }
-            }
-          );
+        switchMap(() => this.addressesService.getAllAddresses()),
+        switchMap((addresses: Address[]) => {
+          this.$addresses.next(addresses);
+          return from(addresses);
+        }),
+        first(),
+        switchMap((address: Address) => {
+          this.$selectedAddress = new BehaviorSubject<string>(address._id);
+          this.myMap.panTo(new L.LatLng(address.lat, address.lng));
+          this.marker.setLatLng(new L.LatLng(address.lat, address.lng));
+          return of(address);
+        }),
+        switchMap(() => this.ordersService.loadOrder(this.cartId)),
+        catchError((err) => {
+          if (err instanceof HttpErrorResponse && err.status == 404) {
+            return this.ordersService.createOrder({
+              addressId: this.$selectedAddress.getValue(),
+              branchId: _.get(this.branchesService.selectedBranch.value, '_id'),
+              cartId: this.cartId,
+            });
+          }
+          throw err;
+        }),
+        catchError((err) => {
+          this.router.navigate(['/', 'history']);
+          throw err;
         })
       )
-      .subscribe();
-    this.$fetchAddress.next('');
+      .subscribe(
+        (order: OrderExistingDto) => {
+          this.$order.next(order);
+          this.$selectedAddress.next(order.addressId._id);
+          this.$loading.next(false);
+        },
+        (err) => {
+          this.$loading.next(false);
+        }
+      );
+
     this.myMap = new L.Map('map', {
       key: Configuration.NeshanWebMapApiToken,
       maptype: 'neshan',
@@ -190,6 +211,7 @@ export class OrderpageComponent implements OnInit {
     this.myMap.panTo(new L.LatLng(addr.lat, addr.lng));
     this.marker.setLatLng(new L.LatLng(addr.lat, addr.lng));
     this.accordion.closeAll();
+    this.$loading.next(true);
     this.ordersService
       .updateOrder(
         {
@@ -197,15 +219,26 @@ export class OrderpageComponent implements OnInit {
         },
         this.$order.value._id
       )
-      .subscribe();
+      .subscribe(() => {
+        this.$loading.next(false);
+      });
   }
 
   checkout() {
-    this.ordersService
-      .checkout(this.$order.value._id)
-      .subscribe((res: { url: string }) => {
+    if (this.branchesService.selectedBranch.value === undefined) {
+      this._bottomSheet.open(BranchesListComponent);
+      return;
+    }
+    this.$loading.next(true);
+    this.ordersService.checkout(this.$order.value._id).subscribe(
+      (res: { url: string }) => {
+        this.$loading.next(false);
         console.log(res);
         window.open(res.url);
-      });
+      },
+      (err) => {
+        this.$loading.next(false);
+      }
+    );
   }
 }

@@ -56,7 +56,8 @@
 
     <button class=" enter-discount-code" (click)="openDiscount()">وارد کردن</button>
   </div>
-  <button mat-flat-button color="primary" class="w-100 mb-4 mt-4" (click)="checkout()">
+  <button mat-flat-button color="primary" class="w-100 mb-4 mt-4" (click)="checkout()"
+    [disabled]="this.$loading | async">
     تکمیل فرایند خرید
   </button>
 
