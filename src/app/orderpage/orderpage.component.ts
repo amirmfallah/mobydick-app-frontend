@@ -141,7 +141,7 @@ export class OrderpageComponent implements OnInit {
     ref.afterDismissed().subscribe((address: Address) => {
       this.addressesService.getAllAddresses().subscribe((addresses) => {
         this.$addresses.next(addresses);
-        this.$selectedAddress = new BehaviorSubject<any>(address._id);
+        this.$selectedAddress.next(address._id);
         this.myMap.panTo(new L.LatLng(address.lat, address.lng));
         this.marker.setLatLng(new L.LatLng(address.lat, address.lng));
       });
@@ -157,7 +157,8 @@ export class OrderpageComponent implements OnInit {
         }),
         first(),
         switchMap((address: Address) => {
-          this.$selectedAddress = new BehaviorSubject<string>(address._id);
+          console.log(address);
+          this.$selectedAddress.next(address._id);
           this.myMap.panTo(new L.LatLng(address.lat, address.lng));
           this.marker.setLatLng(new L.LatLng(address.lat, address.lng));
           return of(address);
@@ -234,7 +235,7 @@ export class OrderpageComponent implements OnInit {
       (res: { url: string }) => {
         this.$loading.next(false);
         console.log(res);
-        window.open(res.url);
+        window.location.href = res.url;
       },
       (err) => {
         this.$loading.next(false);

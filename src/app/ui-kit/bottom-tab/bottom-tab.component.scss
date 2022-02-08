@@ -7,7 +7,7 @@
     inset 0px 1px 0px rgba(0, 0, 0, 0.1);
   padding: 8px 12px;
   background-color: #ffffff;
-  padding-bottom: calc(1.5rem + env(safe-area-inset-bottom)) !important;
+  padding-bottom: calc(1rem + env(safe-area-inset-bottom)) !important;
 }
 p {
   color: #868686;

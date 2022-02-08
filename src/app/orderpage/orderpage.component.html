@@ -28,7 +28,7 @@
   </mat-accordion>
 
   <div class="d-flex flex-1 flex-grow-1"></div>
-  <div class="price-section mb-3" *ngIf="$selectedAddress | async">
+  <div class="price-section mb-3" [class.invisable]="!($selectedAddress | async)">
     <div class="price-content d-flex justify-content-between">
       <p>جمع خرید</p>
       <p>{{(this.$order | async).total}} تومان</p>
